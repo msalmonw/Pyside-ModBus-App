@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PLCApp</class>
+ <widget class="QMainWindow" name="PLCApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="accessibleName">
+   <string>mainwindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>32</width>
+    <height>48</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget{
+background:rgb(255, 255, 255);
+border-radius:0px;
+}
+QWidget{
+background:rgba(237, 244, 250, 255);
+border-radius: 10px;
+font-family: Poppins;
+font-size: 16px;
+font-weight: 600;
+}
+QPushButton{
+border: 0px;
+background: rgb(0, 70, 100);
+color: rgba(255, 255, 255, 255);
+font-weight: 600;
+}
+QPushButton:pressed{
+border: 3px solid white;
+}
+QPushButton#cctvButton, #spreaderButton, #chassisButton, #boomControlButton, #assistFunctionsButton{
+border: 0px;
+background: rgba(0, 36, 71, 255);
+color: rgba(255, 255, 255, 255);
+font-weight: 600;
+}
+QPushButton#reloadButton{
+background: rgb(255, 255, 255);
+}
+QPushButton#reloadButton:pressed{
+border: 3px solid grey;
+}
+QLabel#hoistLoad, #windSpeed, #trimAngle, #listAngle, #skewAngle{
+background: rgb(255, 204, 188);
+color: rgb(255, 61, 0);
+font-size: 22px;
+}
+QLabel#pageLabel{
+font-size: 22px;
+}
+QDial{
+background: rgb(0, 70, 100);
+color: rbg(0, 0, 0);
+}
+QSlider::groove:horizontal {
+height: 20px;
+}
+QSlider::handle:horizontal {
+background: rgb(0, 70, 100);
+border-radius: 3px;
+}</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QLabel" name="pageLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>CCTV</string>
+      </property>
+      <property name="margin">
+       <number>10</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="3">
+     <widget class="QWidget" name="sideInfoWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="hoistLoad">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0.6</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="hoistLoadLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Hoist Load</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="windSpeed">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0.6</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="windSpeedLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Wind Speed</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="trimAngle">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0.6</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="trimAngleLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Trim Angle</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="listAngle">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0.6</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="listAngleLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>List Angle</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="skewAngle">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0.6</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="skewAngleLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Skew Angle</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QWidget" name="topInfoWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>140</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>140</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="spreaderTWLUnlocked">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Spreader Twl 
+Unlocked</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/redlight.png</normaloff>UI/resources/redlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="spreaderTWLLocked">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Spreader Twl 
+Locked</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="spreaderLanded">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Spreader
+Landed</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="housingDown">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Spreader twin
+Housing Down</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/yellowlight.png</normaloff>UI/resources/yellowlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>100</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QToolButton" name="slackRobe">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Slack Robe
+HB</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/yellowlight.png</normaloff>UI/resources/yellowlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="hoistOverload">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Hoist
+Overload</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/yellowlight.png</normaloff>UI/resources/yellowlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="trolleyBlocking">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Trolley
+Blocking</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/yellowlight.png</normaloff>UI/resources/yellowlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="cpsActive">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>CPS Active
+</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="3">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>25</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="reloadButton">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>UI/resources/reloading.png</normaloff>UI/resources/reloading.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cctvButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>CCTV</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="spreaderButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Spreader</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="chassisButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Chassis</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="boomControlButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Boom Control</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="assistFunctionsButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Assist Functions</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <widget class="QWidget" name="cctvPage">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="3">
+         <widget class="QPushButton" name="craneEntranceButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Crane
+Entrance</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="gantryRightWideButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Right
+Wide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QPushButton" name="boomMotionWideButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Motion
+Wide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="6">
+         <widget class="QPushButton" name="landingPlatformButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Landing
+Platform</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QPushButton" name="boomMotionButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom
+Motion</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="gantryRightButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Right</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="highSpreaderButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>High
+Spreader</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="gantryLeftButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Left</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="6">
+         <widget class="QPushButton" name="landingPlatformWideButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Landing
+Platform Wide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="hatchCoverSingleButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Hatch Cover
+Single</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="5">
+         <widget class="QPushButton" name="hatchCoverSingleWideButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Hatch Cover
+Single Wide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="spreaderOverviewButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Spreader
+Overview</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="gantryLeftWideButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Left
+Wide</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="normalContainerButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Normal
+Container</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="spreaderPage">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="seeNotesButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>See Notes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="option5Button">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="option6Button">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="option7Button">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 7</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="chassisPage">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="seeNotesButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>See Notes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="option5Button_2">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetFixedSize</enum>
+          </property>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QDial" name="dialOne">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="minimum">
+             <number>-1</number>
+            </property>
+            <property name="maximum">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>0</number>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+            <property name="invertedControls">
+             <bool>false</bool>
+            </property>
+            <property name="notchTarget">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="notchesVisible">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_3">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>T                   R</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="margin">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="option6Button_2">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="option7Button_2">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 7</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QSlider" name="horizontalSlider">
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>-3</number>
+          </property>
+          <property name="maximum">
+           <number>3</number>
+          </property>
+          <property name="pageStep">
+           <number>10</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="boomControlPage">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="seeNotesButton_3">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>See Notes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="option5Button_3">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="option6Button_3">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="option7Button_3">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 7</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="assistFunctionsPage">
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="seeNotesButton_4">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>See Notes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="option5Button_4">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="option6Button_4">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="option7Button_4">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Option 7</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
