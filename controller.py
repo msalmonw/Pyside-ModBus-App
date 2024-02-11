@@ -1,10 +1,11 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGraphicsDropShadowEffect
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGraphicsDropShadowEffect, QPushButton
 from PySide6.QtGui import QIcon, QColor
 from PySide6 import QtCore
 import os
 import sys
-from PLCModBus import Ui_PLCApp
+import json
+from UI.PLCModBus import Ui_PLCApp
 
 
 class PLCApp(Ui_PLCApp, QMainWindow):
@@ -115,8 +116,55 @@ class PLCApp(Ui_PLCApp, QMainWindow):
         shadow.setColor(QColor(0, 0, 0, 64))
         self.chassisButton.setGraphicsEffect(shadow)
 
+        buttons = self.cctvPage.children()
+        for button in buttons:
+            if isinstance(button, QPushButton):
+                shadow = QGraphicsDropShadowEffect(self)
+                shadow.setBlurRadius(4)
+                shadow.setOffset(0, 4)
+                shadow.setColor(QColor(0, 0, 0, 64))
+                button.setGraphicsEffect(shadow)
+        
+        buttons = self.spreaderPage.children()
+        for button in buttons:
+            if isinstance(button, QPushButton):
+                shadow = QGraphicsDropShadowEffect(self)
+                shadow.setBlurRadius(4)
+                shadow.setOffset(0, 4)
+                shadow.setColor(QColor(0, 0, 0, 64))
+                button.setGraphicsEffect(shadow)
+
+        buttons = self.chassisPage.children()
+        for button in buttons:
+            if isinstance(button, QPushButton):
+                shadow = QGraphicsDropShadowEffect(self)
+                shadow.setBlurRadius(4)
+                shadow.setOffset(0, 4)
+                shadow.setColor(QColor(0, 0, 0, 64))
+                button.setGraphicsEffect(shadow)
+
+        buttons = self.boomControlPage.children()
+        for button in buttons:
+            if isinstance(button, QPushButton):
+                shadow = QGraphicsDropShadowEffect(self)
+                shadow.setBlurRadius(4)
+                shadow.setOffset(0, 4)
+                shadow.setColor(QColor(0, 0, 0, 64))
+                button.setGraphicsEffect(shadow)
+
+        buttons = self.assistFunctionsPage.children()
+        for button in buttons:
+            if isinstance(button, QPushButton):
+                shadow = QGraphicsDropShadowEffect(self)
+                shadow.setBlurRadius(4)
+                shadow.setOffset(0, 4)
+                shadow.setColor(QColor(0, 0, 0, 64))
+                button.setGraphicsEffect(shadow)
+
+
     def startApp(self):
         self.setShadowEffect()
+        self.reloadConfig()
         self.showFullScreen()
 
     def goToCCTVPage(self):
@@ -140,7 +188,22 @@ class PLCApp(Ui_PLCApp, QMainWindow):
         self.stackedWidget.setCurrentIndex(4)
 
     def reloadConfig(self):
-        print('reloading')
+        with open('buttons_config.json') as fp:
+            styling = json.load(fp)
+
+        spreaderPageConfig = styling['SpreaderPage']
+        chassisPageConfig = styling['ChassisPage']
+        boomControlPageConfig = styling['BoomControlPage']
+        assistFunctionsPageConfig = styling['AssistFunctionsPage']
+
+        self.spreaderPage.setStyleSheet(spreaderPageConfig['seeNotesButtonCSS'] + spreaderPageConfig['option5ButtonCSS']
+                                         + spreaderPageConfig['option6ButtonCSS'] + spreaderPageConfig['option7ButtonCSS'])
+        self.chassisPage.setStyleSheet(chassisPageConfig['seeNotesButtonCSS'] + chassisPageConfig['option5ButtonCSS']
+                                         + chassisPageConfig['option6ButtonCSS'] + chassisPageConfig['option7ButtonCSS'])
+        self.boomControlPage.setStyleSheet(boomControlPageConfig['seeNotesButtonCSS'] + boomControlPageConfig['option5ButtonCSS']
+                                         + boomControlPageConfig['option6ButtonCSS'] + boomControlPageConfig['option7ButtonCSS'])
+        self.assistFunctionsPage.setStyleSheet(assistFunctionsPageConfig['seeNotesButtonCSS'] + assistFunctionsPageConfig['option5ButtonCSS']
+                                         + assistFunctionsPageConfig['option6ButtonCSS'] + assistFunctionsPageConfig['option7ButtonCSS'])
     
 
 class Controller:
@@ -154,7 +217,11 @@ class Controller:
         os.chdir(self.current_dir)
 
         self.plcApp = PLCApp()
+        self.plcApp.dialOne.valueChanged.connect(self.toggleLoading)
         self.plcApp.startApp()
+
+    def toggleLoading(self, value):
+        print(value)
 
 
 if __name__ == '__main__':

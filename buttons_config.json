@@ -1,0 +1,27 @@
+{
+    "SpreaderPage":{
+        "seeNotesButtonCSS": "#seeNotesButton{background: grey;}\n#seeNotesButton:pressed{background: black;}\n#seeNotesButton:checked{background:green;}\n",
+        "option5ButtonCSS": "#option5Button{background: grey;}\n#option5Button:pressed{background: black;}\n#option5Button:checked{background:green;}\n",
+        "option6ButtonCSS": "#option6Button{background: grey;}\n#option6Button:pressed{background: black;}\n#option6Button:checked{background:green;}\n",
+        "option7ButtonCSS": "#option7Button{background: grey;}\n#option7Button:pressed{background: black;}\n#option7Button:checked{background:green;}\n"
+    },
+    "ChassisPage":{
+        "seeNotesButtonCSS": "#seeNotesButton_2{background: grey;}\n#seeNotesButton_2:pressed{background: black;}\n#seeNotesButton_2:checked{background:green;}\n",
+        "option5ButtonCSS": "#option5Button_2{background: grey;}\n#option5Button_2:pressed{background: black;}\n#option5Button_2:checked{background:green;}\n",
+        "option6ButtonCSS": "#option6Button_2{background: grey;}\n#option6Button_2:pressed{background: black;}\n#option6Button_2:checked{background:green;}\n",
+        "option7ButtonCSS": "#option7Button_2{background: grey;}\n#option7Button_2:pressed{background: black;}\n#option7Button_2:checked{background:green;}\n"
+    },
+    "BoomControlPage":
+    {
+        "seeNotesButtonCSS": "#seeNotesButton_3{background: grey;}\n#seeNotesButton_3:pressed{background: black;}\n#seeNotesButton_3:checked{background:green;}\n",
+        "option5ButtonCSS": "#option5Button_3{background: grey;}\n#option5Button_3:pressed{background: black;}\n#option5Button_3:checked{background:green;}\n",
+        "option6ButtonCSS": "#option6Button_3{background: grey;}\n#option6Button_3:pressed{background: black;}\n#option6Button_3:checked{background:green;}\n",
+        "option7ButtonCSS": "#option7Button_3{background: grey;}\n#option7Button_3:pressed{background: black;}\n#option7Button_3:checked{background:green;}\n"
+    },
+    "AssistFunctionsPage":{
+        "seeNotesButtonCSS": "#seeNotesButton_4{background: grey;}\n#seeNotesButton_4:pressed{background: black;}\n#seeNotesButton_4:checked{background:green;}\n",
+        "option5ButtonCSS": "#option5Button_4{background: grey;}\n#option5Button_4:pressed{background: black;}\n#option5Button_4:checked{background:green;}\n",
+        "option6ButtonCSS": "#option6Button_4{background: grey;}\n#option6Button_4:pressed{background: black;}\n#option6Button_4:checked{background:green;}\n",
+        "option7ButtonCSS": "#option7Button_4{background: grey;}\n#option7Button_4:pressed{background: black;}\n#option7Button_4:checked{background:green;}\n"
+    }
+}

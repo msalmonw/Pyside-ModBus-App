@@ -33,7 +33,9 @@ class Ui_PLCApp(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"QWidget#centralwidget{\n"
 "background:rgb(255, 255, 255);\n"
-"border-radius:0px;\n"
+"border-radius: 10px;\n"
+"border: 6px solid;\n"
+"border-color: rgb(255, 0, 0);\n"
 "}\n"
 "QWidget{\n"
 "background:rgba(237, 244, 250, 255);\n"
@@ -49,7 +51,7 @@ class Ui_PLCApp(object):
 "font-weight: 600;\n"
 "}\n"
 "QPushButton:pressed{\n"
-"border: 3px solid white;\n"
+"border: 3px solid transparent;\n"
 "}\n"
 "QPushButton#cctvButton, #spreaderButton, #chassisButton, #boomControlButton, #assistFunctionsButton{\n"
 "border: 0px;\n"
@@ -67,13 +69,13 @@ class Ui_PLCApp(object):
 "background: rgb(255, 204, 188);\n"
 "color: rgb(255, 61, 0);\n"
 "font-size: 22px;\n"
-"}\n"
+""
+                        "}\n"
 "QLabel#pageLabel{\n"
 "font-size: 22px;\n"
 "}\n"
 "QDial{\n"
-""
-                        "background: rgb(0, 70, 100);\n"
+"background: rgb(0, 70, 100);\n"
 "color: rbg(0, 0, 0);\n"
 "}\n"
 "QSlider::groove:horizontal {\n"
@@ -85,13 +87,77 @@ class Ui_PLCApp(object):
 "}")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.pageLabel = QLabel(self.centralwidget)
-        self.pageLabel.setObjectName(u"pageLabel")
-        self.pageLabel.setMinimumSize(QSize(0, 40))
-        self.pageLabel.setMaximumSize(QSize(16777215, 40))
-        self.pageLabel.setMargin(10)
+        self.gridLayout.setContentsMargins(15, 15, 20, 15)
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(25)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
+        self.reloadButton = QPushButton(self.centralwidget)
+        self.reloadButton.setObjectName(u"reloadButton")
+        self.reloadButton.setMinimumSize(QSize(50, 50))
+        self.reloadButton.setMaximumSize(QSize(50, 50))
+        icon = QIcon()
+        icon.addFile(u"UI/resources/reloading.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.reloadButton.setIcon(icon)
+        self.reloadButton.setIconSize(QSize(40, 40))
 
-        self.gridLayout.addWidget(self.pageLabel, 1, 1, 1, 1)
+        self.horizontalLayout.addWidget(self.reloadButton)
+
+        self.cctvButton = QPushButton(self.centralwidget)
+        self.cctvButton.setObjectName(u"cctvButton")
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.cctvButton.sizePolicy().hasHeightForWidth())
+        self.cctvButton.setSizePolicy(sizePolicy)
+        self.cctvButton.setMinimumSize(QSize(180, 50))
+        self.cctvButton.setMaximumSize(QSize(180, 50))
+        self.cctvButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.cctvButton)
+
+        self.spreaderButton = QPushButton(self.centralwidget)
+        self.spreaderButton.setObjectName(u"spreaderButton")
+        sizePolicy.setHeightForWidth(self.spreaderButton.sizePolicy().hasHeightForWidth())
+        self.spreaderButton.setSizePolicy(sizePolicy)
+        self.spreaderButton.setMinimumSize(QSize(180, 50))
+        self.spreaderButton.setMaximumSize(QSize(180, 50))
+        self.spreaderButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.spreaderButton)
+
+        self.chassisButton = QPushButton(self.centralwidget)
+        self.chassisButton.setObjectName(u"chassisButton")
+        sizePolicy.setHeightForWidth(self.chassisButton.sizePolicy().hasHeightForWidth())
+        self.chassisButton.setSizePolicy(sizePolicy)
+        self.chassisButton.setMinimumSize(QSize(180, 50))
+        self.chassisButton.setMaximumSize(QSize(180, 50))
+        self.chassisButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.chassisButton)
+
+        self.boomControlButton = QPushButton(self.centralwidget)
+        self.boomControlButton.setObjectName(u"boomControlButton")
+        sizePolicy.setHeightForWidth(self.boomControlButton.sizePolicy().hasHeightForWidth())
+        self.boomControlButton.setSizePolicy(sizePolicy)
+        self.boomControlButton.setMinimumSize(QSize(180, 50))
+        self.boomControlButton.setMaximumSize(QSize(180, 50))
+        self.boomControlButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.boomControlButton)
+
+        self.assistFunctionsButton = QPushButton(self.centralwidget)
+        self.assistFunctionsButton.setObjectName(u"assistFunctionsButton")
+        sizePolicy.setHeightForWidth(self.assistFunctionsButton.sizePolicy().hasHeightForWidth())
+        self.assistFunctionsButton.setSizePolicy(sizePolicy)
+        self.assistFunctionsButton.setMinimumSize(QSize(180, 50))
+        self.assistFunctionsButton.setMaximumSize(QSize(180, 50))
+        self.assistFunctionsButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.assistFunctionsButton)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 3)
 
         self.sideInfoWidget = QWidget(self.centralwidget)
         self.sideInfoWidget.setObjectName(u"sideInfoWidget")
@@ -100,11 +166,11 @@ class Ui_PLCApp(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.hoistLoad = QLabel(self.sideInfoWidget)
         self.hoistLoad.setObjectName(u"hoistLoad")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.hoistLoad.sizePolicy().hasHeightForWidth())
-        self.hoistLoad.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.hoistLoad.sizePolicy().hasHeightForWidth())
+        self.hoistLoad.setSizePolicy(sizePolicy1)
         self.hoistLoad.setMinimumSize(QSize(80, 80))
         self.hoistLoad.setMaximumSize(QSize(16777215, 80))
         self.hoistLoad.setAlignment(Qt.AlignCenter)
@@ -122,8 +188,8 @@ class Ui_PLCApp(object):
 
         self.windSpeed = QLabel(self.sideInfoWidget)
         self.windSpeed.setObjectName(u"windSpeed")
-        sizePolicy.setHeightForWidth(self.windSpeed.sizePolicy().hasHeightForWidth())
-        self.windSpeed.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.windSpeed.sizePolicy().hasHeightForWidth())
+        self.windSpeed.setSizePolicy(sizePolicy1)
         self.windSpeed.setMinimumSize(QSize(80, 80))
         self.windSpeed.setMaximumSize(QSize(16777215, 80))
         self.windSpeed.setAlignment(Qt.AlignCenter)
@@ -141,8 +207,8 @@ class Ui_PLCApp(object):
 
         self.trimAngle = QLabel(self.sideInfoWidget)
         self.trimAngle.setObjectName(u"trimAngle")
-        sizePolicy.setHeightForWidth(self.trimAngle.sizePolicy().hasHeightForWidth())
-        self.trimAngle.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.trimAngle.sizePolicy().hasHeightForWidth())
+        self.trimAngle.setSizePolicy(sizePolicy1)
         self.trimAngle.setMinimumSize(QSize(80, 80))
         self.trimAngle.setMaximumSize(QSize(16777215, 80))
         self.trimAngle.setAlignment(Qt.AlignCenter)
@@ -160,8 +226,8 @@ class Ui_PLCApp(object):
 
         self.listAngle = QLabel(self.sideInfoWidget)
         self.listAngle.setObjectName(u"listAngle")
-        sizePolicy.setHeightForWidth(self.listAngle.sizePolicy().hasHeightForWidth())
-        self.listAngle.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.listAngle.sizePolicy().hasHeightForWidth())
+        self.listAngle.setSizePolicy(sizePolicy1)
         self.listAngle.setMinimumSize(QSize(80, 80))
         self.listAngle.setMaximumSize(QSize(16777215, 80))
         self.listAngle.setAlignment(Qt.AlignCenter)
@@ -179,8 +245,8 @@ class Ui_PLCApp(object):
 
         self.skewAngle = QLabel(self.sideInfoWidget)
         self.skewAngle.setObjectName(u"skewAngle")
-        sizePolicy.setHeightForWidth(self.skewAngle.sizePolicy().hasHeightForWidth())
-        self.skewAngle.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.skewAngle.sizePolicy().hasHeightForWidth())
+        self.skewAngle.setSizePolicy(sizePolicy1)
         self.skewAngle.setMinimumSize(QSize(80, 80))
         self.skewAngle.setMaximumSize(QSize(16777215, 80))
         self.skewAngle.setAlignment(Qt.AlignCenter)
@@ -210,9 +276,9 @@ class Ui_PLCApp(object):
         self.spreaderTWLUnlocked = QToolButton(self.topInfoWidget)
         self.spreaderTWLUnlocked.setObjectName(u"spreaderTWLUnlocked")
         self.spreaderTWLUnlocked.setMinimumSize(QSize(120, 100))
-        icon = QIcon()
-        icon.addFile(u"UI/resources/redlight.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.spreaderTWLUnlocked.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"UI/resources/redlight.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.spreaderTWLUnlocked.setIcon(icon1)
         self.spreaderTWLUnlocked.setIconSize(QSize(80, 80))
         self.spreaderTWLUnlocked.setCheckable(True)
         self.spreaderTWLUnlocked.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -222,9 +288,9 @@ class Ui_PLCApp(object):
         self.spreaderTWLLocked = QToolButton(self.topInfoWidget)
         self.spreaderTWLLocked.setObjectName(u"spreaderTWLLocked")
         self.spreaderTWLLocked.setMinimumSize(QSize(120, 100))
-        icon1 = QIcon()
-        icon1.addFile(u"UI/resources/greenlight.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.spreaderTWLLocked.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"UI/resources/greenlight.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.spreaderTWLLocked.setIcon(icon2)
         self.spreaderTWLLocked.setIconSize(QSize(80, 80))
         self.spreaderTWLLocked.setCheckable(True)
         self.spreaderTWLLocked.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -234,7 +300,7 @@ class Ui_PLCApp(object):
         self.spreaderLanded = QToolButton(self.topInfoWidget)
         self.spreaderLanded.setObjectName(u"spreaderLanded")
         self.spreaderLanded.setMinimumSize(QSize(120, 100))
-        self.spreaderLanded.setIcon(icon1)
+        self.spreaderLanded.setIcon(icon2)
         self.spreaderLanded.setIconSize(QSize(80, 80))
         self.spreaderLanded.setCheckable(True)
         self.spreaderLanded.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -244,9 +310,9 @@ class Ui_PLCApp(object):
         self.housingDown = QToolButton(self.topInfoWidget)
         self.housingDown.setObjectName(u"housingDown")
         self.housingDown.setMinimumSize(QSize(120, 100))
-        icon2 = QIcon()
-        icon2.addFile(u"UI/resources/yellowlight.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.housingDown.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"UI/resources/yellowlight.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.housingDown.setIcon(icon3)
         self.housingDown.setIconSize(QSize(80, 80))
         self.housingDown.setCheckable(True)
         self.housingDown.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -260,7 +326,7 @@ class Ui_PLCApp(object):
         self.slackRobe = QToolButton(self.topInfoWidget)
         self.slackRobe.setObjectName(u"slackRobe")
         self.slackRobe.setMinimumSize(QSize(120, 100))
-        self.slackRobe.setIcon(icon2)
+        self.slackRobe.setIcon(icon3)
         self.slackRobe.setIconSize(QSize(80, 80))
         self.slackRobe.setCheckable(True)
         self.slackRobe.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -270,7 +336,7 @@ class Ui_PLCApp(object):
         self.hoistOverload = QToolButton(self.topInfoWidget)
         self.hoistOverload.setObjectName(u"hoistOverload")
         self.hoistOverload.setMinimumSize(QSize(120, 100))
-        self.hoistOverload.setIcon(icon2)
+        self.hoistOverload.setIcon(icon3)
         self.hoistOverload.setIconSize(QSize(80, 80))
         self.hoistOverload.setCheckable(True)
         self.hoistOverload.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -280,7 +346,7 @@ class Ui_PLCApp(object):
         self.trolleyBlocking = QToolButton(self.topInfoWidget)
         self.trolleyBlocking.setObjectName(u"trolleyBlocking")
         self.trolleyBlocking.setMinimumSize(QSize(120, 100))
-        self.trolleyBlocking.setIcon(icon2)
+        self.trolleyBlocking.setIcon(icon3)
         self.trolleyBlocking.setIconSize(QSize(80, 80))
         self.trolleyBlocking.setCheckable(True)
         self.trolleyBlocking.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -290,7 +356,7 @@ class Ui_PLCApp(object):
         self.cpsActive = QToolButton(self.topInfoWidget)
         self.cpsActive.setObjectName(u"cpsActive")
         self.cpsActive.setMinimumSize(QSize(120, 100))
-        self.cpsActive.setIcon(icon1)
+        self.cpsActive.setIcon(icon2)
         self.cpsActive.setIconSize(QSize(80, 80))
         self.cpsActive.setCheckable(True)
         self.cpsActive.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
@@ -300,76 +366,13 @@ class Ui_PLCApp(object):
 
         self.gridLayout.addWidget(self.topInfoWidget, 0, 1, 1, 1)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setSpacing(25)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
-        self.reloadButton = QPushButton(self.centralwidget)
-        self.reloadButton.setObjectName(u"reloadButton")
-        self.reloadButton.setMinimumSize(QSize(50, 50))
-        self.reloadButton.setMaximumSize(QSize(50, 50))
-        icon3 = QIcon()
-        icon3.addFile(u"UI/resources/reloading.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.reloadButton.setIcon(icon3)
-        self.reloadButton.setIconSize(QSize(40, 40))
+        self.pageLabel = QLabel(self.centralwidget)
+        self.pageLabel.setObjectName(u"pageLabel")
+        self.pageLabel.setMinimumSize(QSize(0, 50))
+        self.pageLabel.setMaximumSize(QSize(16777215, 50))
+        self.pageLabel.setMargin(10)
 
-        self.horizontalLayout.addWidget(self.reloadButton)
-
-        self.cctvButton = QPushButton(self.centralwidget)
-        self.cctvButton.setObjectName(u"cctvButton")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.cctvButton.sizePolicy().hasHeightForWidth())
-        self.cctvButton.setSizePolicy(sizePolicy1)
-        self.cctvButton.setMinimumSize(QSize(180, 50))
-        self.cctvButton.setMaximumSize(QSize(180, 50))
-        self.cctvButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.cctvButton)
-
-        self.spreaderButton = QPushButton(self.centralwidget)
-        self.spreaderButton.setObjectName(u"spreaderButton")
-        sizePolicy1.setHeightForWidth(self.spreaderButton.sizePolicy().hasHeightForWidth())
-        self.spreaderButton.setSizePolicy(sizePolicy1)
-        self.spreaderButton.setMinimumSize(QSize(180, 50))
-        self.spreaderButton.setMaximumSize(QSize(180, 50))
-        self.spreaderButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.spreaderButton)
-
-        self.chassisButton = QPushButton(self.centralwidget)
-        self.chassisButton.setObjectName(u"chassisButton")
-        sizePolicy1.setHeightForWidth(self.chassisButton.sizePolicy().hasHeightForWidth())
-        self.chassisButton.setSizePolicy(sizePolicy1)
-        self.chassisButton.setMinimumSize(QSize(180, 50))
-        self.chassisButton.setMaximumSize(QSize(180, 50))
-        self.chassisButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.chassisButton)
-
-        self.boomControlButton = QPushButton(self.centralwidget)
-        self.boomControlButton.setObjectName(u"boomControlButton")
-        sizePolicy1.setHeightForWidth(self.boomControlButton.sizePolicy().hasHeightForWidth())
-        self.boomControlButton.setSizePolicy(sizePolicy1)
-        self.boomControlButton.setMinimumSize(QSize(180, 50))
-        self.boomControlButton.setMaximumSize(QSize(180, 50))
-        self.boomControlButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.boomControlButton)
-
-        self.assistFunctionsButton = QPushButton(self.centralwidget)
-        self.assistFunctionsButton.setObjectName(u"assistFunctionsButton")
-        sizePolicy1.setHeightForWidth(self.assistFunctionsButton.sizePolicy().hasHeightForWidth())
-        self.assistFunctionsButton.setSizePolicy(sizePolicy1)
-        self.assistFunctionsButton.setMinimumSize(QSize(180, 50))
-        self.assistFunctionsButton.setMaximumSize(QSize(180, 50))
-        self.assistFunctionsButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.assistFunctionsButton)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 3)
+        self.gridLayout.addWidget(self.pageLabel, 1, 1, 1, 1)
 
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -489,6 +492,7 @@ class Ui_PLCApp(object):
         self.seeNotesButton.setObjectName(u"seeNotesButton")
         self.seeNotesButton.setMinimumSize(QSize(150, 150))
         self.seeNotesButton.setMaximumSize(QSize(150, 150))
+        self.seeNotesButton.setCheckable(True)
 
         self.gridLayout_3.addWidget(self.seeNotesButton, 0, 0, 1, 1)
 
@@ -496,6 +500,7 @@ class Ui_PLCApp(object):
         self.option5Button.setObjectName(u"option5Button")
         self.option5Button.setMinimumSize(QSize(150, 150))
         self.option5Button.setMaximumSize(QSize(150, 150))
+        self.option5Button.setCheckable(True)
 
         self.gridLayout_3.addWidget(self.option5Button, 0, 1, 1, 1)
 
@@ -503,6 +508,7 @@ class Ui_PLCApp(object):
         self.option6Button.setObjectName(u"option6Button")
         self.option6Button.setMinimumSize(QSize(150, 150))
         self.option6Button.setMaximumSize(QSize(150, 150))
+        self.option6Button.setCheckable(True)
 
         self.gridLayout_3.addWidget(self.option6Button, 1, 0, 1, 1)
 
@@ -510,6 +516,7 @@ class Ui_PLCApp(object):
         self.option7Button.setObjectName(u"option7Button")
         self.option7Button.setMinimumSize(QSize(150, 150))
         self.option7Button.setMaximumSize(QSize(150, 150))
+        self.option7Button.setCheckable(True)
 
         self.gridLayout_3.addWidget(self.option7Button, 1, 1, 1, 1)
 
@@ -522,6 +529,7 @@ class Ui_PLCApp(object):
         self.seeNotesButton_2.setObjectName(u"seeNotesButton_2")
         self.seeNotesButton_2.setMinimumSize(QSize(150, 150))
         self.seeNotesButton_2.setMaximumSize(QSize(150, 150))
+        self.seeNotesButton_2.setCheckable(True)
 
         self.gridLayout_4.addWidget(self.seeNotesButton_2, 0, 0, 1, 1)
 
@@ -529,6 +537,8 @@ class Ui_PLCApp(object):
         self.option5Button_2.setObjectName(u"option5Button_2")
         self.option5Button_2.setMinimumSize(QSize(150, 150))
         self.option5Button_2.setMaximumSize(QSize(150, 150))
+        self.option5Button_2.setStyleSheet(u"")
+        self.option5Button_2.setCheckable(True)
 
         self.gridLayout_4.addWidget(self.option5Button_2, 0, 1, 1, 1)
 
@@ -550,6 +560,7 @@ class Ui_PLCApp(object):
         self.dialOne.setMinimum(-1)
         self.dialOne.setMaximum(1)
         self.dialOne.setValue(0)
+        self.dialOne.setSliderPosition(0)
         self.dialOne.setInvertedAppearance(False)
         self.dialOne.setInvertedControls(False)
         self.dialOne.setNotchTarget(0.000000000000000)
@@ -573,6 +584,7 @@ class Ui_PLCApp(object):
         self.option6Button_2.setObjectName(u"option6Button_2")
         self.option6Button_2.setMinimumSize(QSize(150, 150))
         self.option6Button_2.setMaximumSize(QSize(150, 150))
+        self.option6Button_2.setCheckable(True)
 
         self.gridLayout_4.addWidget(self.option6Button_2, 1, 0, 1, 1)
 
@@ -580,6 +592,7 @@ class Ui_PLCApp(object):
         self.option7Button_2.setObjectName(u"option7Button_2")
         self.option7Button_2.setMinimumSize(QSize(150, 150))
         self.option7Button_2.setMaximumSize(QSize(150, 150))
+        self.option7Button_2.setCheckable(True)
 
         self.gridLayout_4.addWidget(self.option7Button_2, 1, 1, 1, 1)
 
@@ -605,6 +618,7 @@ class Ui_PLCApp(object):
         self.seeNotesButton_3.setObjectName(u"seeNotesButton_3")
         self.seeNotesButton_3.setMinimumSize(QSize(150, 150))
         self.seeNotesButton_3.setMaximumSize(QSize(150, 150))
+        self.seeNotesButton_3.setCheckable(True)
 
         self.gridLayout_5.addWidget(self.seeNotesButton_3, 0, 0, 1, 1)
 
@@ -612,6 +626,7 @@ class Ui_PLCApp(object):
         self.option5Button_3.setObjectName(u"option5Button_3")
         self.option5Button_3.setMinimumSize(QSize(150, 150))
         self.option5Button_3.setMaximumSize(QSize(150, 150))
+        self.option5Button_3.setCheckable(True)
 
         self.gridLayout_5.addWidget(self.option5Button_3, 0, 1, 1, 1)
 
@@ -619,6 +634,7 @@ class Ui_PLCApp(object):
         self.option6Button_3.setObjectName(u"option6Button_3")
         self.option6Button_3.setMinimumSize(QSize(150, 150))
         self.option6Button_3.setMaximumSize(QSize(150, 150))
+        self.option6Button_3.setCheckable(True)
 
         self.gridLayout_5.addWidget(self.option6Button_3, 1, 0, 1, 1)
 
@@ -626,6 +642,7 @@ class Ui_PLCApp(object):
         self.option7Button_3.setObjectName(u"option7Button_3")
         self.option7Button_3.setMinimumSize(QSize(150, 150))
         self.option7Button_3.setMaximumSize(QSize(150, 150))
+        self.option7Button_3.setCheckable(True)
 
         self.gridLayout_5.addWidget(self.option7Button_3, 1, 1, 1, 1)
 
@@ -638,6 +655,7 @@ class Ui_PLCApp(object):
         self.seeNotesButton_4.setObjectName(u"seeNotesButton_4")
         self.seeNotesButton_4.setMinimumSize(QSize(150, 150))
         self.seeNotesButton_4.setMaximumSize(QSize(150, 150))
+        self.seeNotesButton_4.setCheckable(True)
 
         self.gridLayout_6.addWidget(self.seeNotesButton_4, 0, 0, 1, 1)
 
@@ -645,6 +663,7 @@ class Ui_PLCApp(object):
         self.option5Button_4.setObjectName(u"option5Button_4")
         self.option5Button_4.setMinimumSize(QSize(150, 150))
         self.option5Button_4.setMaximumSize(QSize(150, 150))
+        self.option5Button_4.setCheckable(True)
 
         self.gridLayout_6.addWidget(self.option5Button_4, 0, 1, 1, 1)
 
@@ -652,6 +671,7 @@ class Ui_PLCApp(object):
         self.option6Button_4.setObjectName(u"option6Button_4")
         self.option6Button_4.setMinimumSize(QSize(150, 150))
         self.option6Button_4.setMaximumSize(QSize(150, 150))
+        self.option6Button_4.setCheckable(True)
 
         self.gridLayout_6.addWidget(self.option6Button_4, 1, 0, 1, 1)
 
@@ -659,6 +679,7 @@ class Ui_PLCApp(object):
         self.option7Button_4.setObjectName(u"option7Button_4")
         self.option7Button_4.setMinimumSize(QSize(150, 150))
         self.option7Button_4.setMaximumSize(QSize(150, 150))
+        self.option7Button_4.setCheckable(True)
 
         self.gridLayout_6.addWidget(self.option7Button_4, 1, 1, 1, 1)
 
@@ -678,7 +699,12 @@ class Ui_PLCApp(object):
 #if QT_CONFIG(accessibility)
         PLCApp.setAccessibleName(QCoreApplication.translate("PLCApp", u"mainwindow", None))
 #endif // QT_CONFIG(accessibility)
-        self.pageLabel.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
+        self.reloadButton.setText("")
+        self.cctvButton.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
+        self.spreaderButton.setText(QCoreApplication.translate("PLCApp", u"Spreader", None))
+        self.chassisButton.setText(QCoreApplication.translate("PLCApp", u"Chassis", None))
+        self.boomControlButton.setText(QCoreApplication.translate("PLCApp", u"Boom Control", None))
+        self.assistFunctionsButton.setText(QCoreApplication.translate("PLCApp", u"Assist Functions", None))
         self.hoistLoad.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
         self.hoistLoadLabel.setText(QCoreApplication.translate("PLCApp", u"Hoist Load", None))
         self.windSpeed.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
@@ -705,12 +731,7 @@ class Ui_PLCApp(object):
 "Blocking", None))
         self.cpsActive.setText(QCoreApplication.translate("PLCApp", u"CPS Active\n"
 "", None))
-        self.reloadButton.setText("")
-        self.cctvButton.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
-        self.spreaderButton.setText(QCoreApplication.translate("PLCApp", u"Spreader", None))
-        self.chassisButton.setText(QCoreApplication.translate("PLCApp", u"Chassis", None))
-        self.boomControlButton.setText(QCoreApplication.translate("PLCApp", u"Boom Control", None))
-        self.assistFunctionsButton.setText(QCoreApplication.translate("PLCApp", u"Assist Functions", None))
+        self.pageLabel.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
         self.craneEntranceButton.setText(QCoreApplication.translate("PLCApp", u"Crane\n"
 "Entrance", None))
         self.gantryRightWideButton.setText(QCoreApplication.translate("PLCApp", u"Gantry Right\n"
