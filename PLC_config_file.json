@@ -1,7 +1,8 @@
 {
-    "modBus":{
-        "ip":"x", 
-        "port":"502"
+    "ABBPLC":{
+        "ip": "192.168.10.1", 
+        "port": 502,
+        "ContinuousReadInterval": 100
     }
     
 }

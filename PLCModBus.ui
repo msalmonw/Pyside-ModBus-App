@@ -106,194 +106,6 @@ border-radius: 3px;
     <property name="bottomMargin">
      <number>15</number>
     </property>
-    <item row="5" column="0" colspan="3">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="spacing">
-       <number>25</number>
-      </property>
-      <property name="leftMargin">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>10</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <property name="bottomMargin">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="reloadButton">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>UI/resources/reloading.png</normaloff>UI/resources/reloading.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="cctvButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>CCTV</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="spreaderButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Spreader</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="chassisButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Chassis</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="boomControlButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Boom Control</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="assistFunctionsButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Assist Functions</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="0" column="2" rowspan="3">
      <widget class="QWidget" name="sideInfoWidget" native="true">
       <property name="minimumSize">
@@ -569,6 +381,28 @@ border-radius: 3px;
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="pageLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>CCTV</string>
+      </property>
+      <property name="margin">
+       <number>10</number>
+      </property>
      </widget>
     </item>
     <item row="0" column="1">
@@ -860,27 +694,193 @@ Blocking</string>
       </layout>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="pageLabel">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>50</height>
-       </size>
+    <item row="5" column="0" colspan="3">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>25</number>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>CCTV</string>
-      </property>
-      <property name="margin">
+      <property name="leftMargin">
        <number>10</number>
       </property>
-     </widget>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="reloadButton">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>UI/resources/reloading.png</normaloff>UI/resources/reloading.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cctvButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>CCTV</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="spreaderButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Spreader</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="chassisButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Chassis</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="boomControlButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Boom Control</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="assistFunctionsButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Assist Functions</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="2" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
@@ -1175,7 +1175,7 @@ Container</string>
       <widget class="QWidget" name="spreaderPage">
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QPushButton" name="seeNotesButton">
+         <widget class="QPushButton" name="spHookModeButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1189,7 +1189,8 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>See Notes</string>
+           <string>Spreader/Hook
+Mode</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -1197,7 +1198,7 @@ Container</string>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QPushButton" name="option5Button">
+         <widget class="QPushButton" name="overHeightModeButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1211,15 +1212,79 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>Option 5</string>
+           <string>Over Heigt Mode</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QToolButton" name="overHeightIndicator">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Over Height</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QToolButton" name="ttdsFaultIndicator">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TTDS Fault</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="option6Button">
+         <widget class="QPushButton" name="lampTestButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1233,32 +1298,76 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>Option 6</string>
+           <string>Lamp Test</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="option7Button">
+        <item row="1" column="2">
+         <widget class="QToolButton" name="hoistSnagLoadIndicator">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
+            <width>120</width>
+            <height>100</height>
            </size>
           </property>
           <property name="text">
-           <string>Option 7</string>
+           <string>Hoist Snag
+Load</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
           </property>
           <property name="checkable">
            <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QToolButton" name="highWindSpeedIndicator">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>High Wind
+Speed</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
           </property>
          </widget>
         </item>
@@ -1267,7 +1376,7 @@ Container</string>
       <widget class="QWidget" name="chassisPage">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QPushButton" name="seeNotesButton_2">
+         <widget class="QPushButton" name="cpsAlignmentButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1281,7 +1390,7 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>See Notes</string>
+           <string>CPS Alignment</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -1289,7 +1398,7 @@ Container</string>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QPushButton" name="option5Button_2">
+         <widget class="QPushButton" name="cpsReverseDirectionButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1306,7 +1415,8 @@ Container</string>
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>Option 5</string>
+           <string>CPS Reverse
+Direction</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -1341,7 +1451,7 @@ Container</string>
            </widget>
           </item>
           <item alignment="Qt::AlignHCenter">
-           <widget class="QDial" name="dialOne">
+           <widget class="QDial" name="cpsModeDial">
             <property name="minimumSize">
              <size>
               <width>150</width>
@@ -1407,61 +1517,39 @@ Container</string>
           </item>
          </layout>
         </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="option6Button_2">
-          <property name="minimumSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Option 6</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="option7Button_2">
-          <property name="minimumSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>150</width>
-            <height>150</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Option 7</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="2">
-         <widget class="QSlider" name="horizontalSlider">
+         <widget class="QLabel" name="label_5">
           <property name="minimumSize">
            <size>
-            <width>600</width>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>CPS Loading </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QSlider" name="windCompensationSlider">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
             <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>600</width>
+            <width>400</width>
             <height>50</height>
            </size>
           </property>
@@ -1472,7 +1560,7 @@ Container</string>
            <number>3</number>
           </property>
           <property name="pageStep">
-           <number>10</number>
+           <number>0</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -1483,6 +1571,90 @@ Container</string>
           <property name="tickPosition">
            <enum>QSlider::TicksAbove</enum>
           </property>
+          <property name="tickInterval">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QSlider" name="laneSelectionSlider">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>9</number>
+          </property>
+          <property name="pageStep">
+           <number>0</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+          <property name="tickInterval">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QLabel" name="label_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>CPS Wind Compensation</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="label_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>CPS Lane Selection</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
        </layout>
@@ -1490,7 +1662,7 @@ Container</string>
       <widget class="QWidget" name="boomControlPage">
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
-         <widget class="QPushButton" name="seeNotesButton_3">
+         <widget class="QPushButton" name="boomUpButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1504,7 +1676,8 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>See Notes</string>
+           <string>Boom Up
+60 Deg</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -1512,7 +1685,7 @@ Container</string>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QPushButton" name="option5Button_3">
+         <widget class="QPushButton" name="boomUpFullButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1526,15 +1699,16 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>Option 5</string>
+           <string>Boom Up
+Full</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="option6Button_3">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="gantryTieDownNotReleasedButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1548,7 +1722,86 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>Option 6</string>
+           <string>Gantry Tie Down
+Not Released</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="gantryMotorBrakesOpenButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Motor
+Brakes Open</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QToolButton" name="boomUpFullIndication">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Up
+Full</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="boomStopButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Stop</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -1556,7 +1809,7 @@ Container</string>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="option7Button_3">
+         <widget class="QPushButton" name="boomDownButton">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -1570,10 +1823,66 @@ Container</string>
            </size>
           </property>
           <property name="text">
-           <string>Option 7</string>
+           <string>Boom Down</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="gantryStormPinNotReleasedButton">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Gantry Storm Pin
+Not Released</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QToolButton" name="bhCycleCompleteIndicator">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>BH Cycle
+Complete</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
           </property>
          </widget>
         </item>

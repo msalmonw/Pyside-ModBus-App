@@ -1,11 +1,11 @@
-from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGraphicsDropShadowEffect, QPushButton
 from PySide6.QtGui import QIcon, QColor
 from PySide6 import QtCore
+from pyModbusTCP.client import ModbusClient
 import os
 import sys
 import json
-from UI.PLCModBus import Ui_PLCApp
+from PLCModBus import Ui_PLCApp
 
 
 class PLCApp(Ui_PLCApp, QMainWindow):
@@ -194,16 +194,16 @@ class PLCApp(Ui_PLCApp, QMainWindow):
         spreaderPageConfig = styling['SpreaderPage']
         chassisPageConfig = styling['ChassisPage']
         boomControlPageConfig = styling['BoomControlPage']
-        assistFunctionsPageConfig = styling['AssistFunctionsPage']
 
-        self.spreaderPage.setStyleSheet(spreaderPageConfig['seeNotesButtonCSS'] + spreaderPageConfig['option5ButtonCSS']
-                                         + spreaderPageConfig['option6ButtonCSS'] + spreaderPageConfig['option7ButtonCSS'])
-        self.chassisPage.setStyleSheet(chassisPageConfig['seeNotesButtonCSS'] + chassisPageConfig['option5ButtonCSS']
-                                         + chassisPageConfig['option6ButtonCSS'] + chassisPageConfig['option7ButtonCSS'])
-        self.boomControlPage.setStyleSheet(boomControlPageConfig['seeNotesButtonCSS'] + boomControlPageConfig['option5ButtonCSS']
-                                         + boomControlPageConfig['option6ButtonCSS'] + boomControlPageConfig['option7ButtonCSS'])
-        self.assistFunctionsPage.setStyleSheet(assistFunctionsPageConfig['seeNotesButtonCSS'] + assistFunctionsPageConfig['option5ButtonCSS']
-                                         + assistFunctionsPageConfig['option6ButtonCSS'] + assistFunctionsPageConfig['option7ButtonCSS'])
+        self.spreaderPage.setStyleSheet(spreaderPageConfig['spHookModeButton'] + spreaderPageConfig['overHeightModeButton']
+                                         + spreaderPageConfig['lampTestButton'])
+        
+        self.chassisPage.setStyleSheet(chassisPageConfig['cpsAlignmentButton'] + chassisPageConfig['cpsReverseDirectionButton'])
+
+        self.boomControlPage.setStyleSheet(boomControlPageConfig['boomUpButton'] + boomControlPageConfig['boomUpFullButton']
+                                        + boomControlPageConfig['boomStopButton'] + boomControlPageConfig['boomDownButton']
+                                        + boomControlPageConfig['gantryTieDownNotReleasedButton'] + boomControlPageConfig['gantryStormPinNotReleasedButton']
+                                        + boomControlPageConfig['gantryMotorBrakesOpenButton'])
     
 
 class Controller:
@@ -217,14 +217,62 @@ class Controller:
         os.chdir(self.current_dir)
 
         self.plcApp = PLCApp()
-        self.plcApp.dialOne.valueChanged.connect(self.toggleLoading)
+
+        self.plcApp.spHookModeButton.clicked.connect(self.setSpreaderHookMode)
         self.plcApp.startApp()
 
-    def toggleLoading(self, value):
-        print(value)
+    def openConnection(self):
+        with open ('PLC_config_file.json', 'r') as fp:
+            self.ip, self.port, self.interval = json.load(fp)['ABBPLC'].values()
+            
+        self.connection = ModbusClient(host=self.ip, port=self.port)
+        status = self.connection.open()
+        print('Connection Successful') if status else print('Could not connect')
 
+    def setSpreaderHookMode(self):
+        if self.plcApp.spHookModeButton.isChecked():
+            status = self.connection.write_single_coil(1, False)
+        else:
+            status = self.connection.write_single_coil(1, True)
+
+    def overHeightIndication(self):
+        status = self.connection.read_coils(2, 1)
+        if not status:
+            print(f'Failed to read bit {1} at address {2}')
+        else:
+            self.plcApp.overHeightIndicator.setEnabled(True) if status[0] else self.plcApp.overHeightIndicator.setEnabled(False)
+
+    def setOverHeightMode(self):
+        status = self.connection.write_single_coil(3, True)
+
+    def ttdsFault(self):
+        status = self.connection.read_coils(4, 1)
+        if not status:
+            print(f'Failed to read bit {1} at address {4}')
+        else:
+            self.plcApp.ttdsFaultIndicator.setEnabled(True) if status[0] else self.plcApp.ttdsFaultIndicator.setEnabled(False)
+
+    def hoistSnagLoad(self):
+        status = self.connection.read_coils(5, 1)
+        if not status:
+            print(f'Failed to read bit {1} at address {5}')
+        else:
+            self.plcApp.hoistSnagLoadIndicator.setEnabled(True) if status[0] else self.plcApp.hoistSnagLoadIndicator.setEnabled(False)
+
+    def lampTest(self):
+        status = self.connection.write_single_coil(6, True)
+
+    def highWindSpeed(self):
+        status = self.connection.read_coils(7, 1)
+        if not status:
+            print(f'Failed to read bit {1} at address {7}')
+        else:
+            self.plcApp.highWindSpeedIndicator.setEnabled(True) if status[0] else self.plcApp.highWindSpeedIndicator.setEnabled(False)
+               
+            
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     cont = Controller()
+    cont.openConnection()
     sys.exit(app.exec())
