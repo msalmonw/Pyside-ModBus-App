@@ -29,17 +29,7 @@
    <string>mainwindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
-  </property>
-  <property name="iconSize">
-   <size>
-    <width>32</width>
-    <height>48</height>
-   </size>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">QWidget#centralwidget{
+   <string notr="true">QWidget#centralwidget{
 background:rgb(255, 255, 255);
 border-radius: 10px;
 border: 6px solid;
@@ -92,6 +82,16 @@ QSlider::handle:horizontal {
 background: rgb(0, 70, 100);
 border-radius: 3px;
 }</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>32</width>
+    <height>48</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -554,22 +554,6 @@ Housing Down</string>
           <enum>Qt::ToolButtonTextUnderIcon</enum>
          </property>
         </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Preferred</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>100</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item>
         <widget class="QToolButton" name="slackRobe">
@@ -1554,13 +1538,19 @@ Direction</string>
            </size>
           </property>
           <property name="minimum">
-           <number>-3</number>
+           <number>1</number>
           </property>
           <property name="maximum">
-           <number>3</number>
+           <number>7</number>
+          </property>
+          <property name="singleStep">
+           <number>1</number>
           </property>
           <property name="pageStep">
            <number>0</number>
+          </property>
+          <property name="value">
+           <number>4</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

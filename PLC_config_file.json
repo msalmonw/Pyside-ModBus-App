@@ -1,8 +1,8 @@
 {
     "ABBPLC":{
-        "ip": "192.168.10.1", 
+        "ip": "localhost", 
         "port": 502,
-        "ContinuousReadInterval": 100
+        "ReadIntervalMS": 100
     }
     
 }

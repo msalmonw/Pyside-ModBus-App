@@ -1,8 +1,8 @@
 {
     "SpreaderPage":{
-        "spHookModeButton": "#spHookModeButton{background: grey;}\n#seeNotesButton:pressed{border: 2px solid transparent;}\n#seeNotesButton:checked{background:green;}\n",
-        "overHeightModeButton": "#overHeightModeButton{background: grey;}\n#option5Button:pressed{border: 2px solid transparent;}\n#option5Button:checked{background:green;}\n",
-        "lampTestButton": "#lampTestButton{background: grey;}\n#option6Button:pressed{border: 2px solid transparent;}\n#option6Button:checked{background:green;}\n"
+        "spHookModeButton": "#spHookModeButton{background: grey;}\n#spHookModeButton:pressed{border: 2px solid transparent;}\n",
+        "overHeightModeButton": "#overHeightModeButton{background: grey;}\n#overHeightModeButton:pressed{border: 2px solid transparent;}\n",
+        "lampTestButton": "#lampTestButton{background: grey;}\n#lampTestButton:pressed{border: 2px solid transparent;}\n"
     },
     "ChassisPage":{
         "cpsAlignmentButton": "#cpsAlignmentButton{background: grey;}\n#cpsAlignmentButton:pressed{border: 2px solid transparent;}\n#cpsAlignmentButton:checked{background:green;}\n",
@@ -10,13 +10,13 @@
     },
     "BoomControlPage":
     {
-        "boomUpButton": "#boomUpButton{background: grey;}\n#boomUpButton:pressed{}\n#boomUpButton:checked{background:green;}\n",
-        "boomUpFullButton": "#boomUpFullButton{background: grey;}\n#boomUpFullButton:pressed{}\n",
-        "boomStopButton": "#boomStopButton{background: grey;}\n#boomStopButton:pressed{}\n",
-        "boomDownButton": "#boomDownButton{background: grey;}\n#boomDownButton:pressed{}\n#boomDownButton:checked{background:green;}\n",
-        "gantryTieDownNotReleasedButton": "#gantryTieDownNotReleasedButton{background: grey;}\n#gantryTieDownNotReleasedButton:pressed{}\n",
-        "gantryStormPinNotReleasedButton": "#gantryStormPinNotReleasedButton{background: grey;}\n#gantryStormPinNotReleasedButton:pressed{}\n",
-        "gantryMotorBrakesOpenButton": "#gantryMotorBrakesOpenButton{background: grey;}\n#gantryMotorBrakesOpenButton:pressed{}\n"
+        "boomUpButton": "#boomUpButton{background: grey;}\n#boomUpButton:pressed{border: 2px solid transparent;}\n#boomUpButton:checked{background:green;}\n",
+        "boomUpFullButton": "#boomUpFullButton{background: grey;}\n#boomUpFullButton:pressed{border: 2px solid transparent;}\n",
+        "boomStopButton": "#boomStopButton{background: grey;}\n#boomStopButton:pressed{border: 2px solid transparent;}\n",
+        "boomDownButton": "#boomDownButton{background: grey;}\n#boomDownButton:pressed{border: 2px solid transparent;}\n#boomDownButton:checked{background:green;}\n",
+        "gantryTieDownNotReleasedButton": "#gantryTieDownNotReleasedButton{background: grey;}\n#gantryTieDownNotReleasedButton:pressed{border: 2px solid transparent;}\n",
+        "gantryStormPinNotReleasedButton": "#gantryStormPinNotReleasedButton{background: grey;}\n#gantryStormPinNotReleasedButton:pressed{border: 2px solid transparent;}\n",
+        "gantryMotorBrakesOpenButton": "#gantryMotorBrakesOpenButton{background: grey;}\n#gantryMotorBrakesOpenButton:pressed{border: 2px solid transparent;}\n"
     },
     "AssistFunctionsPage":{
     }

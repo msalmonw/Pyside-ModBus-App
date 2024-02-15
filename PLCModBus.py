@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDial, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QMainWindow, QPushButton,
-    QSizePolicy, QSlider, QSpacerItem, QStackedWidget,
-    QToolButton, QVBoxLayout, QWidget)
+    QSizePolicy, QSlider, QStackedWidget, QToolButton,
+    QVBoxLayout, QWidget)
 
 class Ui_PLCApp(object):
     def setupUi(self, PLCApp):
@@ -27,11 +27,7 @@ class Ui_PLCApp(object):
         PLCApp.resize(1280, 720)
         PLCApp.setMinimumSize(QSize(1280, 720))
         PLCApp.setMaximumSize(QSize(16777215, 16777215))
-        PLCApp.setStyleSheet(u"")
-        PLCApp.setIconSize(QSize(32, 48))
-        self.centralwidget = QWidget(PLCApp)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"QWidget#centralwidget{\n"
+        PLCApp.setStyleSheet(u"QWidget#centralwidget{\n"
 "background:rgb(255, 255, 255);\n"
 "border-radius: 10px;\n"
 "border: 6px solid;\n"
@@ -85,6 +81,10 @@ class Ui_PLCApp(object):
 "background: rgb(0, 70, 100);\n"
 "border-radius: 3px;\n"
 "}")
+        PLCApp.setIconSize(QSize(32, 48))
+        self.centralwidget = QWidget(PLCApp)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(15, 15, 20, 15)
@@ -255,10 +255,6 @@ class Ui_PLCApp(object):
         self.housingDown.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
         self.horizontalLayout_2.addWidget(self.housingDown)
-
-        self.horizontalSpacer = QSpacerItem(100, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
         self.slackRobe = QToolButton(self.topInfoWidget)
         self.slackRobe.setObjectName(u"slackRobe")
@@ -628,9 +624,11 @@ class Ui_PLCApp(object):
         self.windCompensationSlider.setObjectName(u"windCompensationSlider")
         self.windCompensationSlider.setMinimumSize(QSize(400, 50))
         self.windCompensationSlider.setMaximumSize(QSize(400, 50))
-        self.windCompensationSlider.setMinimum(-3)
-        self.windCompensationSlider.setMaximum(3)
+        self.windCompensationSlider.setMinimum(1)
+        self.windCompensationSlider.setMaximum(7)
+        self.windCompensationSlider.setSingleStep(1)
         self.windCompensationSlider.setPageStep(0)
+        self.windCompensationSlider.setValue(4)
         self.windCompensationSlider.setOrientation(Qt.Horizontal)
         self.windCompensationSlider.setInvertedAppearance(False)
         self.windCompensationSlider.setTickPosition(QSlider.TicksAbove)
