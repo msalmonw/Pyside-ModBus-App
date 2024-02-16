@@ -225,9 +225,11 @@ class ReadBinaryOutput(QtCore.QObject):
     read = True
     def __init__(self) -> None:
         super().__init__()
-        self.connection = ModbusClient(host=self.ip, port=self.port, auto_open=True, auto_close=False)
+        self.connection = None
 
     def run(self):
+        if not self.connection:
+            self.connection = ModbusClient(host=self.ip, port=self.port, auto_open=True,auto_close=False)
         while self.read:
             QtCore.QThread.msleep(100)
 
@@ -239,6 +241,33 @@ class ReadBinaryOutput(QtCore.QObject):
             if self.pagesIndicatorsList:
                 self.pagesIndicators.emit(self.pagesIndicatorsList)
 
+            if not self.connection.is_open:
+                self.connectionDropped.emit()
+                break
+
+        self.connection.close()
+
+class ReadAnalogData(QtCore.QObject):
+    analogReadings = QtCore.Signal(list)
+    connectionDropped = QtCore.Signal()
+    ip = "localhost"
+    port = 502
+    interval = 100
+    read = True
+    def __init__(self) -> None:
+        super().__init__()
+        self.connection = None
+
+    def run(self):
+        if not self.connection:
+            self.connection = ModbusClient(host=self.ip, port=self.port, auto_open=True,auto_close=False)
+        while self.read:
+            QtCore.QThread.msleep(100)
+
+            self.analogReadingsList = self.connection.read_holding_registers(50, 5)
+            if self.analogReadingsList:
+                self.analogReadings.emit(self.analogReadingsList)
+            
             if not self.connection.is_open:
                 self.connectionDropped.emit()
                 break
@@ -266,6 +295,13 @@ class Controller:
         self.binaryIndicators.topIndicators.connect(self.setTopIndicators)
         self.binaryIndicators.pagesIndicators.connect(self.setPagesIndicators)
         self.binaryIndicators.connectionDropped.connect(self.connectionDropped)
+
+        self.analogReadings = ReadAnalogData()
+        self.analogReadingsThread = QtCore.QThread()
+        self.analogReadings.moveToThread(self.analogReadingsThread)
+        self.analogReadingsThread.started.connect(self.analogReadings.run)
+        self.analogReadings.analogReadings.connect(self.showAnalogData)
+        self.analogReadings.connectionDropped.connect(self.connectionDropped)
 
         #signals and slots connections
         self.plcApp.spHookModeButton.clicked.connect(self.setSpreaderHookMode)
@@ -305,6 +341,7 @@ class Controller:
             print('Connection Successful') 
             self.plcApp.centralWidget().setStyleSheet('border-color: rgb(0, 255, 0);')
             self.indicatorsThread.start()
+            self.analogReadingsThread.start()
         else:
             self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
             print('Could not connect')
@@ -312,14 +349,22 @@ class Controller:
     def closeApp(self):
         self.connection.close()
         self.binaryIndicators.read = False
-        QtCore.QThread.msleep(300)
+        self.analogReadings.read = False
+        QtCore.QThread.msleep(400)
         self.indicatorsThread.quit()
+        self.analogReadingsThread.quit()
 
     def connectionDropped(self):
+        self.binaryIndicators.read = False
+        self.analogReadings.read = False
+
         self.indicatorsThread.quit()
+        self.analogReadingsThread.quit()
+        self.connection.close()
+
         self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
 
-    #functions for continous readings of all the indicators/lights
+    #functions for continous readings of all the indicators/lights and meters
     def setTopIndicators(self, readingsList):
         self.plcApp.spreaderTWLUnlocked.setEnabled(readingsList[0])
         self.plcApp.spreaderTWLLocked.setEnabled(readingsList[1])
@@ -338,6 +383,14 @@ class Controller:
         self.plcApp.highWindSpeedIndicator.setEnabled(readingsList[3])
         self.plcApp.boomUpFullIndication.setEnabled(readingsList[4])
         self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[5])
+
+    def showAnalogData(self, readingsList):
+        print(readingsList)
+        self.plcApp.hoistLoad.setText(str(readingsList[0]))
+        self.plcApp.windSpeed.setText(str(readingsList[1]))
+        self.plcApp.trimAngle.setText(str(readingsList[2]))
+        self.plcApp.listAngle.setText(str(readingsList[3]))
+        self.plcApp.skewAngle.setText(str(readingsList[4]))
 
     #spreader page functions
     def setSpreaderHookMode(self):
