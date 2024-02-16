@@ -5,7 +5,7 @@ from pyModbusTCP.client import ModbusClient
 import os
 import sys
 import json
-from PLCModBus import Ui_PLCApp
+from UI.PLCModBus import Ui_PLCApp
 
 
 class PLCApp(Ui_PLCApp, QMainWindow):
