@@ -321,6 +321,7 @@ class Controller:
         self.plcApp.gantryMotorBrakesOpenButton.clicked.connect(self.gantryMotorBrakes)
         self.plcApp.reconnect.connect(self.openConnection)
         self.plcApp.destroyThreadsandExit.connect(self.closeApp)
+        self.plcApp.connectButton.clicked.connect(self.openConnection)
 
         #get modbus ip and port and create ModBusTCP client object
         with open ('PLC_config_file.json', 'r') as fp:
@@ -336,15 +337,16 @@ class Controller:
         self.plcApp.startApp()
 
     def openConnection(self):
-        status = self.connection.open()
-        if status:
-            print('Connection Successful') 
-            self.plcApp.centralWidget().setStyleSheet('border-color: rgb(0, 255, 0);')
-            self.indicatorsThread.start()
-            self.analogReadingsThread.start()
-        else:
-            self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
-            print('Could not connect')
+        if not self.connection.is_open:
+            status = self.connection.open()
+            if status:
+                print('Connection Successful') 
+                self.plcApp.centralWidget().setStyleSheet('border-color: rgb(0, 255, 0);')
+                self.indicatorsThread.start()
+                self.analogReadingsThread.start()
+            else:
+                self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
+                print('Could not connect')
 
     def closeApp(self):
         self.connection.close()
@@ -483,5 +485,4 @@ class Controller:
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     cont = Controller()
-    cont.openConnection()
     sys.exit(app.exec())

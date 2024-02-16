@@ -55,7 +55,7 @@ class Ui_PLCApp(object):
 "color: rgba(255, 255, 255, 255);\n"
 "font-weight: 600;\n"
 "}\n"
-"QPushButton#reloadButton{\n"
+"QPushButton#reloadButton, #connectButton{\n"
 "background: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton#reloadButton:pressed{\n"
@@ -64,9 +64,9 @@ class Ui_PLCApp(object):
 "QLabel#hoistLoad, #windSpeed, #trimAngle, #listAngle, #skewAngle{\n"
 "background: rgb(255, 204, 188);\n"
 "color: rgb(255, 61, 0);\n"
-"font-size: 22px;\n"
-""
-                        "}\n"
+"font"
+                        "-size: 22px;\n"
+"}\n"
 "QLabel#pageLabel{\n"
 "font-size: 22px;\n"
 "}\n"
@@ -313,6 +313,18 @@ class Ui_PLCApp(object):
         self.reloadButton.setIconSize(QSize(40, 40))
 
         self.horizontalLayout.addWidget(self.reloadButton)
+
+        self.connectButton = QPushButton(self.centralwidget)
+        self.connectButton.setObjectName(u"connectButton")
+        self.connectButton.setMinimumSize(QSize(50, 50))
+        self.connectButton.setMaximumSize(QSize(50, 50))
+        icon4 = QIcon()
+        icon4.addFile(u"UI/resources/connect.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.connectButton.setIcon(icon4)
+        self.connectButton.setIconSize(QSize(40, 40))
+        self.connectButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.connectButton)
 
         self.cctvButton = QPushButton(self.centralwidget)
         self.cctvButton.setObjectName(u"cctvButton")
@@ -830,6 +842,7 @@ class Ui_PLCApp(object):
         self.cpsActive.setText(QCoreApplication.translate("PLCApp", u"CPS Active\n"
 "", None))
         self.reloadButton.setText("")
+        self.connectButton.setText("")
         self.cctvButton.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
         self.spreaderButton.setText(QCoreApplication.translate("PLCApp", u"Spreader", None))
         self.chassisButton.setText(QCoreApplication.translate("PLCApp", u"Chassis", None))
