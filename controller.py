@@ -169,7 +169,7 @@ class PLCApp(Ui_PLCApp, QMainWindow):
     def startApp(self):
         self.setShadowEffect()
         self.reloadConfig()
-        self.show()
+        self.showMaximized()
 
     def goToCCTVPage(self):
         self.pageLabel.setText('CCTV')
@@ -341,11 +341,21 @@ class Controller:
             status = self.connection.open()
             if status:
                 print('Connection Successful') 
-                self.plcApp.centralWidget().setStyleSheet('border-color: rgb(0, 255, 0);')
+                self.plcApp.centralWidget().setStyleSheet(u"QWidget#centralwidget{\n"
+                                                        "background:rgb(255, 255, 255);\n"
+                                                        "border-radius: 10px;\n"
+                                                        "border: 6px solid transparent;\n"
+                                                        "}")
+                self.binaryIndicators.read = True
+                self.analogReadings.read = True
                 self.indicatorsThread.start()
                 self.analogReadingsThread.start()
             else:
-                self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
+                self.plcApp.centralWidget().setStyleSheet(u"QWidget#centralwidget{\n"
+                                                        "background:rgb(255, 255, 255);\n"
+                                                        "border-radius: 10px;\n"
+                                                        "border: 6px solid red;\n"
+                                                        "}")
                 print('Could not connect')
 
     def closeApp(self):
@@ -360,11 +370,16 @@ class Controller:
         self.binaryIndicators.read = False
         self.analogReadings.read = False
 
+        QtCore.QThread.msleep(400)
         self.indicatorsThread.quit()
         self.analogReadingsThread.quit()
         self.connection.close()
 
-        self.plcApp.centralWidget().setStyleSheet('border-color: rgb(255, 0, 0);')
+        self.plcApp.centralWidget().setStyleSheet(u"QWidget#centralwidget{\n"
+                                                    "background:rgb(255, 255, 255);\n"
+                                                    "border-radius: 10px;\n"
+                                                    "border: 6px solid red;\n"
+                                                    "}")
 
     #functions for continous readings of all the indicators/lights and meters
     def setTopIndicators(self, readingsList):
@@ -387,7 +402,6 @@ class Controller:
         self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[5])
 
     def showAnalogData(self, readingsList):
-        print(readingsList)
         self.plcApp.hoistLoad.setText(str(readingsList[0]))
         self.plcApp.windSpeed.setText(str(readingsList[1]))
         self.plcApp.trimAngle.setText(str(readingsList[2]))

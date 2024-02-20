@@ -27,13 +27,7 @@ class Ui_PLCApp(object):
         PLCApp.resize(1280, 720)
         PLCApp.setMinimumSize(QSize(1280, 720))
         PLCApp.setMaximumSize(QSize(16777215, 16777215))
-        PLCApp.setStyleSheet(u"QWidget#centralwidget{\n"
-"background:rgb(255, 255, 255);\n"
-"border-radius: 10px;\n"
-"border: 6px solid;\n"
-"border-color: rgb(255, 0, 0);\n"
-"}\n"
-"QWidget{\n"
+        PLCApp.setStyleSheet(u"QWidget{\n"
 "background:rgba(237, 244, 250, 255);\n"
 "border-radius: 10px;\n"
 "font-family: Poppins;\n"
@@ -58,21 +52,21 @@ class Ui_PLCApp(object):
 "QPushButton#reloadButton, #connectButton{\n"
 "background: rgb(255, 255, 255);\n"
 "}\n"
-"QPushButton#reloadButton:pressed{\n"
+"QPushButton#reloadButton:pressed, #connectButton:pressed{\n"
 "border: 3px solid grey;\n"
 "}\n"
 "QLabel#hoistLoad, #windSpeed, #trimAngle, #listAngle, #skewAngle{\n"
 "background: rgb(255, 204, 188);\n"
 "color: rgb(255, 61, 0);\n"
-"font"
-                        "-size: 22px;\n"
+"font-size: 22px;\n"
 "}\n"
 "QLabel#pageLabel{\n"
 "font-size: 22px;\n"
 "}\n"
 "QDial{\n"
 "background: rgb(0, 70, 100);\n"
-"color: rbg(0, 0, 0);\n"
+"color: rbg"
+                        "(0, 0, 0);\n"
 "}\n"
 "QSlider::groove:horizontal {\n"
 "height: 20px;\n"
@@ -84,7 +78,11 @@ class Ui_PLCApp(object):
         PLCApp.setIconSize(QSize(32, 48))
         self.centralwidget = QWidget(PLCApp)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"")
+        self.centralwidget.setStyleSheet(u"QWidget#centralwidget{\n"
+"background:rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border: 6px solid red;\n"
+"}")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(15, 15, 20, 15)
@@ -569,13 +567,15 @@ class Ui_PLCApp(object):
         self.chassisPage.setObjectName(u"chassisPage")
         self.gridLayout_4 = QGridLayout(self.chassisPage)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.cpsAlignmentButton = QPushButton(self.chassisPage)
         self.cpsAlignmentButton.setObjectName(u"cpsAlignmentButton")
         self.cpsAlignmentButton.setMinimumSize(QSize(150, 150))
         self.cpsAlignmentButton.setMaximumSize(QSize(150, 150))
         self.cpsAlignmentButton.setCheckable(True)
 
-        self.gridLayout_4.addWidget(self.cpsAlignmentButton, 0, 0, 1, 1)
+        self.horizontalLayout_5.addWidget(self.cpsAlignmentButton)
 
         self.cpsReverseDirectionButton = QPushButton(self.chassisPage)
         self.cpsReverseDirectionButton.setObjectName(u"cpsReverseDirectionButton")
@@ -584,9 +584,13 @@ class Ui_PLCApp(object):
         self.cpsReverseDirectionButton.setStyleSheet(u"")
         self.cpsReverseDirectionButton.setCheckable(True)
 
-        self.gridLayout_4.addWidget(self.cpsReverseDirectionButton, 0, 1, 1, 1)
+        self.horizontalLayout_5.addWidget(self.cpsReverseDirectionButton)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_5, 0, 0, 1, 1)
 
         self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
         self.label = QLabel(self.chassisPage)
@@ -599,6 +603,8 @@ class Ui_PLCApp(object):
 
         self.cpsModeDial = QDial(self.chassisPage)
         self.cpsModeDial.setObjectName(u"cpsModeDial")
+        sizePolicy2.setHeightForWidth(self.cpsModeDial.sizePolicy().hasHeightForWidth())
+        self.cpsModeDial.setSizePolicy(sizePolicy2)
         self.cpsModeDial.setMinimumSize(QSize(150, 150))
         self.cpsModeDial.setMaximumSize(QSize(150, 150))
         self.cpsModeDial.setMinimum(-1)
@@ -610,32 +616,178 @@ class Ui_PLCApp(object):
         self.cpsModeDial.setNotchTarget(0.000000000000000)
         self.cpsModeDial.setNotchesVisible(True)
 
-        self.verticalLayout_2.addWidget(self.cpsModeDial, 0, Qt.AlignHCenter)
+        self.verticalLayout_2.addWidget(self.cpsModeDial, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.label_3 = QLabel(self.chassisPage)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(30, 30))
-        self.label_3.setMaximumSize(QSize(16777215, 30))
+        self.label_3.setMinimumSize(QSize(30, 35))
+        self.label_3.setMaximumSize(QSize(16777215, 35))
         self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.label_3.setMargin(10)
 
         self.verticalLayout_2.addWidget(self.label_3, 0, Qt.AlignHCenter)
 
-
-        self.gridLayout_4.addLayout(self.verticalLayout_2, 0, 2, 1, 1)
-
         self.label_5 = QLabel(self.chassisPage)
         self.label_5.setObjectName(u"label_5")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy3)
         self.label_5.setMinimumSize(QSize(0, 40))
-        self.label_5.setMaximumSize(QSize(16777215, 40))
+        self.label_5.setMaximumSize(QSize(16777215, 16777215))
         self.label_5.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.label_5, 1, 2, 1, 1)
+        self.verticalLayout_2.addWidget(self.label_5)
+
+
+        self.gridLayout_4.addLayout(self.verticalLayout_2, 0, 1, 1, 1)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(40)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_10 = QLabel(self.chassisPage)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(20, 20))
+        self.label_10.setMaximumSize(QSize(20, 20))
+        self.label_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_10)
+
+        self.label_12 = QLabel(self.chassisPage)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMinimumSize(QSize(20, 20))
+        self.label_12.setMaximumSize(QSize(20, 20))
+        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_12)
+
+        self.label_11 = QLabel(self.chassisPage)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(20, 20))
+        self.label_11.setMaximumSize(QSize(20, 20))
+        self.label_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_11)
+
+        self.label_9 = QLabel(self.chassisPage)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setMinimumSize(QSize(20, 20))
+        self.label_9.setMaximumSize(QSize(20, 20))
+        self.label_9.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_9)
+
+        self.label_8 = QLabel(self.chassisPage)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(20, 20))
+        self.label_8.setMaximumSize(QSize(20, 20))
+        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_8)
+
+        self.label_7 = QLabel(self.chassisPage)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMinimumSize(QSize(20, 20))
+        self.label_7.setMaximumSize(QSize(20, 20))
+        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_7)
+
+        self.label_6 = QLabel(self.chassisPage)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setMinimumSize(QSize(20, 20))
+        self.label_6.setMaximumSize(QSize(20, 20))
+        self.label_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_6)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_3, 1, 0, 1, 1)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(40)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.label_17 = QLabel(self.chassisPage)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setMinimumSize(QSize(20, 20))
+        self.label_17.setMaximumSize(QSize(20, 20))
+
+        self.horizontalLayout_4.addWidget(self.label_17)
+
+        self.label_21 = QLabel(self.chassisPage)
+        self.label_21.setObjectName(u"label_21")
+        self.label_21.setMinimumSize(QSize(20, 20))
+        self.label_21.setMaximumSize(QSize(20, 20))
+
+        self.horizontalLayout_4.addWidget(self.label_21)
+
+        self.label_20 = QLabel(self.chassisPage)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMinimumSize(QSize(20, 20))
+        self.label_20.setMaximumSize(QSize(20, 20))
+
+        self.horizontalLayout_4.addWidget(self.label_20)
+
+        self.label_16 = QLabel(self.chassisPage)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setMinimumSize(QSize(20, 20))
+        self.label_16.setMaximumSize(QSize(20, 20))
+
+        self.horizontalLayout_4.addWidget(self.label_16)
+
+        self.label_18 = QLabel(self.chassisPage)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setMinimumSize(QSize(20, 20))
+        self.label_18.setMaximumSize(QSize(20, 20))
+        self.label_18.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_18)
+
+        self.label_15 = QLabel(self.chassisPage)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setMinimumSize(QSize(20, 20))
+        self.label_15.setMaximumSize(QSize(20, 20))
+        self.label_15.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_15)
+
+        self.label_19 = QLabel(self.chassisPage)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setMinimumSize(QSize(20, 20))
+        self.label_19.setMaximumSize(QSize(20, 20))
+        self.label_19.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_19)
+
+        self.label_14 = QLabel(self.chassisPage)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setMinimumSize(QSize(20, 20))
+        self.label_14.setMaximumSize(QSize(20, 20))
+        self.label_14.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_14)
+
+        self.label_13 = QLabel(self.chassisPage)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setMinimumSize(QSize(20, 20))
+        self.label_13.setMaximumSize(QSize(20, 20))
+        self.label_13.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_4.addWidget(self.label_13)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_4, 1, 1, 1, 1)
 
         self.windCompensationSlider = QSlider(self.chassisPage)
         self.windCompensationSlider.setObjectName(u"windCompensationSlider")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.windCompensationSlider.sizePolicy().hasHeightForWidth())
+        self.windCompensationSlider.setSizePolicy(sizePolicy4)
         self.windCompensationSlider.setMinimumSize(QSize(400, 50))
-        self.windCompensationSlider.setMaximumSize(QSize(400, 50))
+        self.windCompensationSlider.setMaximumSize(QSize(16777215, 50))
         self.windCompensationSlider.setMinimum(1)
         self.windCompensationSlider.setMaximum(7)
         self.windCompensationSlider.setSingleStep(1)
@@ -646,12 +798,17 @@ class Ui_PLCApp(object):
         self.windCompensationSlider.setTickPosition(QSlider.TicksAbove)
         self.windCompensationSlider.setTickInterval(1)
 
-        self.gridLayout_4.addWidget(self.windCompensationSlider, 2, 0, 1, 2)
+        self.gridLayout_4.addWidget(self.windCompensationSlider, 2, 0, 1, 1)
 
         self.laneSelectionSlider = QSlider(self.chassisPage)
         self.laneSelectionSlider.setObjectName(u"laneSelectionSlider")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.laneSelectionSlider.sizePolicy().hasHeightForWidth())
+        self.laneSelectionSlider.setSizePolicy(sizePolicy5)
         self.laneSelectionSlider.setMinimumSize(QSize(400, 50))
-        self.laneSelectionSlider.setMaximumSize(QSize(400, 50))
+        self.laneSelectionSlider.setMaximumSize(QSize(500, 50))
         self.laneSelectionSlider.setMinimum(1)
         self.laneSelectionSlider.setMaximum(9)
         self.laneSelectionSlider.setPageStep(0)
@@ -660,7 +817,7 @@ class Ui_PLCApp(object):
         self.laneSelectionSlider.setTickPosition(QSlider.TicksAbove)
         self.laneSelectionSlider.setTickInterval(1)
 
-        self.gridLayout_4.addWidget(self.laneSelectionSlider, 2, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.laneSelectionSlider, 2, 1, 1, 1)
 
         self.label_2 = QLabel(self.chassisPage)
         self.label_2.setObjectName(u"label_2")
@@ -668,7 +825,7 @@ class Ui_PLCApp(object):
         self.label_2.setMaximumSize(QSize(400, 40))
         self.label_2.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.label_2, 3, 0, 1, 2)
+        self.gridLayout_4.addWidget(self.label_2, 3, 0, 1, 1)
 
         self.label_4 = QLabel(self.chassisPage)
         self.label_4.setObjectName(u"label_4")
@@ -676,7 +833,7 @@ class Ui_PLCApp(object):
         self.label_4.setMaximumSize(QSize(16777215, 40))
         self.label_4.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.label_4, 3, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.label_4, 3, 1, 1, 1)
 
         self.stackedWidget.addWidget(self.chassisPage)
         self.boomControlPage = QWidget()
@@ -890,6 +1047,22 @@ class Ui_PLCApp(object):
         self.label.setText(QCoreApplication.translate("PLCApp", u"0", None))
         self.label_3.setText(QCoreApplication.translate("PLCApp", u"T                   R", None))
         self.label_5.setText(QCoreApplication.translate("PLCApp", u"CPS Loading ", None))
+        self.label_10.setText(QCoreApplication.translate("PLCApp", u"-3", None))
+        self.label_12.setText(QCoreApplication.translate("PLCApp", u"-2", None))
+        self.label_11.setText(QCoreApplication.translate("PLCApp", u"-1", None))
+        self.label_9.setText(QCoreApplication.translate("PLCApp", u"0", None))
+        self.label_8.setText(QCoreApplication.translate("PLCApp", u"1", None))
+        self.label_7.setText(QCoreApplication.translate("PLCApp", u"2", None))
+        self.label_6.setText(QCoreApplication.translate("PLCApp", u"3", None))
+        self.label_17.setText(QCoreApplication.translate("PLCApp", u"1", None))
+        self.label_21.setText(QCoreApplication.translate("PLCApp", u"2", None))
+        self.label_20.setText(QCoreApplication.translate("PLCApp", u"3", None))
+        self.label_16.setText(QCoreApplication.translate("PLCApp", u"4", None))
+        self.label_18.setText(QCoreApplication.translate("PLCApp", u"5", None))
+        self.label_15.setText(QCoreApplication.translate("PLCApp", u"6", None))
+        self.label_19.setText(QCoreApplication.translate("PLCApp", u"7", None))
+        self.label_14.setText(QCoreApplication.translate("PLCApp", u"8", None))
+        self.label_13.setText(QCoreApplication.translate("PLCApp", u"9", None))
         self.label_2.setText(QCoreApplication.translate("PLCApp", u"CPS Wind Compensation", None))
         self.label_4.setText(QCoreApplication.translate("PLCApp", u"CPS Lane Selection", None))
         self.boomUpButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
