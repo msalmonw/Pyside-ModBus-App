@@ -5,14 +5,21 @@ from pyModbusTCP.client import ModbusClient
 import os
 import sys
 import json
-from UI.PLCModBus import Ui_PLCApp
+import subprocess
 
+try:
+    subprocess.run(['pyside6-uic', 'UI/PLCModBus.ui', '-o', 'UI/PLCModBus.py'])
+    from UI.PLCModBus import Ui_PLCApp
+except Exception as e:
+    print('Error occured while converting UI.\n', e)
+    sys.exit(1)
+        
 
 class PLCApp(Ui_PLCApp, QMainWindow):
     reconnect = QtCore.Signal()
     destroyThreadsandExit = QtCore.Signal()
     def __init__(self) -> None:
-        super(PLCApp, self).__init__()
+        super().__init__()
         #initialization config of the UI
         self.setupUi(self)
         self.setWindowTitle('ABB PLC App')
@@ -199,16 +206,19 @@ class PLCApp(Ui_PLCApp, QMainWindow):
         spreaderPageConfig = styling['SpreaderPage']
         chassisPageConfig = styling['ChassisPage']
         boomControlPageConfig = styling['BoomControlPage']
+        assistFunctionsPageConfig = styling['AssistFunctionsPage']
 
-        self.spreaderPage.setStyleSheet(spreaderPageConfig['spHookModeButton'] + spreaderPageConfig['overHeightModeButton']
-                                         + spreaderPageConfig['lampTestButton'])
+        self.spreaderPage.setStyleSheet(spreaderPageConfig['transportModeButton'])
         
-        self.chassisPage.setStyleSheet(chassisPageConfig['cpsAlignmentButton'] + chassisPageConfig['cpsReverseDirectionButton'])
+        self.chassisPage.setStyleSheet(chassisPageConfig['cpsAlignmentButton'] + chassisPageConfig['cpsReverseDirectionButton']
+                                       + chassisPageConfig['cpsTwentyFtButton'] + chassisPageConfig['cpsDualCycleButton'])
 
         self.boomControlPage.setStyleSheet(boomControlPageConfig['boomUpButton'] + boomControlPageConfig['boomUpFullButton']
                                         + boomControlPageConfig['boomStopButton'] + boomControlPageConfig['boomDownButton']
                                         + boomControlPageConfig['gantryTieDownNotReleasedButton'] + boomControlPageConfig['gantryStormPinNotReleasedButton']
-                                        + boomControlPageConfig['gantryMotorBrakesOpenButton'])
+                                        + boomControlPageConfig['gantryMotorBrakesOpenButton'] + boomControlPageConfig['floodLightButton']
+                                        + boomControlPageConfig['walkwayLightButton'])
+        self.assistFunctionsPage.setStyleSheet(assistFunctionsPageConfig['skewControlButton'] + assistFunctionsPageConfig['swayControlButton'])
 
     def closeEvent(self, event: QCloseEvent) -> None:
         self.destroyThreadsandExit.emit()
@@ -233,7 +243,7 @@ class ReadBinaryOutput(QtCore.QObject):
         while self.read:
             QtCore.QThread.msleep(100)
 
-            self.topIndicatorsList = self.connection.read_coils(30, 8)
+            self.topIndicatorsList = self.connection.read_coils(4779, 8)
             if self.topIndicatorsList:
                 self.topIndicators.emit(self.topIndicatorsList)
             
@@ -264,7 +274,7 @@ class ReadAnalogData(QtCore.QObject):
         while self.read:
             QtCore.QThread.msleep(100)
 
-            self.analogReadingsList = self.connection.read_holding_registers(50, 5)
+            self.analogReadingsList = self.connection.read_holding_registers(4859, 7)
             if self.analogReadingsList:
                 self.analogReadings.emit(self.analogReadingsList)
             
@@ -304,9 +314,7 @@ class Controller:
         self.analogReadings.connectionDropped.connect(self.connectionDropped)
 
         #signals and slots connections
-        self.plcApp.spHookModeButton.clicked.connect(self.setSpreaderHookMode)
-        self.plcApp.overHeightModeButton.clicked.connect(self.setOverHeightMode)
-        self.plcApp.lampTestButton.clicked.connect(self.lampTest)
+        self.plcApp.transportModeButton.clicked.connect(self.setTransportMode)
         self.plcApp.cpsAlignmentButton.clicked.connect(self.toggleCPSAlignment)
         self.plcApp.cpsReverseDirectionButton.clicked.connect(self.toggleCPSDirection)
         self.plcApp.windCompensationSlider.valueChanged.connect(self.setWindCompensation)
@@ -316,12 +324,17 @@ class Controller:
         self.plcApp.boomUpFullButton.clicked.connect(self.setBoomUpFull)
         self.plcApp.boomStopButton.clicked.connect(self.stopBoom)
         self.plcApp.boomDownButton.clicked.connect(self.boomDown)
-        self.plcApp.gantryTieDownNotReleasedButton.clicked.connect(self.gantryTieDown)
-        self.plcApp.gantryStormPinNotReleasedButton.clicked.connect(self.gantryStormPin)
-        self.plcApp.gantryMotorBrakesOpenButton.clicked.connect(self.gantryMotorBrakes)
         self.plcApp.reconnect.connect(self.openConnection)
         self.plcApp.destroyThreadsandExit.connect(self.closeApp)
         self.plcApp.connectButton.clicked.connect(self.openConnection)
+
+        #additions to signals and slots 25-03-24
+        self.plcApp.floodLightButton.clicked.connect(self.toggleFLoodLight)
+        self.plcApp.walkwayLightButton.clicked.connect(self.toggleWalkwayLight)
+        self.plcApp.skewControlButton.clicked.connect(self.toggleSkewControl)
+        self.plcApp.swayControlButton.clicked.connect(self.toggleSwayControl)
+        self.plcApp.cpsTwentyFtButton.clicked.connect(self.toggleCPSTwentyFt)
+        self.plcApp.cpsDualCycleButton.clicked.connect(self.toggleDualCycle)
 
         #get modbus ip and port and create ModBusTCP client object
         with open ('PLC_config_file.json', 'r') as fp:
@@ -383,21 +396,20 @@ class Controller:
 
     #functions for continous readings of all the indicators/lights and meters
     def setTopIndicators(self, readingsList):
-        self.plcApp.spreaderTWLUnlocked.setEnabled(readingsList[0])
-        self.plcApp.spreaderTWLLocked.setEnabled(readingsList[1])
-        self.plcApp.spreaderLanded.setEnabled(readingsList[2])
+        self.plcApp.spreaderLanded.setEnabled(readingsList[0])
+        self.plcApp.spreaderTWLUnlocked.setEnabled(readingsList[1])
+        self.plcApp.spreaderTWLLocked.setEnabled(readingsList[2])
         self.plcApp.housingDown.setEnabled(readingsList[3])
         self.plcApp.slackRobe.setEnabled(readingsList[4])
         self.plcApp.hoistOverload.setEnabled(readingsList[5])
         self.plcApp.trolleyBlocking.setEnabled(readingsList[6])
         self.plcApp.cpsActive.setEnabled(readingsList[7])
         
-
     def setPagesIndicators(self, readingsList):
         self.plcApp.overHeightIndicator.setEnabled(readingsList[0])
         self.plcApp.ttdsFaultIndicator.setEnabled(readingsList[1])
         self.plcApp.hoistSnagLoadIndicator.setEnabled(readingsList[2])
-        self.plcApp.highWindSpeedIndicator.setEnabled(readingsList[3])
+        #self.plcApp.highWindSpeedIndicator.setEnabled(readingsList[3])
         self.plcApp.boomUpFullIndication.setEnabled(readingsList[4])
         self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[5])
 
@@ -407,91 +419,114 @@ class Controller:
         self.plcApp.trimAngle.setText(str(readingsList[2]))
         self.plcApp.listAngle.setText(str(readingsList[3]))
         self.plcApp.skewAngle.setText(str(readingsList[4]))
+        self.plcApp.containerSize.setText(str(readingsList[5] + readingsList[6]))
 
     #spreader page functions
-    def setSpreaderHookMode(self):
-        if self.plcApp.spHookModeButton.isChecked():
-            status = self.connection.write_single_coil(0, True)
+    def setTransportMode(self):
+        if self.plcApp.transportModeButton.isChecked():
+            status = self.connection.write_single_coil(4719, True)
         else:
-            status = self.connection.write_single_coil(0, False)
-
-        print(status)
-
-    def setOverHeightMode(self):
-        status = self.connection.write_single_coil(2, True)
-        print(status)
-
-    def lampTest(self):
-        status = self.connection.write_single_coil(5, True)
+            status = self.connection.write_single_coil(4719, False)
         print(status)
                
-    #boom control page functions   
+    #chasssis page functions   
     def toggleCPSAlignment(self):
         if self.plcApp.cpsAlignmentButton.isChecked():
-            status = self.connection.write_single_coil(7, True)
+            status = self.connection.write_single_coil(4709, True)
         else:
-            status = self.connection.write_single_coil(7, False)
+            status = self.connection.write_single_coil(4709, False)
         print(status)
 
     def toggleCPSDirection(self):
         if self.plcApp.cpsReverseDirectionButton.isChecked():
-            status = self.connection.write_single_coil(7, True)
+            status = self.connection.write_single_coil(4710, True)
         else:
-            status = self.connection.write_single_coil(7, False)
+            status = self.connection.write_single_coil(4710, False)
+        print(status)
+
+    def toggleCPSTwentyFt(self):
+        if self.plcApp.cpsTwentyFtButton.isChecked():
+            status = self.connection.write_single_coil(4717, True)
+        else:
+            status = self.connection.write_single_coil(4717, False)
+        print(status)
+
+    def toggleDualCycle(self):
+        if self.plcApp.cpsDualCycleButton.isChecked():
+            status = self.connection.write_single_coil(4718, True)
+        else:
+            status = self.connection.write_single_coil(4718, False)
         print(status)
     
     def setWindCompensation(self, value):
         binaryValue = bin(value)[2:].zfill(3)
-        status = self.connection.write_multiple_coils(8, [bool(int(binaryValue[0])), bool(int(binaryValue[1])), bool(int(binaryValue[2]))])
+        status = self.connection.write_multiple_coils(4706, [bool(int(binaryValue[0])), bool(int(binaryValue[1])), bool(int(binaryValue[2]))])
         print(status)
 
     def cpsLaneSelection(self, value):
         binaryValue = bin(value)[2:].zfill(4)
-        status = self.connection.write_multiple_coils(11, [bool(int(binaryValue[0])), bool(int(binaryValue[1])), bool(int(binaryValue[2])), bool(int(binaryValue[3]))])
+        status = self.connection.write_multiple_coils(4711, [bool(int(binaryValue[0])), bool(int(binaryValue[1])), bool(int(binaryValue[2])), bool(int(binaryValue[3]))])
         print(status)
 
     def cpsLoadingMode(self, value):
         if value == -1:
-            status = self.connection.write_multiple_coils(15, [True, True])
+            status = self.connection.write_multiple_coils(4715, [True, True])
         elif value == 1:
-            status = self.connection.write_multiple_coils(15, [False, True])
+            status = self.connection.write_multiple_coils(4715, [False, True])
         else:
-            status = self.connection.write_multiple_coils(15, [False, False])
+            status = self.connection.write_multiple_coils(4715, [False, False])
         print(status)
 
     #boom control page functions
     def setBoomUpSixty(self):
         if self.plcApp.boomUpButton.isChecked():
-            status = self.connection.write_single_coil(17, True)
+            status = self.connection.write_single_coil(4700, True)
         else:
-            status = self.connection.write_single_coil(17, False)
+            status = self.connection.write_single_coil(4700, False)
         print(status)
 
     def setBoomUpFull(self):
-        status = self.connection.write_single_coil(18, True)
+        status = self.connection.write_single_coil(4701, True)
         print(status)
 
     def stopBoom(self):
-        status = self.connection.write_single_coil(19, True)
+        status = self.connection.write_single_coil(4702, True)
         print(status)
 
     def boomDown(self):
         if self.plcApp.boomDownButton.isChecked():
-            status = self.connection.write_single_coil(20, True)
+            status = self.connection.write_single_coil(4703, True)
         else:
-            status = self.connection.write_single_coil(20, False)
+            status = self.connection.write_single_coil(4703, False)
         print(status)
 
-    def gantryTieDown(self):
-        status = self.connection.write_single_coil(21, True)
+    def toggleFLoodLight(self):
+        if self.plcApp.floodLightButton.isChecked():
+            status = self.connection.write_single_coil(4704, True)
+        else:
+            status = self.connection.write_single_coil(4704, False)
         print(status)
 
-    def gantryStormPin(self):
-        status = self.connection.write_single_coil(22, True)
+    def toggleWalkwayLight(self):
+        if self.plcApp.walkwayLightButton.isChecked():
+            status = self.connection.write_single_coil(4705, True)
+        else:
+            status = self.connection.write_single_coil(4705, False)
         print(status)
 
-    def gantryMotorBrakes(self):
-        status = self.connection.write_single_coil(23, True)
+    #assist functions page functions
+    def toggleSkewControl(self):
+        if self.plcApp.skewControlButton.isChecked():
+            status = self.connection.write_single_coil(4720, True)
+        else:
+            status = self.connection.write_single_coil(4720, False)
+        print(status)
+    
+    def toggleSwayControl(self):
+        if self.plcApp.swayControlButton.isChecked():
+            status = self.connection.write_single_coil(4721, True)
+        else:
+            status = self.connection.write_single_coil(4721, False)
         print(status)
 
             

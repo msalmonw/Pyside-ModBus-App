@@ -1,12 +1,12 @@
 {
     "SpreaderPage":{
-        "spHookModeButton": "#spHookModeButton{background: grey;}\n#spHookModeButton:pressed{border: 2px solid transparent;}\n",
-        "overHeightModeButton": "#overHeightModeButton{background: grey;}\n#overHeightModeButton:pressed{border: 2px solid transparent;}\n",
-        "lampTestButton": "#lampTestButton{background: grey;}\n#lampTestButton:pressed{border: 2px solid transparent;}\n"
+        "transportModeButton": "#transportModeButton{background: grey;}\n#transportModeButton:pressed{border: 2px solid transparent;}\n#transportModeButton:checked{background:green;}\n"
     },
     "ChassisPage":{
         "cpsAlignmentButton": "#cpsAlignmentButton{background: grey;}\n#cpsAlignmentButton:pressed{border: 2px solid transparent;}\n#cpsAlignmentButton:checked{background:green;}\n",
-        "cpsReverseDirectionButton": "#cpsReverseDirectionButton{background: grey;}\n#cpsReverseDirectionButton:pressed{border: 2px solid transparent;}\n#cpsReverseDirectionButton:checked{background:green;}\n"
+        "cpsReverseDirectionButton": "#cpsReverseDirectionButton{background: grey;}\n#cpsReverseDirectionButton:pressed{border: 2px solid transparent;}\n#cpsReverseDirectionButton:checked{background:green;}\n",
+        "cpsTwentyFtButton": "#cpsTwentyFtButton{background: grey;}\n#cpsTwentyFtButton:pressed{border: 2px solid transparent;}\n#cpsTwentyFtButton:checked{background:green;}\n",
+        "cpsDualCycleButton": "#cpsDualCycleButton{background: grey;}\n#cpsDualCycleButton:pressed{border: 2px solid transparent;}\n#cpsDualCycleButton:checked{background:green;}\n"
     },
     "BoomControlPage":
     {
@@ -16,8 +16,12 @@
         "boomDownButton": "#boomDownButton{background: grey;}\n#boomDownButton:pressed{border: 2px solid transparent;}\n#boomDownButton:checked{background:green;}\n",
         "gantryTieDownNotReleasedButton": "#gantryTieDownNotReleasedButton{background: grey;}\n#gantryTieDownNotReleasedButton:pressed{border: 2px solid transparent;}\n",
         "gantryStormPinNotReleasedButton": "#gantryStormPinNotReleasedButton{background: grey;}\n#gantryStormPinNotReleasedButton:pressed{border: 2px solid transparent;}\n",
-        "gantryMotorBrakesOpenButton": "#gantryMotorBrakesOpenButton{background: grey;}\n#gantryMotorBrakesOpenButton:pressed{border: 2px solid transparent;}\n"
+        "gantryMotorBrakesOpenButton": "#gantryMotorBrakesOpenButton{background: grey;}\n#gantryMotorBrakesOpenButton:pressed{border: 2px solid transparent;}\n",
+        "floodLightButton": "#floodLightButton{background: grey;}\n#floodLightButton:pressed{border: 2px solid transparent;}\n#floodLightButton:checked{background:green;}\n",
+        "walkwayLightButton": "#walkwayLightButton{background: grey;}\n#walkwayLightButton:pressed{border: 2px solid transparent;}\n#walkwayLightButton:checked{background:green;}\n"
     },
     "AssistFunctionsPage":{
+        "skewControlButton": "#skewControlButton{background: grey;}\n#skewControlButton:pressed{border: 2px solid transparent;}\n#skewControlButton:checked{background:green;}\n",
+        "swayControlButton": "#swayControlButton{background: grey;}\n#swayControlButton:pressed{border: 2px solid transparent;}\n#swayControlButton:checked{background:green;}\n"
     }
 }
