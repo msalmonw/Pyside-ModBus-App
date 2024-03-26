@@ -554,27 +554,27 @@ class Ui_PLCApp(object):
 
         self.gridLayout_3.addWidget(self.overHeightIndicator, 0, 3, 1, 1)
 
-        self.overHeightIndicator_2 = QToolButton(self.spreaderPage)
-        self.overHeightIndicator_2.setObjectName(u"overHeightIndicator_2")
-        self.overHeightIndicator_2.setEnabled(False)
-        self.overHeightIndicator_2.setMinimumSize(QSize(120, 100))
-        self.overHeightIndicator_2.setIcon(icon1)
-        self.overHeightIndicator_2.setIconSize(QSize(80, 80))
-        self.overHeightIndicator_2.setCheckable(True)
-        self.overHeightIndicator_2.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.speedReducedIndication = QToolButton(self.spreaderPage)
+        self.speedReducedIndication.setObjectName(u"speedReducedIndication")
+        self.speedReducedIndication.setEnabled(False)
+        self.speedReducedIndication.setMinimumSize(QSize(120, 100))
+        self.speedReducedIndication.setIcon(icon1)
+        self.speedReducedIndication.setIconSize(QSize(80, 80))
+        self.speedReducedIndication.setCheckable(True)
+        self.speedReducedIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_3.addWidget(self.overHeightIndicator_2, 1, 3, 1, 1)
+        self.gridLayout_3.addWidget(self.speedReducedIndication, 1, 3, 1, 1)
 
-        self.ttdsFaultIndicator_2 = QToolButton(self.spreaderPage)
-        self.ttdsFaultIndicator_2.setObjectName(u"ttdsFaultIndicator_2")
-        self.ttdsFaultIndicator_2.setEnabled(False)
-        self.ttdsFaultIndicator_2.setMinimumSize(QSize(120, 100))
-        self.ttdsFaultIndicator_2.setIcon(icon1)
-        self.ttdsFaultIndicator_2.setIconSize(QSize(80, 80))
-        self.ttdsFaultIndicator_2.setCheckable(True)
-        self.ttdsFaultIndicator_2.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.flippersUpIndication = QToolButton(self.spreaderPage)
+        self.flippersUpIndication.setObjectName(u"flippersUpIndication")
+        self.flippersUpIndication.setEnabled(False)
+        self.flippersUpIndication.setMinimumSize(QSize(120, 100))
+        self.flippersUpIndication.setIcon(icon1)
+        self.flippersUpIndication.setIconSize(QSize(80, 80))
+        self.flippersUpIndication.setCheckable(True)
+        self.flippersUpIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_3.addWidget(self.ttdsFaultIndicator_2, 1, 4, 1, 1)
+        self.gridLayout_3.addWidget(self.flippersUpIndication, 1, 4, 1, 1)
 
         self.stackedWidget.addWidget(self.spreaderPage)
         self.chassisPage = QWidget()
@@ -990,16 +990,16 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.boomDownButton, 1, 0, 1, 1)
 
-        self.boomUpFullIDown = QToolButton(self.boomControlPage)
-        self.boomUpFullIDown.setObjectName(u"boomUpFullIDown")
-        self.boomUpFullIDown.setEnabled(False)
-        self.boomUpFullIDown.setMinimumSize(QSize(100, 100))
-        self.boomUpFullIDown.setIcon(icon1)
-        self.boomUpFullIDown.setIconSize(QSize(80, 80))
-        self.boomUpFullIDown.setCheckable(True)
-        self.boomUpFullIDown.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.boomDownIndication = QToolButton(self.boomControlPage)
+        self.boomDownIndication.setObjectName(u"boomDownIndication")
+        self.boomDownIndication.setEnabled(False)
+        self.boomDownIndication.setMinimumSize(QSize(100, 100))
+        self.boomDownIndication.setIcon(icon1)
+        self.boomDownIndication.setIconSize(QSize(80, 80))
+        self.boomDownIndication.setCheckable(True)
+        self.boomDownIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_5.addWidget(self.boomUpFullIDown, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.boomDownIndication, 1, 1, 1, 1)
 
         self.boomStopButton = QPushButton(self.boomControlPage)
         self.boomStopButton.setObjectName(u"boomStopButton")
@@ -1314,9 +1314,9 @@ class Ui_PLCApp(object):
         self.label_22.setText(QCoreApplication.translate("PLCApp", u"Container Size", None))
         self.overHeightIndicator.setText(QCoreApplication.translate("PLCApp", u"Over Height\n"
 "", None))
-        self.overHeightIndicator_2.setText(QCoreApplication.translate("PLCApp", u"Operating \n"
+        self.speedReducedIndication.setText(QCoreApplication.translate("PLCApp", u"Operating \n"
 "Speed Reduced", None))
-        self.ttdsFaultIndicator_2.setText(QCoreApplication.translate("PLCApp", u"All Flippers\n"
+        self.flippersUpIndication.setText(QCoreApplication.translate("PLCApp", u"All Flippers\n"
 "Up", None))
         self.label_17.setText(QCoreApplication.translate("PLCApp", u"1", None))
         self.label_21.setText(QCoreApplication.translate("PLCApp", u"2", None))
@@ -1369,7 +1369,7 @@ class Ui_PLCApp(object):
         self.walkwayLightButton.setText(QCoreApplication.translate("PLCApp", u"Walkway\n"
 "Light On", None))
         self.boomDownButton.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
-        self.boomUpFullIDown.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
+        self.boomDownIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
         self.boomStopButton.setText(QCoreApplication.translate("PLCApp", u"Boom Stop", None))
         self.gantryStormPin.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
 "Storm Pin\n"

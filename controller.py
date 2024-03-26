@@ -243,11 +243,13 @@ class ReadBinaryOutput(QtCore.QObject):
         while self.read:
             QtCore.QThread.msleep(100)
 
-            self.topIndicatorsList = self.connection.read_coils(4779, 8)
+            self.topIndicatorsList = self.connection.read_coils(4764, 8)
             if self.topIndicatorsList:
                 self.topIndicators.emit(self.topIndicatorsList)
             
-            self.pagesIndicatorsList = self.connection.read_coils(40, 6)
+            self.pagesIndicatorsList = self.connection.read_coils(4732, 28)
+            self.pagesIndicatorsList.append(self.connection.read_coils(4772, 1))
+            self.pagesIndicatorsList.append(self.connection.read_coils(4773, 1))
             if self.pagesIndicatorsList:
                 self.pagesIndicators.emit(self.pagesIndicatorsList)
 
@@ -406,12 +408,37 @@ class Controller:
         self.plcApp.cpsActive.setEnabled(readingsList[7])
         
     def setPagesIndicators(self, readingsList):
-        self.plcApp.overHeightIndicator.setEnabled(readingsList[0])
-        self.plcApp.ttdsFaultIndicator.setEnabled(readingsList[1])
-        self.plcApp.hoistSnagLoadIndicator.setEnabled(readingsList[2])
-        #self.plcApp.highWindSpeedIndicator.setEnabled(readingsList[3])
-        self.plcApp.boomUpFullIndication.setEnabled(readingsList[4])
-        self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[5])
+        self.plcApp.boomUpSixtyIndication.setEnabled(readingsList[0])
+        self.plcApp.boomUpFullIndication.setEnabled(readingsList[1])
+        self.plcApp.boomDownIndication.setEnabled(readingsList[2])
+        self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[3])
+        self.plcApp.gantryTieDown.setEnabled(readingsList[4])
+        self.plcApp.gantryStormPin.setEnabled(readingsList[5])
+        self.plcApp.gantryMotorBrakes.setEnabled(readingsList[6])
+        self.plcApp.highWindSpeed.setEnabled(readingsList[7])
+        self.plcApp.controlAtQRC.setEnabled(readingsList[8])
+        self.plcApp.cpsAlignmentIndication.setEnabled(readingsList[9])
+        self.plcApp.cpsReverseDirectionIndication.setEnabled(readingsList[10])
+        self.plcApp.cpsTwentyFtIndication.setEnabled(readingsList[11])
+        self.plcApp.cpsDualCycleIndication.setEnabled(readingsList[12])
+        self.plcApp.overHeightIndicator.setEnabled(readingsList[13])
+        self.plcApp.ttdsFaultIndicator.setEnabled(readingsList[14])
+        self.plcApp.hoistSnagLoadIndicator.setEnabled(readingsList[15])
+        self.plcApp.speedReducedIndication.setEnabled(readingsList[16])
+        self.plcApp.flippersUpIndication.setEnabled(readingsList[17])
+        self.plcApp.skewControlIndication.setEnabled(readingsList[18])
+        self.plcApp.autoParkingIndication.setEnabled(readingsList[19])
+        self.plcApp.autoSequenceIndication.setEnabled(readingsList[20])
+        self.plcApp.autoStartIndication.setEnabled(readingsList[21])
+        self.plcApp.autoTwistLockIndication.setEnabled(readingsList[22])
+        self.plcApp.autoConnectIndication.setEnabled(readingsList[23])
+        self.plcApp.mainTrolleyParkingIndication.setEnabled(readingsList[24])
+        self.plcApp.swayControlIndication.setEnabled(readingsList[25])
+        self.plcApp.autoHeightIndication.setEnabled(readingsList[26])
+        self.plcApp.hatchCoverHeightIndication.setEnabled(readingsList[27])
+
+        self.plcApp.floodLightOnIndicator.setEnabled(readingsList[28])
+        self.plcApp.walkawayLightOnIndicator.setEnabled(readingsList[29])
 
     def showAnalogData(self, readingsList):
         self.plcApp.hoistLoad.setText(str(readingsList[0]))

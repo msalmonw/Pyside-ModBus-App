@@ -1364,7 +1364,7 @@ Mode</string>
          </widget>
         </item>
         <item row="1" column="3">
-         <widget class="QToolButton" name="overHeightIndicator_2">
+         <widget class="QToolButton" name="speedReducedIndication">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -1397,7 +1397,7 @@ Speed Reduced</string>
          </widget>
         </item>
         <item row="1" column="4">
-         <widget class="QToolButton" name="ttdsFaultIndicator_2">
+         <widget class="QToolButton" name="flippersUpIndication">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -2503,7 +2503,7 @@ Light On</string>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QToolButton" name="boomUpFullIDown">
+         <widget class="QToolButton" name="boomDownIndication">
           <property name="enabled">
            <bool>false</bool>
           </property>
