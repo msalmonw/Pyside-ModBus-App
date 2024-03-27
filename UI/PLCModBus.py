@@ -31,14 +31,14 @@ class Ui_PLCApp(object):
 "background:rgba(237, 244, 250, 255);\n"
 "border-radius: 10px;\n"
 "font-family: Poppins;\n"
-"font-size: 16px;\n"
-"font-weight: 600;\n"
+"font-size: 14px;\n"
+"font-weight: 400;\n"
 "}\n"
 "QPushButton{\n"
 "border: 0px;\n"
 "background: rgb(0, 70, 100);\n"
 "color: rgba(255, 255, 255, 255);\n"
-"font-weight: 600;\n"
+"font-weight: 400;\n"
 "}\n"
 "QPushButton:pressed{\n"
 "border: 3px solid transparent;\n"
@@ -47,7 +47,7 @@ class Ui_PLCApp(object):
 "border: 0px;\n"
 "background: rgba(0, 36, 71, 255);\n"
 "color: rgba(255, 255, 255, 255);\n"
-"font-weight: 600;\n"
+"font-weight: 400;\n"
 "}\n"
 "QPushButton#reloadButton, #connectButton{\n"
 "background: rgb(255, 255, 255);\n"
@@ -61,7 +61,7 @@ class Ui_PLCApp(object):
 "font-size: 22px;\n"
 "}\n"
 "QLabel#pageLabel{\n"
-"font-size: 22px;\n"
+"font-size: 16px;\n"
 "}\n"
 "QDial{\n"
 "background: rgb(0, 70, 100)"
@@ -73,7 +73,8 @@ class Ui_PLCApp(object):
 "}\n"
 "QSlider::handle:horizontal {\n"
 "background: rgb(0, 70, 100);\n"
-"border-radius: 3px;\n"
+"border-radius: 5px;\n"
+"width: 20px;\n"
 "}")
         PLCApp.setIconSize(QSize(32, 48))
         self.centralwidget = QWidget(PLCApp)
@@ -86,6 +87,112 @@ class Ui_PLCApp(object):
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(15, 15, 20, 15)
+        self.sideInfoWidget = QWidget(self.centralwidget)
+        self.sideInfoWidget.setObjectName(u"sideInfoWidget")
+        self.sideInfoWidget.setMinimumSize(QSize(120, 0))
+        self.verticalLayout = QVBoxLayout(self.sideInfoWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.hoistLoad = QLabel(self.sideInfoWidget)
+        self.hoistLoad.setObjectName(u"hoistLoad")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.hoistLoad.sizePolicy().hasHeightForWidth())
+        self.hoistLoad.setSizePolicy(sizePolicy)
+        self.hoistLoad.setMinimumSize(QSize(80, 80))
+        self.hoistLoad.setMaximumSize(QSize(16777215, 80))
+        self.hoistLoad.setAlignment(Qt.AlignCenter)
+        self.hoistLoad.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.verticalLayout.addWidget(self.hoistLoad)
+
+        self.hoistLoadLabel = QLabel(self.sideInfoWidget)
+        self.hoistLoadLabel.setObjectName(u"hoistLoadLabel")
+        self.hoistLoadLabel.setMinimumSize(QSize(0, 30))
+        self.hoistLoadLabel.setMaximumSize(QSize(16777215, 30))
+        self.hoistLoadLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.hoistLoadLabel)
+
+        self.windSpeed = QLabel(self.sideInfoWidget)
+        self.windSpeed.setObjectName(u"windSpeed")
+        sizePolicy.setHeightForWidth(self.windSpeed.sizePolicy().hasHeightForWidth())
+        self.windSpeed.setSizePolicy(sizePolicy)
+        self.windSpeed.setMinimumSize(QSize(80, 80))
+        self.windSpeed.setMaximumSize(QSize(16777215, 80))
+        self.windSpeed.setAlignment(Qt.AlignCenter)
+        self.windSpeed.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.verticalLayout.addWidget(self.windSpeed)
+
+        self.windSpeedLabel = QLabel(self.sideInfoWidget)
+        self.windSpeedLabel.setObjectName(u"windSpeedLabel")
+        self.windSpeedLabel.setMinimumSize(QSize(0, 30))
+        self.windSpeedLabel.setMaximumSize(QSize(16777215, 30))
+        self.windSpeedLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.windSpeedLabel)
+
+        self.trimAngle = QLabel(self.sideInfoWidget)
+        self.trimAngle.setObjectName(u"trimAngle")
+        sizePolicy.setHeightForWidth(self.trimAngle.sizePolicy().hasHeightForWidth())
+        self.trimAngle.setSizePolicy(sizePolicy)
+        self.trimAngle.setMinimumSize(QSize(80, 80))
+        self.trimAngle.setMaximumSize(QSize(16777215, 80))
+        self.trimAngle.setAlignment(Qt.AlignCenter)
+        self.trimAngle.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.verticalLayout.addWidget(self.trimAngle)
+
+        self.trimAngleLabel = QLabel(self.sideInfoWidget)
+        self.trimAngleLabel.setObjectName(u"trimAngleLabel")
+        self.trimAngleLabel.setMinimumSize(QSize(0, 30))
+        self.trimAngleLabel.setMaximumSize(QSize(16777215, 30))
+        self.trimAngleLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.trimAngleLabel)
+
+        self.listAngle = QLabel(self.sideInfoWidget)
+        self.listAngle.setObjectName(u"listAngle")
+        sizePolicy.setHeightForWidth(self.listAngle.sizePolicy().hasHeightForWidth())
+        self.listAngle.setSizePolicy(sizePolicy)
+        self.listAngle.setMinimumSize(QSize(80, 80))
+        self.listAngle.setMaximumSize(QSize(16777215, 80))
+        self.listAngle.setAlignment(Qt.AlignCenter)
+        self.listAngle.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.verticalLayout.addWidget(self.listAngle)
+
+        self.listAngleLabel = QLabel(self.sideInfoWidget)
+        self.listAngleLabel.setObjectName(u"listAngleLabel")
+        self.listAngleLabel.setMinimumSize(QSize(0, 30))
+        self.listAngleLabel.setMaximumSize(QSize(16777215, 30))
+        self.listAngleLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.listAngleLabel)
+
+        self.skewAngle = QLabel(self.sideInfoWidget)
+        self.skewAngle.setObjectName(u"skewAngle")
+        sizePolicy.setHeightForWidth(self.skewAngle.sizePolicy().hasHeightForWidth())
+        self.skewAngle.setSizePolicy(sizePolicy)
+        self.skewAngle.setMinimumSize(QSize(80, 80))
+        self.skewAngle.setMaximumSize(QSize(16777215, 80))
+        self.skewAngle.setAlignment(Qt.AlignCenter)
+        self.skewAngle.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.verticalLayout.addWidget(self.skewAngle)
+
+        self.skewAngleLabel = QLabel(self.sideInfoWidget)
+        self.skewAngleLabel.setObjectName(u"skewAngleLabel")
+        self.skewAngleLabel.setMinimumSize(QSize(0, 30))
+        self.skewAngleLabel.setMaximumSize(QSize(16777215, 30))
+        self.skewAngleLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.skewAngleLabel)
+
+
+        self.gridLayout.addWidget(self.sideInfoWidget, 0, 2, 3, 1)
+
         self.topInfoWidget = QWidget(self.centralwidget)
         self.topInfoWidget.setObjectName(u"topInfoWidget")
         self.topInfoWidget.setMinimumSize(QSize(0, 140))
@@ -183,14 +290,6 @@ class Ui_PLCApp(object):
 
         self.gridLayout.addWidget(self.topInfoWidget, 0, 1, 1, 1)
 
-        self.pageLabel = QLabel(self.centralwidget)
-        self.pageLabel.setObjectName(u"pageLabel")
-        self.pageLabel.setMinimumSize(QSize(0, 50))
-        self.pageLabel.setMaximumSize(QSize(16777215, 50))
-        self.pageLabel.setMargin(10)
-
-        self.gridLayout.addWidget(self.pageLabel, 1, 1, 1, 1)
-
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(25)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -220,11 +319,11 @@ class Ui_PLCApp(object):
 
         self.cctvButton = QPushButton(self.centralwidget)
         self.cctvButton.setObjectName(u"cctvButton")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.cctvButton.sizePolicy().hasHeightForWidth())
-        self.cctvButton.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.cctvButton.sizePolicy().hasHeightForWidth())
+        self.cctvButton.setSizePolicy(sizePolicy1)
         self.cctvButton.setMinimumSize(QSize(110, 50))
         self.cctvButton.setMaximumSize(QSize(180, 50))
         self.cctvButton.setCheckable(True)
@@ -233,8 +332,8 @@ class Ui_PLCApp(object):
 
         self.spreaderButton = QPushButton(self.centralwidget)
         self.spreaderButton.setObjectName(u"spreaderButton")
-        sizePolicy.setHeightForWidth(self.spreaderButton.sizePolicy().hasHeightForWidth())
-        self.spreaderButton.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.spreaderButton.sizePolicy().hasHeightForWidth())
+        self.spreaderButton.setSizePolicy(sizePolicy1)
         self.spreaderButton.setMinimumSize(QSize(110, 50))
         self.spreaderButton.setMaximumSize(QSize(180, 50))
         self.spreaderButton.setCheckable(True)
@@ -243,8 +342,8 @@ class Ui_PLCApp(object):
 
         self.chassisButton = QPushButton(self.centralwidget)
         self.chassisButton.setObjectName(u"chassisButton")
-        sizePolicy.setHeightForWidth(self.chassisButton.sizePolicy().hasHeightForWidth())
-        self.chassisButton.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.chassisButton.sizePolicy().hasHeightForWidth())
+        self.chassisButton.setSizePolicy(sizePolicy1)
         self.chassisButton.setMinimumSize(QSize(110, 50))
         self.chassisButton.setMaximumSize(QSize(180, 50))
         self.chassisButton.setCheckable(True)
@@ -253,8 +352,8 @@ class Ui_PLCApp(object):
 
         self.boomControlButton = QPushButton(self.centralwidget)
         self.boomControlButton.setObjectName(u"boomControlButton")
-        sizePolicy.setHeightForWidth(self.boomControlButton.sizePolicy().hasHeightForWidth())
-        self.boomControlButton.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.boomControlButton.sizePolicy().hasHeightForWidth())
+        self.boomControlButton.setSizePolicy(sizePolicy1)
         self.boomControlButton.setMinimumSize(QSize(110, 50))
         self.boomControlButton.setMaximumSize(QSize(180, 50))
         self.boomControlButton.setCheckable(True)
@@ -263,8 +362,8 @@ class Ui_PLCApp(object):
 
         self.assistFunctionsButton = QPushButton(self.centralwidget)
         self.assistFunctionsButton.setObjectName(u"assistFunctionsButton")
-        sizePolicy.setHeightForWidth(self.assistFunctionsButton.sizePolicy().hasHeightForWidth())
-        self.assistFunctionsButton.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.assistFunctionsButton.sizePolicy().hasHeightForWidth())
+        self.assistFunctionsButton.setSizePolicy(sizePolicy1)
         self.assistFunctionsButton.setMinimumSize(QSize(110, 50))
         self.assistFunctionsButton.setMaximumSize(QSize(180, 50))
         self.assistFunctionsButton.setCheckable(True)
@@ -274,111 +373,13 @@ class Ui_PLCApp(object):
 
         self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 3)
 
-        self.sideInfoWidget = QWidget(self.centralwidget)
-        self.sideInfoWidget.setObjectName(u"sideInfoWidget")
-        self.sideInfoWidget.setMinimumSize(QSize(120, 0))
-        self.verticalLayout = QVBoxLayout(self.sideInfoWidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.hoistLoad = QLabel(self.sideInfoWidget)
-        self.hoistLoad.setObjectName(u"hoistLoad")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.hoistLoad.sizePolicy().hasHeightForWidth())
-        self.hoistLoad.setSizePolicy(sizePolicy1)
-        self.hoistLoad.setMinimumSize(QSize(80, 80))
-        self.hoistLoad.setMaximumSize(QSize(16777215, 80))
-        self.hoistLoad.setAlignment(Qt.AlignCenter)
-        self.hoistLoad.setTextInteractionFlags(Qt.NoTextInteraction)
+        self.pageLabel = QLabel(self.centralwidget)
+        self.pageLabel.setObjectName(u"pageLabel")
+        self.pageLabel.setMinimumSize(QSize(0, 50))
+        self.pageLabel.setMaximumSize(QSize(16777215, 50))
+        self.pageLabel.setMargin(10)
 
-        self.verticalLayout.addWidget(self.hoistLoad)
-
-        self.hoistLoadLabel = QLabel(self.sideInfoWidget)
-        self.hoistLoadLabel.setObjectName(u"hoistLoadLabel")
-        self.hoistLoadLabel.setMinimumSize(QSize(0, 30))
-        self.hoistLoadLabel.setMaximumSize(QSize(16777215, 30))
-        self.hoistLoadLabel.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.hoistLoadLabel)
-
-        self.windSpeed = QLabel(self.sideInfoWidget)
-        self.windSpeed.setObjectName(u"windSpeed")
-        sizePolicy1.setHeightForWidth(self.windSpeed.sizePolicy().hasHeightForWidth())
-        self.windSpeed.setSizePolicy(sizePolicy1)
-        self.windSpeed.setMinimumSize(QSize(80, 80))
-        self.windSpeed.setMaximumSize(QSize(16777215, 80))
-        self.windSpeed.setAlignment(Qt.AlignCenter)
-        self.windSpeed.setTextInteractionFlags(Qt.NoTextInteraction)
-
-        self.verticalLayout.addWidget(self.windSpeed)
-
-        self.windSpeedLabel = QLabel(self.sideInfoWidget)
-        self.windSpeedLabel.setObjectName(u"windSpeedLabel")
-        self.windSpeedLabel.setMinimumSize(QSize(0, 30))
-        self.windSpeedLabel.setMaximumSize(QSize(16777215, 30))
-        self.windSpeedLabel.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.windSpeedLabel)
-
-        self.trimAngle = QLabel(self.sideInfoWidget)
-        self.trimAngle.setObjectName(u"trimAngle")
-        sizePolicy1.setHeightForWidth(self.trimAngle.sizePolicy().hasHeightForWidth())
-        self.trimAngle.setSizePolicy(sizePolicy1)
-        self.trimAngle.setMinimumSize(QSize(80, 80))
-        self.trimAngle.setMaximumSize(QSize(16777215, 80))
-        self.trimAngle.setAlignment(Qt.AlignCenter)
-        self.trimAngle.setTextInteractionFlags(Qt.NoTextInteraction)
-
-        self.verticalLayout.addWidget(self.trimAngle)
-
-        self.trimAngleLabel = QLabel(self.sideInfoWidget)
-        self.trimAngleLabel.setObjectName(u"trimAngleLabel")
-        self.trimAngleLabel.setMinimumSize(QSize(0, 30))
-        self.trimAngleLabel.setMaximumSize(QSize(16777215, 30))
-        self.trimAngleLabel.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.trimAngleLabel)
-
-        self.listAngle = QLabel(self.sideInfoWidget)
-        self.listAngle.setObjectName(u"listAngle")
-        sizePolicy1.setHeightForWidth(self.listAngle.sizePolicy().hasHeightForWidth())
-        self.listAngle.setSizePolicy(sizePolicy1)
-        self.listAngle.setMinimumSize(QSize(80, 80))
-        self.listAngle.setMaximumSize(QSize(16777215, 80))
-        self.listAngle.setAlignment(Qt.AlignCenter)
-        self.listAngle.setTextInteractionFlags(Qt.NoTextInteraction)
-
-        self.verticalLayout.addWidget(self.listAngle)
-
-        self.listAngleLabel = QLabel(self.sideInfoWidget)
-        self.listAngleLabel.setObjectName(u"listAngleLabel")
-        self.listAngleLabel.setMinimumSize(QSize(0, 30))
-        self.listAngleLabel.setMaximumSize(QSize(16777215, 30))
-        self.listAngleLabel.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.listAngleLabel)
-
-        self.skewAngle = QLabel(self.sideInfoWidget)
-        self.skewAngle.setObjectName(u"skewAngle")
-        sizePolicy1.setHeightForWidth(self.skewAngle.sizePolicy().hasHeightForWidth())
-        self.skewAngle.setSizePolicy(sizePolicy1)
-        self.skewAngle.setMinimumSize(QSize(80, 80))
-        self.skewAngle.setMaximumSize(QSize(16777215, 80))
-        self.skewAngle.setAlignment(Qt.AlignCenter)
-        self.skewAngle.setTextInteractionFlags(Qt.NoTextInteraction)
-
-        self.verticalLayout.addWidget(self.skewAngle)
-
-        self.skewAngleLabel = QLabel(self.sideInfoWidget)
-        self.skewAngleLabel.setObjectName(u"skewAngleLabel")
-        self.skewAngleLabel.setMinimumSize(QSize(0, 30))
-        self.skewAngleLabel.setMaximumSize(QSize(16777215, 30))
-        self.skewAngleLabel.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout.addWidget(self.skewAngleLabel)
-
-
-        self.gridLayout.addWidget(self.sideInfoWidget, 0, 2, 3, 1)
+        self.gridLayout.addWidget(self.pageLabel, 1, 1, 1, 1)
 
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -393,99 +394,130 @@ class Ui_PLCApp(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.craneEntranceButton = QPushButton(self.cctvPage)
         self.craneEntranceButton.setObjectName(u"craneEntranceButton")
-        self.craneEntranceButton.setMinimumSize(QSize(110, 150))
-        self.craneEntranceButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.craneEntranceButton.sizePolicy().hasHeightForWidth())
+        self.craneEntranceButton.setSizePolicy(sizePolicy3)
+        self.craneEntranceButton.setMinimumSize(QSize(100, 100))
+        self.craneEntranceButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.craneEntranceButton, 0, 3, 1, 1)
 
         self.gantryRightWideButton = QPushButton(self.cctvPage)
         self.gantryRightWideButton.setObjectName(u"gantryRightWideButton")
-        self.gantryRightWideButton.setMinimumSize(QSize(110, 150))
-        self.gantryRightWideButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.gantryRightWideButton.sizePolicy().hasHeightForWidth())
+        self.gantryRightWideButton.setSizePolicy(sizePolicy3)
+        self.gantryRightWideButton.setMinimumSize(QSize(100, 100))
+        self.gantryRightWideButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.gantryRightWideButton, 1, 3, 1, 1)
 
         self.boomMotionWideButton = QPushButton(self.cctvPage)
         self.boomMotionWideButton.setObjectName(u"boomMotionWideButton")
-        self.boomMotionWideButton.setMinimumSize(QSize(110, 150))
-        self.boomMotionWideButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.boomMotionWideButton.sizePolicy().hasHeightForWidth())
+        self.boomMotionWideButton.setSizePolicy(sizePolicy3)
+        self.boomMotionWideButton.setMinimumSize(QSize(100, 100))
+        self.boomMotionWideButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.boomMotionWideButton, 0, 5, 1, 1)
 
         self.landingPlatformButton = QPushButton(self.cctvPage)
         self.landingPlatformButton.setObjectName(u"landingPlatformButton")
-        self.landingPlatformButton.setMinimumSize(QSize(110, 150))
-        self.landingPlatformButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.landingPlatformButton.sizePolicy().hasHeightForWidth())
+        self.landingPlatformButton.setSizePolicy(sizePolicy3)
+        self.landingPlatformButton.setMinimumSize(QSize(100, 100))
+        self.landingPlatformButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.landingPlatformButton, 0, 6, 1, 1)
 
         self.boomMotionButton = QPushButton(self.cctvPage)
         self.boomMotionButton.setObjectName(u"boomMotionButton")
-        self.boomMotionButton.setMinimumSize(QSize(110, 150))
-        self.boomMotionButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.boomMotionButton.sizePolicy().hasHeightForWidth())
+        self.boomMotionButton.setSizePolicy(sizePolicy3)
+        self.boomMotionButton.setMinimumSize(QSize(100, 100))
+        self.boomMotionButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.boomMotionButton, 0, 4, 1, 1)
 
         self.gantryRightButton = QPushButton(self.cctvPage)
         self.gantryRightButton.setObjectName(u"gantryRightButton")
-        self.gantryRightButton.setMinimumSize(QSize(110, 150))
-        self.gantryRightButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.gantryRightButton.sizePolicy().hasHeightForWidth())
+        self.gantryRightButton.setSizePolicy(sizePolicy3)
+        self.gantryRightButton.setMinimumSize(QSize(100, 100))
+        self.gantryRightButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.gantryRightButton, 1, 2, 1, 1)
 
         self.highSpreaderButton = QPushButton(self.cctvPage)
         self.highSpreaderButton.setObjectName(u"highSpreaderButton")
-        self.highSpreaderButton.setMinimumSize(QSize(110, 150))
-        self.highSpreaderButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.highSpreaderButton.sizePolicy().hasHeightForWidth())
+        self.highSpreaderButton.setSizePolicy(sizePolicy3)
+        self.highSpreaderButton.setMinimumSize(QSize(100, 100))
+        self.highSpreaderButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.highSpreaderButton, 0, 1, 1, 1)
 
         self.gantryLeftButton = QPushButton(self.cctvPage)
         self.gantryLeftButton.setObjectName(u"gantryLeftButton")
-        self.gantryLeftButton.setMinimumSize(QSize(110, 150))
-        self.gantryLeftButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.gantryLeftButton.sizePolicy().hasHeightForWidth())
+        self.gantryLeftButton.setSizePolicy(sizePolicy3)
+        self.gantryLeftButton.setMinimumSize(QSize(100, 100))
+        self.gantryLeftButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.gantryLeftButton, 1, 0, 1, 1)
 
         self.landingPlatformWideButton = QPushButton(self.cctvPage)
         self.landingPlatformWideButton.setObjectName(u"landingPlatformWideButton")
-        self.landingPlatformWideButton.setMinimumSize(QSize(110, 150))
-        self.landingPlatformWideButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.landingPlatformWideButton.sizePolicy().hasHeightForWidth())
+        self.landingPlatformWideButton.setSizePolicy(sizePolicy3)
+        self.landingPlatformWideButton.setMinimumSize(QSize(100, 100))
+        self.landingPlatformWideButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.landingPlatformWideButton, 1, 6, 1, 1)
 
         self.hatchCoverSingleButton = QPushButton(self.cctvPage)
         self.hatchCoverSingleButton.setObjectName(u"hatchCoverSingleButton")
-        self.hatchCoverSingleButton.setMinimumSize(QSize(110, 150))
-        self.hatchCoverSingleButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.hatchCoverSingleButton.sizePolicy().hasHeightForWidth())
+        self.hatchCoverSingleButton.setSizePolicy(sizePolicy3)
+        self.hatchCoverSingleButton.setMinimumSize(QSize(100, 100))
+        self.hatchCoverSingleButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.hatchCoverSingleButton, 1, 4, 1, 1)
 
         self.hatchCoverSingleWideButton = QPushButton(self.cctvPage)
         self.hatchCoverSingleWideButton.setObjectName(u"hatchCoverSingleWideButton")
-        self.hatchCoverSingleWideButton.setMinimumSize(QSize(110, 150))
-        self.hatchCoverSingleWideButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.hatchCoverSingleWideButton.sizePolicy().hasHeightForWidth())
+        self.hatchCoverSingleWideButton.setSizePolicy(sizePolicy3)
+        self.hatchCoverSingleWideButton.setMinimumSize(QSize(100, 100))
+        self.hatchCoverSingleWideButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.hatchCoverSingleWideButton, 1, 5, 1, 1)
 
         self.spreaderOverviewButton = QPushButton(self.cctvPage)
         self.spreaderOverviewButton.setObjectName(u"spreaderOverviewButton")
-        self.spreaderOverviewButton.setMinimumSize(QSize(110, 150))
-        self.spreaderOverviewButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.spreaderOverviewButton.sizePolicy().hasHeightForWidth())
+        self.spreaderOverviewButton.setSizePolicy(sizePolicy3)
+        self.spreaderOverviewButton.setMinimumSize(QSize(100, 100))
+        self.spreaderOverviewButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.spreaderOverviewButton, 0, 2, 1, 1)
 
         self.gantryLeftWideButton = QPushButton(self.cctvPage)
         self.gantryLeftWideButton.setObjectName(u"gantryLeftWideButton")
-        self.gantryLeftWideButton.setMinimumSize(QSize(110, 150))
-        self.gantryLeftWideButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.gantryLeftWideButton.sizePolicy().hasHeightForWidth())
+        self.gantryLeftWideButton.setSizePolicy(sizePolicy3)
+        self.gantryLeftWideButton.setMinimumSize(QSize(100, 100))
+        self.gantryLeftWideButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.gantryLeftWideButton, 1, 1, 1, 1)
 
         self.normalContainerButton = QPushButton(self.cctvPage)
         self.normalContainerButton.setObjectName(u"normalContainerButton")
-        self.normalContainerButton.setMinimumSize(QSize(110, 150))
-        self.normalContainerButton.setMaximumSize(QSize(150, 150))
+        sizePolicy3.setHeightForWidth(self.normalContainerButton.sizePolicy().hasHeightForWidth())
+        self.normalContainerButton.setSizePolicy(sizePolicy3)
+        self.normalContainerButton.setMinimumSize(QSize(100, 100))
+        self.normalContainerButton.setMaximumSize(QSize(100, 100))
 
         self.gridLayout_2.addWidget(self.normalContainerButton, 0, 0, 1, 1)
 
@@ -496,10 +528,10 @@ class Ui_PLCApp(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.containerSize = QLabel(self.spreaderPage)
         self.containerSize.setObjectName(u"containerSize")
-        sizePolicy1.setHeightForWidth(self.containerSize.sizePolicy().hasHeightForWidth())
-        self.containerSize.setSizePolicy(sizePolicy1)
-        self.containerSize.setMinimumSize(QSize(80, 80))
-        self.containerSize.setMaximumSize(QSize(16777215, 16777215))
+        sizePolicy.setHeightForWidth(self.containerSize.sizePolicy().hasHeightForWidth())
+        self.containerSize.setSizePolicy(sizePolicy)
+        self.containerSize.setMinimumSize(QSize(100, 100))
+        self.containerSize.setMaximumSize(QSize(100, 100))
         self.containerSize.setAlignment(Qt.AlignCenter)
         self.containerSize.setTextInteractionFlags(Qt.NoTextInteraction)
 
@@ -508,7 +540,7 @@ class Ui_PLCApp(object):
         self.hoistSnagLoadIndicator = QToolButton(self.spreaderPage)
         self.hoistSnagLoadIndicator.setObjectName(u"hoistSnagLoadIndicator")
         self.hoistSnagLoadIndicator.setEnabled(False)
-        self.hoistSnagLoadIndicator.setMinimumSize(QSize(120, 100))
+        self.hoistSnagLoadIndicator.setMinimumSize(QSize(100, 100))
         self.hoistSnagLoadIndicator.setIcon(icon1)
         self.hoistSnagLoadIndicator.setIconSize(QSize(80, 80))
         self.hoistSnagLoadIndicator.setCheckable(True)
@@ -518,8 +550,8 @@ class Ui_PLCApp(object):
 
         self.transportModeButton = QPushButton(self.spreaderPage)
         self.transportModeButton.setObjectName(u"transportModeButton")
-        self.transportModeButton.setMinimumSize(QSize(150, 150))
-        self.transportModeButton.setMaximumSize(QSize(150, 150))
+        self.transportModeButton.setMinimumSize(QSize(100, 100))
+        self.transportModeButton.setMaximumSize(QSize(100, 100))
         self.transportModeButton.setCheckable(True)
 
         self.gridLayout_3.addWidget(self.transportModeButton, 0, 0, 1, 1)
@@ -527,7 +559,7 @@ class Ui_PLCApp(object):
         self.ttdsFaultIndicator = QToolButton(self.spreaderPage)
         self.ttdsFaultIndicator.setObjectName(u"ttdsFaultIndicator")
         self.ttdsFaultIndicator.setEnabled(False)
-        self.ttdsFaultIndicator.setMinimumSize(QSize(120, 100))
+        self.ttdsFaultIndicator.setMinimumSize(QSize(100, 100))
         self.ttdsFaultIndicator.setIcon(icon1)
         self.ttdsFaultIndicator.setIconSize(QSize(80, 80))
         self.ttdsFaultIndicator.setCheckable(True)
@@ -537,8 +569,8 @@ class Ui_PLCApp(object):
 
         self.label_22 = QLabel(self.spreaderPage)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setMinimumSize(QSize(150, 20))
-        self.label_22.setMaximumSize(QSize(16777215, 20))
+        self.label_22.setMinimumSize(QSize(100, 20))
+        self.label_22.setMaximumSize(QSize(100, 20))
         self.label_22.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_3.addWidget(self.label_22, 2, 0, 1, 1)
@@ -546,7 +578,7 @@ class Ui_PLCApp(object):
         self.overHeightIndicator = QToolButton(self.spreaderPage)
         self.overHeightIndicator.setObjectName(u"overHeightIndicator")
         self.overHeightIndicator.setEnabled(False)
-        self.overHeightIndicator.setMinimumSize(QSize(120, 100))
+        self.overHeightIndicator.setMinimumSize(QSize(100, 100))
         self.overHeightIndicator.setIcon(icon1)
         self.overHeightIndicator.setIconSize(QSize(80, 80))
         self.overHeightIndicator.setCheckable(True)
@@ -557,7 +589,7 @@ class Ui_PLCApp(object):
         self.speedReducedIndication = QToolButton(self.spreaderPage)
         self.speedReducedIndication.setObjectName(u"speedReducedIndication")
         self.speedReducedIndication.setEnabled(False)
-        self.speedReducedIndication.setMinimumSize(QSize(120, 100))
+        self.speedReducedIndication.setMinimumSize(QSize(100, 100))
         self.speedReducedIndication.setIcon(icon1)
         self.speedReducedIndication.setIconSize(QSize(80, 80))
         self.speedReducedIndication.setCheckable(True)
@@ -568,7 +600,7 @@ class Ui_PLCApp(object):
         self.flippersUpIndication = QToolButton(self.spreaderPage)
         self.flippersUpIndication.setObjectName(u"flippersUpIndication")
         self.flippersUpIndication.setEnabled(False)
-        self.flippersUpIndication.setMinimumSize(QSize(120, 100))
+        self.flippersUpIndication.setMinimumSize(QSize(100, 100))
         self.flippersUpIndication.setIcon(icon1)
         self.flippersUpIndication.setIconSize(QSize(80, 80))
         self.flippersUpIndication.setCheckable(True)
@@ -581,11 +613,210 @@ class Ui_PLCApp(object):
         self.chassisPage.setObjectName(u"chassisPage")
         self.gridLayout_4 = QGridLayout(self.chassisPage)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_7 = QGridLayout()
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setHorizontalSpacing(6)
+        self.gridLayout_7.setContentsMargins(10, -1, -1, -1)
+        self.cpsAlignmentButton = QPushButton(self.chassisPage)
+        self.cpsAlignmentButton.setObjectName(u"cpsAlignmentButton")
+        self.cpsAlignmentButton.setMinimumSize(QSize(80, 80))
+        self.cpsAlignmentButton.setMaximumSize(QSize(80, 80))
+        self.cpsAlignmentButton.setCheckable(True)
+
+        self.gridLayout_7.addWidget(self.cpsAlignmentButton, 0, 0, 1, 1, Qt.AlignHCenter)
+
+        self.cpsDualCycleButton = QPushButton(self.chassisPage)
+        self.cpsDualCycleButton.setObjectName(u"cpsDualCycleButton")
+        self.cpsDualCycleButton.setMinimumSize(QSize(80, 80))
+        self.cpsDualCycleButton.setMaximumSize(QSize(80, 80))
+        self.cpsDualCycleButton.setCheckable(True)
+
+        self.gridLayout_7.addWidget(self.cpsDualCycleButton, 1, 2, 1, 1, Qt.AlignHCenter)
+
+        self.cpsReverseDirectionButton = QPushButton(self.chassisPage)
+        self.cpsReverseDirectionButton.setObjectName(u"cpsReverseDirectionButton")
+        self.cpsReverseDirectionButton.setMinimumSize(QSize(80, 80))
+        self.cpsReverseDirectionButton.setMaximumSize(QSize(80, 80))
+        self.cpsReverseDirectionButton.setStyleSheet(u"")
+        self.cpsReverseDirectionButton.setCheckable(True)
+
+        self.gridLayout_7.addWidget(self.cpsReverseDirectionButton, 0, 2, 1, 1, Qt.AlignHCenter)
+
+        self.cpsTwentyFtButton = QPushButton(self.chassisPage)
+        self.cpsTwentyFtButton.setObjectName(u"cpsTwentyFtButton")
+        self.cpsTwentyFtButton.setMinimumSize(QSize(80, 80))
+        self.cpsTwentyFtButton.setMaximumSize(QSize(80, 80))
+        self.cpsTwentyFtButton.setCheckable(True)
+
+        self.gridLayout_7.addWidget(self.cpsTwentyFtButton, 1, 0, 1, 1, Qt.AlignHCenter)
+
+        self.cpsAlignmentIndication = QToolButton(self.chassisPage)
+        self.cpsAlignmentIndication.setObjectName(u"cpsAlignmentIndication")
+        self.cpsAlignmentIndication.setEnabled(False)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.cpsAlignmentIndication.sizePolicy().hasHeightForWidth())
+        self.cpsAlignmentIndication.setSizePolicy(sizePolicy4)
+        self.cpsAlignmentIndication.setMinimumSize(QSize(0, 100))
+        self.cpsAlignmentIndication.setMaximumSize(QSize(16777215, 100))
+        self.cpsAlignmentIndication.setIcon(icon1)
+        self.cpsAlignmentIndication.setIconSize(QSize(80, 80))
+        self.cpsAlignmentIndication.setCheckable(True)
+        self.cpsAlignmentIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_7.addWidget(self.cpsAlignmentIndication, 0, 1, 1, 1, Qt.AlignHCenter)
+
+        self.cpsReverseDirectionIndication = QToolButton(self.chassisPage)
+        self.cpsReverseDirectionIndication.setObjectName(u"cpsReverseDirectionIndication")
+        self.cpsReverseDirectionIndication.setEnabled(False)
+        sizePolicy4.setHeightForWidth(self.cpsReverseDirectionIndication.sizePolicy().hasHeightForWidth())
+        self.cpsReverseDirectionIndication.setSizePolicy(sizePolicy4)
+        self.cpsReverseDirectionIndication.setMinimumSize(QSize(0, 100))
+        self.cpsReverseDirectionIndication.setMaximumSize(QSize(16777215, 100))
+        self.cpsReverseDirectionIndication.setIcon(icon1)
+        self.cpsReverseDirectionIndication.setIconSize(QSize(80, 80))
+        self.cpsReverseDirectionIndication.setCheckable(True)
+        self.cpsReverseDirectionIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_7.addWidget(self.cpsReverseDirectionIndication, 0, 3, 1, 1, Qt.AlignHCenter)
+
+        self.cpsTwentyFtIndication = QToolButton(self.chassisPage)
+        self.cpsTwentyFtIndication.setObjectName(u"cpsTwentyFtIndication")
+        self.cpsTwentyFtIndication.setEnabled(False)
+        sizePolicy4.setHeightForWidth(self.cpsTwentyFtIndication.sizePolicy().hasHeightForWidth())
+        self.cpsTwentyFtIndication.setSizePolicy(sizePolicy4)
+        self.cpsTwentyFtIndication.setMinimumSize(QSize(0, 100))
+        self.cpsTwentyFtIndication.setMaximumSize(QSize(16777215, 100))
+        self.cpsTwentyFtIndication.setIcon(icon1)
+        self.cpsTwentyFtIndication.setIconSize(QSize(80, 80))
+        self.cpsTwentyFtIndication.setCheckable(True)
+        self.cpsTwentyFtIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_7.addWidget(self.cpsTwentyFtIndication, 1, 1, 1, 1, Qt.AlignHCenter)
+
+        self.cpsDualCycleIndication = QToolButton(self.chassisPage)
+        self.cpsDualCycleIndication.setObjectName(u"cpsDualCycleIndication")
+        self.cpsDualCycleIndication.setEnabled(False)
+        sizePolicy4.setHeightForWidth(self.cpsDualCycleIndication.sizePolicy().hasHeightForWidth())
+        self.cpsDualCycleIndication.setSizePolicy(sizePolicy4)
+        self.cpsDualCycleIndication.setMinimumSize(QSize(0, 100))
+        self.cpsDualCycleIndication.setMaximumSize(QSize(16777215, 100))
+        self.cpsDualCycleIndication.setIcon(icon1)
+        self.cpsDualCycleIndication.setIconSize(QSize(80, 80))
+        self.cpsDualCycleIndication.setCheckable(True)
+        self.cpsDualCycleIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_7.addWidget(self.cpsDualCycleIndication, 1, 3, 1, 1, Qt.AlignHCenter)
+
+
+        self.gridLayout_4.addLayout(self.gridLayout_7, 0, 0, 2, 1)
+
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(-1, -1, 10, -1)
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(35)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setSizeConstraint(QLayout.SetFixedSize)
+        self.label_10 = QLabel(self.chassisPage)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(20, 20))
+        self.label_10.setMaximumSize(QSize(16777215, 20))
+        self.label_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_10)
+
+        self.label_12 = QLabel(self.chassisPage)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMinimumSize(QSize(20, 20))
+        self.label_12.setMaximumSize(QSize(16777215, 20))
+        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_12)
+
+        self.label_11 = QLabel(self.chassisPage)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(20, 20))
+        self.label_11.setMaximumSize(QSize(16777215, 20))
+        self.label_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_11)
+
+        self.label_9 = QLabel(self.chassisPage)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setMinimumSize(QSize(20, 20))
+        self.label_9.setMaximumSize(QSize(16777215, 20))
+        self.label_9.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_9)
+
+        self.label_8 = QLabel(self.chassisPage)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(20, 20))
+        self.label_8.setMaximumSize(QSize(16777215, 20))
+        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_8)
+
+        self.label_7 = QLabel(self.chassisPage)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMinimumSize(QSize(20, 20))
+        self.label_7.setMaximumSize(QSize(16777215, 20))
+        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_7)
+
+        self.label_6 = QLabel(self.chassisPage)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setMinimumSize(QSize(20, 20))
+        self.label_6.setMaximumSize(QSize(16777215, 20))
+        self.label_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_6)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+
+        self.windCompensationSlider = QSlider(self.chassisPage)
+        self.windCompensationSlider.setObjectName(u"windCompensationSlider")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.windCompensationSlider.sizePolicy().hasHeightForWidth())
+        self.windCompensationSlider.setSizePolicy(sizePolicy5)
+        self.windCompensationSlider.setMinimumSize(QSize(403, 50))
+        self.windCompensationSlider.setMaximumSize(QSize(16777215, 50))
+        self.windCompensationSlider.setMinimum(1)
+        self.windCompensationSlider.setMaximum(7)
+        self.windCompensationSlider.setSingleStep(1)
+        self.windCompensationSlider.setPageStep(0)
+        self.windCompensationSlider.setValue(4)
+        self.windCompensationSlider.setOrientation(Qt.Horizontal)
+        self.windCompensationSlider.setInvertedAppearance(False)
+        self.windCompensationSlider.setTickPosition(QSlider.TicksAbove)
+        self.windCompensationSlider.setTickInterval(1)
+
+        self.verticalLayout_3.addWidget(self.windCompensationSlider)
+
+        self.label_2 = QLabel(self.chassisPage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(0, 20))
+        self.label_2.setMaximumSize(QSize(16777215, 20))
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.label_2)
+
+
+        self.gridLayout_4.addLayout(self.verticalLayout_3, 0, 1, 1, 2)
+
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(-1, -1, 10, -1)
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setSpacing(25)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setSizeConstraint(QLayout.SetFixedSize)
         self.label_17 = QLabel(self.chassisPage)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setMinimumSize(QSize(20, 20))
@@ -659,12 +890,9 @@ class Ui_PLCApp(object):
 
         self.laneSelectionSlider = QSlider(self.chassisPage)
         self.laneSelectionSlider.setObjectName(u"laneSelectionSlider")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.laneSelectionSlider.sizePolicy().hasHeightForWidth())
-        self.laneSelectionSlider.setSizePolicy(sizePolicy3)
-        self.laneSelectionSlider.setMinimumSize(QSize(0, 40))
+        sizePolicy5.setHeightForWidth(self.laneSelectionSlider.sizePolicy().hasHeightForWidth())
+        self.laneSelectionSlider.setSizePolicy(sizePolicy5)
+        self.laneSelectionSlider.setMinimumSize(QSize(403, 50))
         self.laneSelectionSlider.setMaximumSize(QSize(16777215, 50))
         self.laneSelectionSlider.setMinimum(1)
         self.laneSelectionSlider.setMaximum(9)
@@ -724,11 +952,11 @@ class Ui_PLCApp(object):
 
         self.label_5 = QLabel(self.chassisPage)
         self.label_5.setObjectName(u"label_5")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy4)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy6)
         self.label_5.setMinimumSize(QSize(0, 20))
         self.label_5.setMaximumSize(QSize(16777215, 20))
         self.label_5.setAlignment(Qt.AlignCenter)
@@ -739,189 +967,7 @@ class Ui_PLCApp(object):
         self.verticalLayout_4.addLayout(self.verticalLayout_2)
 
 
-        self.gridLayout_4.addLayout(self.verticalLayout_4, 1, 2, 1, 2)
-
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setSpacing(35)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label_10 = QLabel(self.chassisPage)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setMinimumSize(QSize(20, 20))
-        self.label_10.setMaximumSize(QSize(16777215, 20))
-        self.label_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_10)
-
-        self.label_12 = QLabel(self.chassisPage)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setMinimumSize(QSize(20, 20))
-        self.label_12.setMaximumSize(QSize(16777215, 20))
-        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_12)
-
-        self.label_11 = QLabel(self.chassisPage)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setMinimumSize(QSize(20, 20))
-        self.label_11.setMaximumSize(QSize(16777215, 20))
-        self.label_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_11)
-
-        self.label_9 = QLabel(self.chassisPage)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setMinimumSize(QSize(20, 20))
-        self.label_9.setMaximumSize(QSize(16777215, 20))
-        self.label_9.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_9)
-
-        self.label_8 = QLabel(self.chassisPage)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setMinimumSize(QSize(20, 20))
-        self.label_8.setMaximumSize(QSize(16777215, 20))
-        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_8)
-
-        self.label_7 = QLabel(self.chassisPage)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setMinimumSize(QSize(20, 20))
-        self.label_7.setMaximumSize(QSize(16777215, 20))
-        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_7)
-
-        self.label_6 = QLabel(self.chassisPage)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setMinimumSize(QSize(20, 20))
-        self.label_6.setMaximumSize(QSize(16777215, 20))
-        self.label_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_6)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
-
-        self.windCompensationSlider = QSlider(self.chassisPage)
-        self.windCompensationSlider.setObjectName(u"windCompensationSlider")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.windCompensationSlider.sizePolicy().hasHeightForWidth())
-        self.windCompensationSlider.setSizePolicy(sizePolicy5)
-        self.windCompensationSlider.setMinimumSize(QSize(0, 40))
-        self.windCompensationSlider.setMaximumSize(QSize(16777215, 50))
-        self.windCompensationSlider.setMinimum(1)
-        self.windCompensationSlider.setMaximum(7)
-        self.windCompensationSlider.setSingleStep(1)
-        self.windCompensationSlider.setPageStep(0)
-        self.windCompensationSlider.setValue(4)
-        self.windCompensationSlider.setOrientation(Qt.Horizontal)
-        self.windCompensationSlider.setInvertedAppearance(False)
-        self.windCompensationSlider.setTickPosition(QSlider.TicksAbove)
-        self.windCompensationSlider.setTickInterval(1)
-
-        self.verticalLayout_3.addWidget(self.windCompensationSlider)
-
-        self.label_2 = QLabel(self.chassisPage)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(0, 20))
-        self.label_2.setMaximumSize(QSize(16777215, 20))
-        self.label_2.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_3.addWidget(self.label_2)
-
-
-        self.gridLayout_4.addLayout(self.verticalLayout_3, 0, 2, 1, 2)
-
-        self.gridLayout_7 = QGridLayout()
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.cpsAlignmentButton = QPushButton(self.chassisPage)
-        self.cpsAlignmentButton.setObjectName(u"cpsAlignmentButton")
-        self.cpsAlignmentButton.setMinimumSize(QSize(80, 80))
-        self.cpsAlignmentButton.setMaximumSize(QSize(150, 150))
-        self.cpsAlignmentButton.setCheckable(True)
-
-        self.gridLayout_7.addWidget(self.cpsAlignmentButton, 0, 0, 1, 1)
-
-        self.cpsTwentyFtIndication = QToolButton(self.chassisPage)
-        self.cpsTwentyFtIndication.setObjectName(u"cpsTwentyFtIndication")
-        self.cpsTwentyFtIndication.setEnabled(False)
-        self.cpsTwentyFtIndication.setMinimumSize(QSize(0, 0))
-        self.cpsTwentyFtIndication.setMaximumSize(QSize(16777215, 120))
-        self.cpsTwentyFtIndication.setIcon(icon1)
-        self.cpsTwentyFtIndication.setIconSize(QSize(80, 80))
-        self.cpsTwentyFtIndication.setCheckable(True)
-        self.cpsTwentyFtIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsTwentyFtIndication, 0, 2, 1, 1, Qt.AlignHCenter)
-
-        self.cpsTwentyFtButton = QPushButton(self.chassisPage)
-        self.cpsTwentyFtButton.setObjectName(u"cpsTwentyFtButton")
-        self.cpsTwentyFtButton.setMinimumSize(QSize(80, 80))
-        self.cpsTwentyFtButton.setMaximumSize(QSize(150, 150))
-        self.cpsTwentyFtButton.setCheckable(True)
-
-        self.gridLayout_7.addWidget(self.cpsTwentyFtButton, 1, 0, 1, 1)
-
-        self.cpsDualCycleButton = QPushButton(self.chassisPage)
-        self.cpsDualCycleButton.setObjectName(u"cpsDualCycleButton")
-        self.cpsDualCycleButton.setMinimumSize(QSize(80, 80))
-        self.cpsDualCycleButton.setMaximumSize(QSize(150, 150))
-        self.cpsDualCycleButton.setCheckable(True)
-
-        self.gridLayout_7.addWidget(self.cpsDualCycleButton, 1, 1, 1, 1)
-
-        self.cpsReverseDirectionButton = QPushButton(self.chassisPage)
-        self.cpsReverseDirectionButton.setObjectName(u"cpsReverseDirectionButton")
-        self.cpsReverseDirectionButton.setMinimumSize(QSize(80, 80))
-        self.cpsReverseDirectionButton.setMaximumSize(QSize(150, 150))
-        self.cpsReverseDirectionButton.setStyleSheet(u"")
-        self.cpsReverseDirectionButton.setCheckable(True)
-
-        self.gridLayout_7.addWidget(self.cpsReverseDirectionButton, 0, 1, 1, 1)
-
-        self.cpsDualCycleIndication = QToolButton(self.chassisPage)
-        self.cpsDualCycleIndication.setObjectName(u"cpsDualCycleIndication")
-        self.cpsDualCycleIndication.setEnabled(False)
-        self.cpsDualCycleIndication.setMinimumSize(QSize(0, 0))
-        self.cpsDualCycleIndication.setMaximumSize(QSize(16777215, 120))
-        self.cpsDualCycleIndication.setIcon(icon1)
-        self.cpsDualCycleIndication.setIconSize(QSize(80, 80))
-        self.cpsDualCycleIndication.setCheckable(True)
-        self.cpsDualCycleIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsDualCycleIndication, 1, 2, 1, 1)
-
-        self.cpsReverseDirectionIndication = QToolButton(self.chassisPage)
-        self.cpsReverseDirectionIndication.setObjectName(u"cpsReverseDirectionIndication")
-        self.cpsReverseDirectionIndication.setEnabled(False)
-        self.cpsReverseDirectionIndication.setMinimumSize(QSize(0, 0))
-        self.cpsReverseDirectionIndication.setMaximumSize(QSize(16777215, 120))
-        self.cpsReverseDirectionIndication.setIcon(icon1)
-        self.cpsReverseDirectionIndication.setIconSize(QSize(80, 80))
-        self.cpsReverseDirectionIndication.setCheckable(True)
-        self.cpsReverseDirectionIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsReverseDirectionIndication, 0, 3, 1, 1)
-
-        self.cpsAlignmentIndication = QToolButton(self.chassisPage)
-        self.cpsAlignmentIndication.setObjectName(u"cpsAlignmentIndication")
-        self.cpsAlignmentIndication.setEnabled(False)
-        self.cpsAlignmentIndication.setMinimumSize(QSize(0, 120))
-        self.cpsAlignmentIndication.setMaximumSize(QSize(16777215, 120))
-        self.cpsAlignmentIndication.setIcon(icon1)
-        self.cpsAlignmentIndication.setIconSize(QSize(80, 80))
-        self.cpsAlignmentIndication.setCheckable(True)
-        self.cpsAlignmentIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsAlignmentIndication, 1, 3, 1, 1)
-
-
-        self.gridLayout_4.addLayout(self.gridLayout_7, 0, 0, 2, 1)
+        self.gridLayout_4.addLayout(self.verticalLayout_4, 1, 1, 1, 2)
 
         self.stackedWidget.addWidget(self.chassisPage)
         self.boomControlPage = QWidget()
@@ -974,14 +1020,6 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.floodLightButton, 0, 4, 1, 1)
 
-        self.walkwayLightButton = QPushButton(self.boomControlPage)
-        self.walkwayLightButton.setObjectName(u"walkwayLightButton")
-        self.walkwayLightButton.setMinimumSize(QSize(100, 100))
-        self.walkwayLightButton.setMaximumSize(QSize(100, 100))
-        self.walkwayLightButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.walkwayLightButton, 0, 5, 1, 1)
-
         self.boomDownButton = QPushButton(self.boomControlPage)
         self.boomDownButton.setObjectName(u"boomDownButton")
         self.boomDownButton.setMinimumSize(QSize(100, 100))
@@ -1009,28 +1047,6 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.boomStopButton, 1, 2, 1, 1)
 
-        self.gantryStormPin = QToolButton(self.boomControlPage)
-        self.gantryStormPin.setObjectName(u"gantryStormPin")
-        self.gantryStormPin.setEnabled(False)
-        self.gantryStormPin.setMinimumSize(QSize(100, 100))
-        self.gantryStormPin.setIcon(icon1)
-        self.gantryStormPin.setIconSize(QSize(80, 80))
-        self.gantryStormPin.setCheckable(True)
-        self.gantryStormPin.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.gantryStormPin, 1, 3, 1, 1)
-
-        self.gantryMotorBrakes = QToolButton(self.boomControlPage)
-        self.gantryMotorBrakes.setObjectName(u"gantryMotorBrakes")
-        self.gantryMotorBrakes.setEnabled(False)
-        self.gantryMotorBrakes.setMinimumSize(QSize(100, 100))
-        self.gantryMotorBrakes.setIcon(icon1)
-        self.gantryMotorBrakes.setIconSize(QSize(80, 80))
-        self.gantryMotorBrakes.setCheckable(True)
-        self.gantryMotorBrakes.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.gantryMotorBrakes, 1, 4, 1, 1)
-
         self.bhCycleCompleteIndicator = QToolButton(self.boomControlPage)
         self.bhCycleCompleteIndicator.setObjectName(u"bhCycleCompleteIndicator")
         self.bhCycleCompleteIndicator.setEnabled(False)
@@ -1053,28 +1069,6 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.gantryTieDown, 2, 0, 1, 1)
 
-        self.highWindSpeed = QToolButton(self.boomControlPage)
-        self.highWindSpeed.setObjectName(u"highWindSpeed")
-        self.highWindSpeed.setEnabled(False)
-        self.highWindSpeed.setMinimumSize(QSize(100, 100))
-        self.highWindSpeed.setIcon(icon1)
-        self.highWindSpeed.setIconSize(QSize(80, 80))
-        self.highWindSpeed.setCheckable(True)
-        self.highWindSpeed.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.highWindSpeed, 2, 1, 1, 1)
-
-        self.controlAtQRC = QToolButton(self.boomControlPage)
-        self.controlAtQRC.setObjectName(u"controlAtQRC")
-        self.controlAtQRC.setEnabled(False)
-        self.controlAtQRC.setMinimumSize(QSize(100, 100))
-        self.controlAtQRC.setIcon(icon1)
-        self.controlAtQRC.setIconSize(QSize(80, 80))
-        self.controlAtQRC.setCheckable(True)
-        self.controlAtQRC.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.controlAtQRC, 2, 2, 1, 1)
-
         self.floodLightOnIndicator = QToolButton(self.boomControlPage)
         self.floodLightOnIndicator.setObjectName(u"floodLightOnIndicator")
         self.floodLightOnIndicator.setEnabled(False)
@@ -1084,7 +1078,15 @@ class Ui_PLCApp(object):
         self.floodLightOnIndicator.setCheckable(True)
         self.floodLightOnIndicator.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_5.addWidget(self.floodLightOnIndicator, 2, 3, 1, 1)
+        self.gridLayout_5.addWidget(self.floodLightOnIndicator, 0, 5, 1, 1)
+
+        self.walkwayLightButton = QPushButton(self.boomControlPage)
+        self.walkwayLightButton.setObjectName(u"walkwayLightButton")
+        self.walkwayLightButton.setMinimumSize(QSize(100, 100))
+        self.walkwayLightButton.setMaximumSize(QSize(100, 100))
+        self.walkwayLightButton.setCheckable(True)
+
+        self.gridLayout_5.addWidget(self.walkwayLightButton, 1, 3, 1, 1)
 
         self.walkawayLightOnIndicator = QToolButton(self.boomControlPage)
         self.walkawayLightOnIndicator.setObjectName(u"walkawayLightOnIndicator")
@@ -1095,28 +1097,64 @@ class Ui_PLCApp(object):
         self.walkawayLightOnIndicator.setCheckable(True)
         self.walkawayLightOnIndicator.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_5.addWidget(self.walkawayLightOnIndicator, 2, 4, 1, 1)
+        self.gridLayout_5.addWidget(self.walkawayLightOnIndicator, 1, 4, 1, 1)
+
+        self.gantryStormPin = QToolButton(self.boomControlPage)
+        self.gantryStormPin.setObjectName(u"gantryStormPin")
+        self.gantryStormPin.setEnabled(False)
+        self.gantryStormPin.setMinimumSize(QSize(100, 100))
+        self.gantryStormPin.setIcon(icon1)
+        self.gantryStormPin.setIconSize(QSize(80, 80))
+        self.gantryStormPin.setCheckable(True)
+        self.gantryStormPin.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.gantryStormPin, 2, 1, 1, 1)
+
+        self.gantryMotorBrakes = QToolButton(self.boomControlPage)
+        self.gantryMotorBrakes.setObjectName(u"gantryMotorBrakes")
+        self.gantryMotorBrakes.setEnabled(False)
+        self.gantryMotorBrakes.setMinimumSize(QSize(100, 100))
+        self.gantryMotorBrakes.setIcon(icon1)
+        self.gantryMotorBrakes.setIconSize(QSize(80, 80))
+        self.gantryMotorBrakes.setCheckable(True)
+        self.gantryMotorBrakes.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.gantryMotorBrakes, 2, 2, 1, 1)
+
+        self.controlAtQRC = QToolButton(self.boomControlPage)
+        self.controlAtQRC.setObjectName(u"controlAtQRC")
+        self.controlAtQRC.setEnabled(False)
+        self.controlAtQRC.setMinimumSize(QSize(100, 100))
+        self.controlAtQRC.setIcon(icon1)
+        self.controlAtQRC.setIconSize(QSize(80, 80))
+        self.controlAtQRC.setCheckable(True)
+        self.controlAtQRC.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.controlAtQRC, 2, 4, 1, 1)
+
+        self.highWindSpeed = QToolButton(self.boomControlPage)
+        self.highWindSpeed.setObjectName(u"highWindSpeed")
+        self.highWindSpeed.setEnabled(False)
+        self.highWindSpeed.setMinimumSize(QSize(100, 100))
+        self.highWindSpeed.setIcon(icon1)
+        self.highWindSpeed.setIconSize(QSize(80, 80))
+        self.highWindSpeed.setCheckable(True)
+        self.highWindSpeed.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.highWindSpeed, 2, 3, 1, 1)
 
         self.stackedWidget.addWidget(self.boomControlPage)
         self.assistFunctionsPage = QWidget()
         self.assistFunctionsPage.setObjectName(u"assistFunctionsPage")
         self.gridLayout_6 = QGridLayout(self.assistFunctionsPage)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.skewControlButton = QPushButton(self.assistFunctionsPage)
-        self.skewControlButton.setObjectName(u"skewControlButton")
-        self.skewControlButton.setMinimumSize(QSize(150, 150))
-        self.skewControlButton.setMaximumSize(QSize(150, 150))
-        self.skewControlButton.setCheckable(True)
-
-        self.gridLayout_6.addWidget(self.skewControlButton, 0, 0, 1, 1)
-
         self.swayControlButton = QPushButton(self.assistFunctionsPage)
         self.swayControlButton.setObjectName(u"swayControlButton")
-        self.swayControlButton.setMinimumSize(QSize(150, 150))
-        self.swayControlButton.setMaximumSize(QSize(150, 150))
+        self.swayControlButton.setMinimumSize(QSize(100, 100))
+        self.swayControlButton.setMaximumSize(QSize(100, 100))
         self.swayControlButton.setCheckable(True)
 
-        self.gridLayout_6.addWidget(self.swayControlButton, 0, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.swayControlButton, 0, 2, 1, 1)
 
         self.skewControlIndication = QToolButton(self.assistFunctionsPage)
         self.skewControlIndication.setObjectName(u"skewControlIndication")
@@ -1127,18 +1165,26 @@ class Ui_PLCApp(object):
         self.skewControlIndication.setCheckable(True)
         self.skewControlIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.skewControlIndication, 0, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.skewControlIndication, 0, 1, 1, 1)
 
-        self.autoParkingIndication = QToolButton(self.assistFunctionsPage)
-        self.autoParkingIndication.setObjectName(u"autoParkingIndication")
-        self.autoParkingIndication.setEnabled(False)
-        self.autoParkingIndication.setMinimumSize(QSize(120, 100))
-        self.autoParkingIndication.setIcon(icon1)
-        self.autoParkingIndication.setIconSize(QSize(80, 80))
-        self.autoParkingIndication.setCheckable(True)
-        self.autoParkingIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.skewControlButton = QPushButton(self.assistFunctionsPage)
+        self.skewControlButton.setObjectName(u"skewControlButton")
+        self.skewControlButton.setMinimumSize(QSize(100, 100))
+        self.skewControlButton.setMaximumSize(QSize(100, 100))
+        self.skewControlButton.setCheckable(True)
 
-        self.gridLayout_6.addWidget(self.autoParkingIndication, 0, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.skewControlButton, 0, 0, 1, 1)
+
+        self.swayControlIndication = QToolButton(self.assistFunctionsPage)
+        self.swayControlIndication.setObjectName(u"swayControlIndication")
+        self.swayControlIndication.setEnabled(False)
+        self.swayControlIndication.setMinimumSize(QSize(120, 100))
+        self.swayControlIndication.setIcon(icon1)
+        self.swayControlIndication.setIconSize(QSize(80, 80))
+        self.swayControlIndication.setCheckable(True)
+        self.swayControlIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_6.addWidget(self.swayControlIndication, 0, 3, 1, 1)
 
         self.autoSequenceIndication = QToolButton(self.assistFunctionsPage)
         self.autoSequenceIndication.setObjectName(u"autoSequenceIndication")
@@ -1150,6 +1196,17 @@ class Ui_PLCApp(object):
         self.autoSequenceIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
         self.gridLayout_6.addWidget(self.autoSequenceIndication, 1, 0, 1, 1)
+
+        self.autoParkingIndication = QToolButton(self.assistFunctionsPage)
+        self.autoParkingIndication.setObjectName(u"autoParkingIndication")
+        self.autoParkingIndication.setEnabled(False)
+        self.autoParkingIndication.setMinimumSize(QSize(120, 100))
+        self.autoParkingIndication.setIcon(icon1)
+        self.autoParkingIndication.setIconSize(QSize(80, 80))
+        self.autoParkingIndication.setCheckable(True)
+        self.autoParkingIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_6.addWidget(self.autoParkingIndication, 0, 4, 1, 1)
 
         self.autoStartIndication = QToolButton(self.assistFunctionsPage)
         self.autoStartIndication.setObjectName(u"autoStartIndication")
@@ -1193,18 +1250,7 @@ class Ui_PLCApp(object):
         self.mainTrolleyParkingIndication.setCheckable(True)
         self.mainTrolleyParkingIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.mainTrolleyParkingIndication, 2, 0, 1, 1)
-
-        self.swayControlIndication = QToolButton(self.assistFunctionsPage)
-        self.swayControlIndication.setObjectName(u"swayControlIndication")
-        self.swayControlIndication.setEnabled(False)
-        self.swayControlIndication.setMinimumSize(QSize(120, 100))
-        self.swayControlIndication.setIcon(icon1)
-        self.swayControlIndication.setIconSize(QSize(80, 80))
-        self.swayControlIndication.setCheckable(True)
-        self.swayControlIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_6.addWidget(self.swayControlIndication, 2, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.mainTrolleyParkingIndication, 1, 4, 1, 1)
 
         self.autoHeightIndication = QToolButton(self.assistFunctionsPage)
         self.autoHeightIndication.setObjectName(u"autoHeightIndication")
@@ -1215,7 +1261,7 @@ class Ui_PLCApp(object):
         self.autoHeightIndication.setCheckable(True)
         self.autoHeightIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoHeightIndication, 2, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.autoHeightIndication, 3, 0, 1, 1)
 
         self.hatchCoverHeightIndication = QToolButton(self.assistFunctionsPage)
         self.hatchCoverHeightIndication.setObjectName(u"hatchCoverHeightIndication")
@@ -1226,7 +1272,7 @@ class Ui_PLCApp(object):
         self.hatchCoverHeightIndication.setCheckable(True)
         self.hatchCoverHeightIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.hatchCoverHeightIndication, 2, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.hatchCoverHeightIndication, 3, 1, 1, 1)
 
         self.stackedWidget.addWidget(self.assistFunctionsPage)
 
@@ -1244,6 +1290,16 @@ class Ui_PLCApp(object):
 #if QT_CONFIG(accessibility)
         PLCApp.setAccessibleName(QCoreApplication.translate("PLCApp", u"mainwindow", None))
 #endif // QT_CONFIG(accessibility)
+        self.hoistLoad.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
+        self.hoistLoadLabel.setText(QCoreApplication.translate("PLCApp", u"Hoist Load", None))
+        self.windSpeed.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
+        self.windSpeedLabel.setText(QCoreApplication.translate("PLCApp", u"Wind Speed", None))
+        self.trimAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
+        self.trimAngleLabel.setText(QCoreApplication.translate("PLCApp", u"Trim Angle", None))
+        self.listAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
+        self.listAngleLabel.setText(QCoreApplication.translate("PLCApp", u"List Angle", None))
+        self.skewAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
+        self.skewAngleLabel.setText(QCoreApplication.translate("PLCApp", u"Skew Angle", None))
         self.spreaderTWLUnlocked.setText(QCoreApplication.translate("PLCApp", u"Spreader Twl \n"
 "Unlocked", None))
         self.spreaderTWLLocked.setText(QCoreApplication.translate("PLCApp", u"Spreader Twl \n"
@@ -1260,7 +1316,6 @@ class Ui_PLCApp(object):
 "Blocking", None))
         self.cpsActive.setText(QCoreApplication.translate("PLCApp", u"CPS Active\n"
 "", None))
-        self.pageLabel.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
         self.reloadButton.setText("")
         self.connectButton.setText("")
         self.cctvButton.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
@@ -1268,16 +1323,7 @@ class Ui_PLCApp(object):
         self.chassisButton.setText(QCoreApplication.translate("PLCApp", u"Chassis", None))
         self.boomControlButton.setText(QCoreApplication.translate("PLCApp", u"Boom Control", None))
         self.assistFunctionsButton.setText(QCoreApplication.translate("PLCApp", u"Assist Functions", None))
-        self.hoistLoad.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
-        self.hoistLoadLabel.setText(QCoreApplication.translate("PLCApp", u"Hoist Load", None))
-        self.windSpeed.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
-        self.windSpeedLabel.setText(QCoreApplication.translate("PLCApp", u"Wind Speed", None))
-        self.trimAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
-        self.trimAngleLabel.setText(QCoreApplication.translate("PLCApp", u"Trim Angle", None))
-        self.listAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
-        self.listAngleLabel.setText(QCoreApplication.translate("PLCApp", u"List Angle", None))
-        self.skewAngle.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
-        self.skewAngleLabel.setText(QCoreApplication.translate("PLCApp", u"Skew Angle", None))
+        self.pageLabel.setText(QCoreApplication.translate("PLCApp", u"CCTV", None))
         self.craneEntranceButton.setText(QCoreApplication.translate("PLCApp", u"Crane\n"
 "Entrance", None))
         self.gantryRightWideButton.setText(QCoreApplication.translate("PLCApp", u"Gantry Right\n"
@@ -1307,7 +1353,8 @@ class Ui_PLCApp(object):
         self.containerSize.setText(QCoreApplication.translate("PLCApp", u"0.6", None))
         self.hoistSnagLoadIndicator.setText(QCoreApplication.translate("PLCApp", u"Hoist Snag\n"
 "Load", None))
-        self.transportModeButton.setText(QCoreApplication.translate("PLCApp", u"Personnel Tansport\n"
+        self.transportModeButton.setText(QCoreApplication.translate("PLCApp", u"Personnel\n"
+"Tansport\n"
 "Mode", None))
         self.ttdsFaultIndicator.setText(QCoreApplication.translate("PLCApp", u"TTDS Fault\n"
 "", None))
@@ -1318,6 +1365,31 @@ class Ui_PLCApp(object):
 "Speed Reduced", None))
         self.flippersUpIndication.setText(QCoreApplication.translate("PLCApp", u"All Flippers\n"
 "Up", None))
+        self.cpsAlignmentButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
+"Alignment", None))
+        self.cpsDualCycleButton.setText(QCoreApplication.translate("PLCApp", u"CPS Dual\n"
+"Cycle", None))
+        self.cpsReverseDirectionButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
+"Reverse\n"
+"Direction", None))
+        self.cpsTwentyFtButton.setText(QCoreApplication.translate("PLCApp", u"CPS 20Ft\n"
+"Forward", None))
+        self.cpsAlignmentIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Alignment\n"
+"", None))
+        self.cpsReverseDirectionIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Reverse\n"
+"Direction", None))
+        self.cpsTwentyFtIndication.setText(QCoreApplication.translate("PLCApp", u"CPS 20 Ft\n"
+"Indication", None))
+        self.cpsDualCycleIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Dual Cycle\n"
+"Indication", None))
+        self.label_10.setText(QCoreApplication.translate("PLCApp", u"-3", None))
+        self.label_12.setText(QCoreApplication.translate("PLCApp", u"-2", None))
+        self.label_11.setText(QCoreApplication.translate("PLCApp", u"-1", None))
+        self.label_9.setText(QCoreApplication.translate("PLCApp", u"0", None))
+        self.label_8.setText(QCoreApplication.translate("PLCApp", u"1", None))
+        self.label_7.setText(QCoreApplication.translate("PLCApp", u"2", None))
+        self.label_6.setText(QCoreApplication.translate("PLCApp", u"3", None))
+        self.label_2.setText(QCoreApplication.translate("PLCApp", u"CPS Wind Compensation", None))
         self.label_17.setText(QCoreApplication.translate("PLCApp", u"1", None))
         self.label_21.setText(QCoreApplication.translate("PLCApp", u"2", None))
         self.label_20.setText(QCoreApplication.translate("PLCApp", u"3", None))
@@ -1331,31 +1403,6 @@ class Ui_PLCApp(object):
         self.label.setText(QCoreApplication.translate("PLCApp", u"0", None))
         self.label_3.setText(QCoreApplication.translate("PLCApp", u"T      R", None))
         self.label_5.setText(QCoreApplication.translate("PLCApp", u"CPS Loading ", None))
-        self.label_10.setText(QCoreApplication.translate("PLCApp", u"-3", None))
-        self.label_12.setText(QCoreApplication.translate("PLCApp", u"-2", None))
-        self.label_11.setText(QCoreApplication.translate("PLCApp", u"-1", None))
-        self.label_9.setText(QCoreApplication.translate("PLCApp", u"0", None))
-        self.label_8.setText(QCoreApplication.translate("PLCApp", u"1", None))
-        self.label_7.setText(QCoreApplication.translate("PLCApp", u"2", None))
-        self.label_6.setText(QCoreApplication.translate("PLCApp", u"3", None))
-        self.label_2.setText(QCoreApplication.translate("PLCApp", u"CPS Wind Compensation", None))
-        self.cpsAlignmentButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
-"Alignment", None))
-        self.cpsTwentyFtIndication.setText(QCoreApplication.translate("PLCApp", u"CPS 20 Ft\n"
-"Indication", None))
-        self.cpsTwentyFtButton.setText(QCoreApplication.translate("PLCApp", u"CPS 20Ft\n"
-"Forward", None))
-        self.cpsDualCycleButton.setText(QCoreApplication.translate("PLCApp", u"CPS Dual\n"
-"Cycle", None))
-        self.cpsReverseDirectionButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
-"Reverse\n"
-"Direction", None))
-        self.cpsDualCycleIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Dual Cycle\n"
-"Indication", None))
-        self.cpsReverseDirectionIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Reverse\n"
-"Direction", None))
-        self.cpsAlignmentIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Alignment\n"
-"", None))
         self.boomUpButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
 "60 Deg", None))
         self.boomUpSixtyIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
@@ -1366,38 +1413,40 @@ class Ui_PLCApp(object):
 "Full", None))
         self.floodLightButton.setText(QCoreApplication.translate("PLCApp", u"Flood\n"
 "Light On", None))
-        self.walkwayLightButton.setText(QCoreApplication.translate("PLCApp", u"Walkway\n"
-"Light On", None))
         self.boomDownButton.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
         self.boomDownIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
         self.boomStopButton.setText(QCoreApplication.translate("PLCApp", u"Boom Stop", None))
+        self.bhCycleCompleteIndicator.setText(QCoreApplication.translate("PLCApp", u"BH Cycle\n"
+"Complete", None))
+        self.gantryTieDown.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
+"Tie Down\n"
+"Not Released", None))
+        self.floodLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Flood Light\n"
+"On", None))
+        self.walkwayLightButton.setText(QCoreApplication.translate("PLCApp", u"Walkway\n"
+"Light On", None))
+        self.walkawayLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Walk Away\n"
+"Light On", None))
         self.gantryStormPin.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
 "Storm Pin\n"
 "Not Released", None))
         self.gantryMotorBrakes.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
 "Motor Brakes\n"
 "Open", None))
-        self.bhCycleCompleteIndicator.setText(QCoreApplication.translate("PLCApp", u"BH Cycle\n"
-"Complete", None))
-        self.gantryTieDown.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
-"Tie Down\n"
-"Not Released", None))
-        self.highWindSpeed.setText(QCoreApplication.translate("PLCApp", u"High Wind\n"
-"Speed", None))
         self.controlAtQRC.setText(QCoreApplication.translate("PLCApp", u"Control at\n"
 "RQC", None))
-        self.floodLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Flood Light\n"
-"On", None))
-        self.walkawayLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Walk Away\n"
-"Light On", None))
-        self.skewControlButton.setText(QCoreApplication.translate("PLCApp", u"Skew Control", None))
+        self.highWindSpeed.setText(QCoreApplication.translate("PLCApp", u"High Wind\n"
+"Speed", None))
         self.swayControlButton.setText(QCoreApplication.translate("PLCApp", u"Sway Control", None))
         self.skewControlIndication.setText(QCoreApplication.translate("PLCApp", u"Skew\n"
 "Control On", None))
-        self.autoParkingIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
-"Parking", None))
+        self.skewControlButton.setText(QCoreApplication.translate("PLCApp", u"Skew Control", None))
+        self.swayControlIndication.setText(QCoreApplication.translate("PLCApp", u"Sway\n"
+"Control On", None))
         self.autoSequenceIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
 "Sequence", None))
+        self.autoParkingIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
+"Parking", None))
         self.autoStartIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
 "Start", None))
         self.autoTwistLockIndication.setText(QCoreApplication.translate("PLCApp", u"Automatic\n"
@@ -1407,8 +1456,6 @@ class Ui_PLCApp(object):
         self.mainTrolleyParkingIndication.setText(QCoreApplication.translate("PLCApp", u"Main Trolley\n"
 "On Parking\n"
 "Pos", None))
-        self.swayControlIndication.setText(QCoreApplication.translate("PLCApp", u"Sway\n"
-"Control On", None))
         self.autoHeightIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
 "Height", None))
         self.hatchCoverHeightIndication.setText(QCoreApplication.translate("PLCApp", u"Hatch Cover\n"
