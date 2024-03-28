@@ -202,23 +202,25 @@ class PLCApp(Ui_PLCApp, QMainWindow):
     def reloadConfig(self):
         with open('buttons_config.json') as fp:
             styling = json.load(fp)
+            
+        self.buttonStyling = styling['PushButtons']
 
-        spreaderPageConfig = styling['SpreaderPage']
-        chassisPageConfig = styling['ChassisPage']
-        boomControlPageConfig = styling['BoomControlPage']
-        assistFunctionsPageConfig = styling['AssistFunctionsPage']
-
-        self.spreaderPage.setStyleSheet(spreaderPageConfig['transportModeButton'])
+        self.transportModeButton.setStyleSheet(self.buttonStyling['Inactive'])
         
-        self.chassisPage.setStyleSheet(chassisPageConfig['cpsAlignmentButton'] + chassisPageConfig['cpsReverseDirectionButton']
-                                       + chassisPageConfig['cpsTwentyFtButton'] + chassisPageConfig['cpsDualCycleButton'])
+        self.cpsAlignmentButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.cpsReverseDirectionButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.cpsTwentyFtButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.cpsDualCycleButton.setStyleSheet(self.buttonStyling['Inactive'])
 
-        self.boomControlPage.setStyleSheet(boomControlPageConfig['boomUpButton'] + boomControlPageConfig['boomUpFullButton']
-                                        + boomControlPageConfig['boomStopButton'] + boomControlPageConfig['boomDownButton']
-                                        + boomControlPageConfig['gantryTieDownNotReleasedButton'] + boomControlPageConfig['gantryStormPinNotReleasedButton']
-                                        + boomControlPageConfig['gantryMotorBrakesOpenButton'] + boomControlPageConfig['floodLightButton']
-                                        + boomControlPageConfig['walkwayLightButton'])
-        self.assistFunctionsPage.setStyleSheet(assistFunctionsPageConfig['skewControlButton'] + assistFunctionsPageConfig['swayControlButton'])
+        self.boomUpButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.boomUpFullButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.boomStopButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.boomDownButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.floodLightButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.walkwayLightButton.setStyleSheet(self.buttonStyling['Inactive'])
+
+        self.skewControlButton.setStyleSheet(self.buttonStyling['Inactive'])
+        self.swayControlButton.setStyleSheet(self.buttonStyling['Inactive'])
 
     def closeEvent(self, event: QCloseEvent) -> None:
         self.destroyThreadsandExit.emit()
@@ -408,37 +410,70 @@ class Controller:
         self.plcApp.cpsActive.setEnabled(readingsList[7])
         
     def setPagesIndicators(self, readingsList):
-        self.plcApp.boomUpSixtyIndication.setEnabled(readingsList[0])
-        self.plcApp.boomUpFullIndication.setEnabled(readingsList[1])
-        self.plcApp.boomDownIndication.setEnabled(readingsList[2])
+        if readingsList[0]:
+            self.plcApp.boomUpButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.boomUpButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[1]:
+            self.plcApp.boomUpFullButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.boomUpFullButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[2]:
+            self.plcApp.boomDownButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.boomDownButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
         self.plcApp.bhCycleCompleteIndicator.setEnabled(readingsList[3])
         self.plcApp.gantryTieDown.setEnabled(readingsList[4])
         self.plcApp.gantryStormPin.setEnabled(readingsList[5])
         self.plcApp.gantryMotorBrakes.setEnabled(readingsList[6])
         self.plcApp.highWindSpeed.setEnabled(readingsList[7])
         self.plcApp.controlAtQRC.setEnabled(readingsList[8])
-        self.plcApp.cpsAlignmentIndication.setEnabled(readingsList[9])
-        self.plcApp.cpsReverseDirectionIndication.setEnabled(readingsList[10])
-        self.plcApp.cpsTwentyFtIndication.setEnabled(readingsList[11])
-        self.plcApp.cpsDualCycleIndication.setEnabled(readingsList[12])
+        if readingsList[9]:
+            self.plcApp.cpsAlignmentButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.cpsAlignmentButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[10]:
+            self.plcApp.cpsReverseDirectionButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.cpsReverseDirectionButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[11]:
+            self.plcApp.cpsTwentyFtButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.cpsTwentyFtButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[12]:
+            self.plcApp.cpsDualCycleButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.cpsDualCycleButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
         self.plcApp.overHeightIndicator.setEnabled(readingsList[13])
         self.plcApp.ttdsFaultIndicator.setEnabled(readingsList[14])
         self.plcApp.hoistSnagLoadIndicator.setEnabled(readingsList[15])
         self.plcApp.speedReducedIndication.setEnabled(readingsList[16])
         self.plcApp.flippersUpIndication.setEnabled(readingsList[17])
-        self.plcApp.skewControlIndication.setEnabled(readingsList[18])
+        if readingsList[18]:
+            self.plcApp.skewControlButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.skewControlButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
         self.plcApp.autoParkingIndication.setEnabled(readingsList[19])
         self.plcApp.autoSequenceIndication.setEnabled(readingsList[20])
         self.plcApp.autoStartIndication.setEnabled(readingsList[21])
         self.plcApp.autoTwistLockIndication.setEnabled(readingsList[22])
         self.plcApp.autoConnectIndication.setEnabled(readingsList[23])
         self.plcApp.mainTrolleyParkingIndication.setEnabled(readingsList[24])
-        self.plcApp.swayControlIndication.setEnabled(readingsList[25])
+        if readingsList[25]:
+            self.plcApp.swayControlButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.swayControlButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
         self.plcApp.autoHeightIndication.setEnabled(readingsList[26])
         self.plcApp.hatchCoverHeightIndication.setEnabled(readingsList[27])
 
-        self.plcApp.floodLightOnIndicator.setEnabled(readingsList[28])
-        self.plcApp.walkawayLightOnIndicator.setEnabled(readingsList[29])
+        if readingsList[28]:
+            self.plcApp.floodLightButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.floodLightButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
+        if readingsList[29]:
+            self.plcApp.walkwayLightButton.setStyleSheet(self.plcApp.buttonStyling['Active'])
+        else:
+            self.plcApp.walkwayLightButton.setStyleSheet(self.plcApp.buttonStyling['Inactive'])
 
     def showAnalogData(self, readingsList):
         self.plcApp.hoistLoad.setText(str(readingsList[0]))
@@ -454,7 +489,8 @@ class Controller:
             status = self.connection.write_single_coil(4719, True)
         else:
             status = self.connection.write_single_coil(4719, False)
-        print(status)
+        if status:
+            self.plcApp.transportModeButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
                
     #chasssis page functions   
     def toggleCPSAlignment(self):
@@ -462,28 +498,32 @@ class Controller:
             status = self.connection.write_single_coil(4709, True)
         else:
             status = self.connection.write_single_coil(4709, False)
-        print(status)
+        if status:
+            self.plcApp.cpsAlignmentButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def toggleCPSDirection(self):
         if self.plcApp.cpsReverseDirectionButton.isChecked():
             status = self.connection.write_single_coil(4710, True)
         else:
             status = self.connection.write_single_coil(4710, False)
-        print(status)
+        if status:
+            self.plcApp.cpsReverseDirectionButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def toggleCPSTwentyFt(self):
         if self.plcApp.cpsTwentyFtButton.isChecked():
             status = self.connection.write_single_coil(4717, True)
         else:
             status = self.connection.write_single_coil(4717, False)
-        print(status)
+        if status:
+            self.plcApp.cpsTwentyFtButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def toggleDualCycle(self):
         if self.plcApp.cpsDualCycleButton.isChecked():
             status = self.connection.write_single_coil(4718, True)
         else:
             status = self.connection.write_single_coil(4718, False)
-        print(status)
+        if status:
+            self.plcApp.cpsDualCycleButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
     
     def setWindCompensation(self, value):
         binaryValue = bin(value)[2:].zfill(3)
@@ -510,36 +550,48 @@ class Controller:
             status = self.connection.write_single_coil(4700, True)
         else:
             status = self.connection.write_single_coil(4700, False)
-        print(status)
+        if status:
+            self.plcApp.boomUpButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def setBoomUpFull(self):
-        status = self.connection.write_single_coil(4701, True)
-        print(status)
+        if self.plcApp.boomUpFullButton.isChecked():
+            status = self.connection.write_single_coil(4701, True)
+        else:
+            status = self.connection.write_single_coil(4701, False)
+        if status:
+            self.plcApp.boomUpFullButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def stopBoom(self):
-        status = self.connection.write_single_coil(4702, True)
-        print(status)
+        if self.plcApp.boomStopButton.isChecked():
+            status = self.connection.write_single_coil(4702, True)
+        else:
+            status = self.connection.write_single_coil(4702, False)
+        if status:
+            self.plcApp.boomStopButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def boomDown(self):
         if self.plcApp.boomDownButton.isChecked():
             status = self.connection.write_single_coil(4703, True)
         else:
             status = self.connection.write_single_coil(4703, False)
-        print(status)
+        if status:
+            self.plcApp.boomDownButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def toggleFLoodLight(self):
         if self.plcApp.floodLightButton.isChecked():
             status = self.connection.write_single_coil(4704, True)
         else:
             status = self.connection.write_single_coil(4704, False)
-        print(status)
+        if status:
+            self.plcApp.floodLightButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     def toggleWalkwayLight(self):
         if self.plcApp.walkwayLightButton.isChecked():
             status = self.connection.write_single_coil(4705, True)
         else:
             status = self.connection.write_single_coil(4705, False)
-        print(status)
+        if status:
+            self.plcApp.walkwayLightButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
     #assist functions page functions
     def toggleSkewControl(self):
@@ -547,14 +599,16 @@ class Controller:
             status = self.connection.write_single_coil(4720, True)
         else:
             status = self.connection.write_single_coil(4720, False)
-        print(status)
+        if status:
+            self.plcApp.skewControlButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
     
     def toggleSwayControl(self):
         if self.plcApp.swayControlButton.isChecked():
             status = self.connection.write_single_coil(4721, True)
         else:
             status = self.connection.write_single_coil(4721, False)
-        print(status)
+        if status:
+            self.plcApp.swayControlButton.setStyleSheet(self.plcApp.buttonStyling['Intermediate'])
 
             
 

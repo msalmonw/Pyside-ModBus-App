@@ -617,97 +617,38 @@ class Ui_PLCApp(object):
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setHorizontalSpacing(6)
         self.gridLayout_7.setContentsMargins(10, -1, -1, -1)
+        self.cpsTwentyFtButton = QPushButton(self.chassisPage)
+        self.cpsTwentyFtButton.setObjectName(u"cpsTwentyFtButton")
+        self.cpsTwentyFtButton.setMinimumSize(QSize(100, 100))
+        self.cpsTwentyFtButton.setMaximumSize(QSize(100, 100))
+        self.cpsTwentyFtButton.setCheckable(True)
+
+        self.gridLayout_7.addWidget(self.cpsTwentyFtButton, 1, 0, 1, 1, Qt.AlignHCenter)
+
         self.cpsAlignmentButton = QPushButton(self.chassisPage)
         self.cpsAlignmentButton.setObjectName(u"cpsAlignmentButton")
-        self.cpsAlignmentButton.setMinimumSize(QSize(80, 80))
-        self.cpsAlignmentButton.setMaximumSize(QSize(80, 80))
+        self.cpsAlignmentButton.setMinimumSize(QSize(100, 100))
+        self.cpsAlignmentButton.setMaximumSize(QSize(100, 100))
         self.cpsAlignmentButton.setCheckable(True)
 
         self.gridLayout_7.addWidget(self.cpsAlignmentButton, 0, 0, 1, 1, Qt.AlignHCenter)
 
         self.cpsDualCycleButton = QPushButton(self.chassisPage)
         self.cpsDualCycleButton.setObjectName(u"cpsDualCycleButton")
-        self.cpsDualCycleButton.setMinimumSize(QSize(80, 80))
-        self.cpsDualCycleButton.setMaximumSize(QSize(80, 80))
+        self.cpsDualCycleButton.setMinimumSize(QSize(100, 100))
+        self.cpsDualCycleButton.setMaximumSize(QSize(100, 100))
         self.cpsDualCycleButton.setCheckable(True)
 
-        self.gridLayout_7.addWidget(self.cpsDualCycleButton, 1, 2, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_7.addWidget(self.cpsDualCycleButton, 1, 1, 1, 1, Qt.AlignHCenter)
 
         self.cpsReverseDirectionButton = QPushButton(self.chassisPage)
         self.cpsReverseDirectionButton.setObjectName(u"cpsReverseDirectionButton")
-        self.cpsReverseDirectionButton.setMinimumSize(QSize(80, 80))
-        self.cpsReverseDirectionButton.setMaximumSize(QSize(80, 80))
+        self.cpsReverseDirectionButton.setMinimumSize(QSize(100, 100))
+        self.cpsReverseDirectionButton.setMaximumSize(QSize(100, 100))
         self.cpsReverseDirectionButton.setStyleSheet(u"")
         self.cpsReverseDirectionButton.setCheckable(True)
 
-        self.gridLayout_7.addWidget(self.cpsReverseDirectionButton, 0, 2, 1, 1, Qt.AlignHCenter)
-
-        self.cpsTwentyFtButton = QPushButton(self.chassisPage)
-        self.cpsTwentyFtButton.setObjectName(u"cpsTwentyFtButton")
-        self.cpsTwentyFtButton.setMinimumSize(QSize(80, 80))
-        self.cpsTwentyFtButton.setMaximumSize(QSize(80, 80))
-        self.cpsTwentyFtButton.setCheckable(True)
-
-        self.gridLayout_7.addWidget(self.cpsTwentyFtButton, 1, 0, 1, 1, Qt.AlignHCenter)
-
-        self.cpsAlignmentIndication = QToolButton(self.chassisPage)
-        self.cpsAlignmentIndication.setObjectName(u"cpsAlignmentIndication")
-        self.cpsAlignmentIndication.setEnabled(False)
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.cpsAlignmentIndication.sizePolicy().hasHeightForWidth())
-        self.cpsAlignmentIndication.setSizePolicy(sizePolicy4)
-        self.cpsAlignmentIndication.setMinimumSize(QSize(0, 100))
-        self.cpsAlignmentIndication.setMaximumSize(QSize(16777215, 100))
-        self.cpsAlignmentIndication.setIcon(icon1)
-        self.cpsAlignmentIndication.setIconSize(QSize(80, 80))
-        self.cpsAlignmentIndication.setCheckable(True)
-        self.cpsAlignmentIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsAlignmentIndication, 0, 1, 1, 1, Qt.AlignHCenter)
-
-        self.cpsReverseDirectionIndication = QToolButton(self.chassisPage)
-        self.cpsReverseDirectionIndication.setObjectName(u"cpsReverseDirectionIndication")
-        self.cpsReverseDirectionIndication.setEnabled(False)
-        sizePolicy4.setHeightForWidth(self.cpsReverseDirectionIndication.sizePolicy().hasHeightForWidth())
-        self.cpsReverseDirectionIndication.setSizePolicy(sizePolicy4)
-        self.cpsReverseDirectionIndication.setMinimumSize(QSize(0, 100))
-        self.cpsReverseDirectionIndication.setMaximumSize(QSize(16777215, 100))
-        self.cpsReverseDirectionIndication.setIcon(icon1)
-        self.cpsReverseDirectionIndication.setIconSize(QSize(80, 80))
-        self.cpsReverseDirectionIndication.setCheckable(True)
-        self.cpsReverseDirectionIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsReverseDirectionIndication, 0, 3, 1, 1, Qt.AlignHCenter)
-
-        self.cpsTwentyFtIndication = QToolButton(self.chassisPage)
-        self.cpsTwentyFtIndication.setObjectName(u"cpsTwentyFtIndication")
-        self.cpsTwentyFtIndication.setEnabled(False)
-        sizePolicy4.setHeightForWidth(self.cpsTwentyFtIndication.sizePolicy().hasHeightForWidth())
-        self.cpsTwentyFtIndication.setSizePolicy(sizePolicy4)
-        self.cpsTwentyFtIndication.setMinimumSize(QSize(0, 100))
-        self.cpsTwentyFtIndication.setMaximumSize(QSize(16777215, 100))
-        self.cpsTwentyFtIndication.setIcon(icon1)
-        self.cpsTwentyFtIndication.setIconSize(QSize(80, 80))
-        self.cpsTwentyFtIndication.setCheckable(True)
-        self.cpsTwentyFtIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsTwentyFtIndication, 1, 1, 1, 1, Qt.AlignHCenter)
-
-        self.cpsDualCycleIndication = QToolButton(self.chassisPage)
-        self.cpsDualCycleIndication.setObjectName(u"cpsDualCycleIndication")
-        self.cpsDualCycleIndication.setEnabled(False)
-        sizePolicy4.setHeightForWidth(self.cpsDualCycleIndication.sizePolicy().hasHeightForWidth())
-        self.cpsDualCycleIndication.setSizePolicy(sizePolicy4)
-        self.cpsDualCycleIndication.setMinimumSize(QSize(0, 100))
-        self.cpsDualCycleIndication.setMaximumSize(QSize(16777215, 100))
-        self.cpsDualCycleIndication.setIcon(icon1)
-        self.cpsDualCycleIndication.setIconSize(QSize(80, 80))
-        self.cpsDualCycleIndication.setCheckable(True)
-        self.cpsDualCycleIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_7.addWidget(self.cpsDualCycleIndication, 1, 3, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_7.addWidget(self.cpsReverseDirectionButton, 0, 1, 1, 1, Qt.AlignHCenter)
 
 
         self.gridLayout_4.addLayout(self.gridLayout_7, 0, 0, 2, 1)
@@ -780,11 +721,11 @@ class Ui_PLCApp(object):
 
         self.windCompensationSlider = QSlider(self.chassisPage)
         self.windCompensationSlider.setObjectName(u"windCompensationSlider")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.windCompensationSlider.sizePolicy().hasHeightForWidth())
-        self.windCompensationSlider.setSizePolicy(sizePolicy5)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.windCompensationSlider.sizePolicy().hasHeightForWidth())
+        self.windCompensationSlider.setSizePolicy(sizePolicy4)
         self.windCompensationSlider.setMinimumSize(QSize(403, 50))
         self.windCompensationSlider.setMaximumSize(QSize(16777215, 50))
         self.windCompensationSlider.setMinimum(1)
@@ -890,8 +831,8 @@ class Ui_PLCApp(object):
 
         self.laneSelectionSlider = QSlider(self.chassisPage)
         self.laneSelectionSlider.setObjectName(u"laneSelectionSlider")
-        sizePolicy5.setHeightForWidth(self.laneSelectionSlider.sizePolicy().hasHeightForWidth())
-        self.laneSelectionSlider.setSizePolicy(sizePolicy5)
+        sizePolicy4.setHeightForWidth(self.laneSelectionSlider.sizePolicy().hasHeightForWidth())
+        self.laneSelectionSlider.setSizePolicy(sizePolicy4)
         self.laneSelectionSlider.setMinimumSize(QSize(403, 50))
         self.laneSelectionSlider.setMaximumSize(QSize(16777215, 50))
         self.laneSelectionSlider.setMinimum(1)
@@ -952,11 +893,11 @@ class Ui_PLCApp(object):
 
         self.label_5 = QLabel(self.chassisPage)
         self.label_5.setObjectName(u"label_5")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy6)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy5)
         self.label_5.setMinimumSize(QSize(0, 20))
         self.label_5.setMaximumSize(QSize(16777215, 20))
         self.label_5.setAlignment(Qt.AlignCenter)
@@ -974,79 +915,6 @@ class Ui_PLCApp(object):
         self.boomControlPage.setObjectName(u"boomControlPage")
         self.gridLayout_5 = QGridLayout(self.boomControlPage)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.boomUpButton = QPushButton(self.boomControlPage)
-        self.boomUpButton.setObjectName(u"boomUpButton")
-        self.boomUpButton.setMinimumSize(QSize(100, 100))
-        self.boomUpButton.setMaximumSize(QSize(100, 100))
-        self.boomUpButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.boomUpButton, 0, 0, 1, 1)
-
-        self.boomUpSixtyIndication = QToolButton(self.boomControlPage)
-        self.boomUpSixtyIndication.setObjectName(u"boomUpSixtyIndication")
-        self.boomUpSixtyIndication.setEnabled(False)
-        self.boomUpSixtyIndication.setMinimumSize(QSize(100, 100))
-        self.boomUpSixtyIndication.setIcon(icon1)
-        self.boomUpSixtyIndication.setIconSize(QSize(80, 80))
-        self.boomUpSixtyIndication.setCheckable(True)
-        self.boomUpSixtyIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.boomUpSixtyIndication, 0, 1, 1, 1)
-
-        self.boomUpFullButton = QPushButton(self.boomControlPage)
-        self.boomUpFullButton.setObjectName(u"boomUpFullButton")
-        self.boomUpFullButton.setMinimumSize(QSize(100, 100))
-        self.boomUpFullButton.setMaximumSize(QSize(100, 100))
-        self.boomUpFullButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.boomUpFullButton, 0, 2, 1, 1)
-
-        self.boomUpFullIndication = QToolButton(self.boomControlPage)
-        self.boomUpFullIndication.setObjectName(u"boomUpFullIndication")
-        self.boomUpFullIndication.setEnabled(False)
-        self.boomUpFullIndication.setMinimumSize(QSize(100, 100))
-        self.boomUpFullIndication.setIcon(icon1)
-        self.boomUpFullIndication.setIconSize(QSize(80, 80))
-        self.boomUpFullIndication.setCheckable(True)
-        self.boomUpFullIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.boomUpFullIndication, 0, 3, 1, 1)
-
-        self.floodLightButton = QPushButton(self.boomControlPage)
-        self.floodLightButton.setObjectName(u"floodLightButton")
-        self.floodLightButton.setMinimumSize(QSize(100, 100))
-        self.floodLightButton.setMaximumSize(QSize(100, 100))
-        self.floodLightButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.floodLightButton, 0, 4, 1, 1)
-
-        self.boomDownButton = QPushButton(self.boomControlPage)
-        self.boomDownButton.setObjectName(u"boomDownButton")
-        self.boomDownButton.setMinimumSize(QSize(100, 100))
-        self.boomDownButton.setMaximumSize(QSize(100, 100))
-        self.boomDownButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.boomDownButton, 1, 0, 1, 1)
-
-        self.boomDownIndication = QToolButton(self.boomControlPage)
-        self.boomDownIndication.setObjectName(u"boomDownIndication")
-        self.boomDownIndication.setEnabled(False)
-        self.boomDownIndication.setMinimumSize(QSize(100, 100))
-        self.boomDownIndication.setIcon(icon1)
-        self.boomDownIndication.setIconSize(QSize(80, 80))
-        self.boomDownIndication.setCheckable(True)
-        self.boomDownIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.boomDownIndication, 1, 1, 1, 1)
-
-        self.boomStopButton = QPushButton(self.boomControlPage)
-        self.boomStopButton.setObjectName(u"boomStopButton")
-        self.boomStopButton.setMinimumSize(QSize(100, 100))
-        self.boomStopButton.setMaximumSize(QSize(100, 100))
-        self.boomStopButton.setCheckable(True)
-
-        self.gridLayout_5.addWidget(self.boomStopButton, 1, 2, 1, 1)
-
         self.bhCycleCompleteIndicator = QToolButton(self.boomControlPage)
         self.bhCycleCompleteIndicator.setObjectName(u"bhCycleCompleteIndicator")
         self.bhCycleCompleteIndicator.setEnabled(False)
@@ -1056,29 +924,15 @@ class Ui_PLCApp(object):
         self.bhCycleCompleteIndicator.setCheckable(True)
         self.bhCycleCompleteIndicator.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_5.addWidget(self.bhCycleCompleteIndicator, 1, 5, 1, 1)
+        self.gridLayout_5.addWidget(self.bhCycleCompleteIndicator, 2, 5, 1, 1)
 
-        self.gantryTieDown = QToolButton(self.boomControlPage)
-        self.gantryTieDown.setObjectName(u"gantryTieDown")
-        self.gantryTieDown.setEnabled(False)
-        self.gantryTieDown.setMinimumSize(QSize(100, 100))
-        self.gantryTieDown.setIcon(icon1)
-        self.gantryTieDown.setIconSize(QSize(80, 80))
-        self.gantryTieDown.setCheckable(True)
-        self.gantryTieDown.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.boomStopButton = QPushButton(self.boomControlPage)
+        self.boomStopButton.setObjectName(u"boomStopButton")
+        self.boomStopButton.setMinimumSize(QSize(100, 100))
+        self.boomStopButton.setMaximumSize(QSize(100, 100))
+        self.boomStopButton.setCheckable(True)
 
-        self.gridLayout_5.addWidget(self.gantryTieDown, 2, 0, 1, 1)
-
-        self.floodLightOnIndicator = QToolButton(self.boomControlPage)
-        self.floodLightOnIndicator.setObjectName(u"floodLightOnIndicator")
-        self.floodLightOnIndicator.setEnabled(False)
-        self.floodLightOnIndicator.setMinimumSize(QSize(120, 100))
-        self.floodLightOnIndicator.setIcon(icon1)
-        self.floodLightOnIndicator.setIconSize(QSize(80, 80))
-        self.floodLightOnIndicator.setCheckable(True)
-        self.floodLightOnIndicator.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.floodLightOnIndicator, 0, 5, 1, 1)
+        self.gridLayout_5.addWidget(self.boomStopButton, 0, 3, 1, 1)
 
         self.walkwayLightButton = QPushButton(self.boomControlPage)
         self.walkwayLightButton.setObjectName(u"walkwayLightButton")
@@ -1086,29 +940,15 @@ class Ui_PLCApp(object):
         self.walkwayLightButton.setMaximumSize(QSize(100, 100))
         self.walkwayLightButton.setCheckable(True)
 
-        self.gridLayout_5.addWidget(self.walkwayLightButton, 1, 3, 1, 1)
+        self.gridLayout_5.addWidget(self.walkwayLightButton, 0, 5, 1, 1)
 
-        self.walkawayLightOnIndicator = QToolButton(self.boomControlPage)
-        self.walkawayLightOnIndicator.setObjectName(u"walkawayLightOnIndicator")
-        self.walkawayLightOnIndicator.setEnabled(False)
-        self.walkawayLightOnIndicator.setMinimumSize(QSize(120, 100))
-        self.walkawayLightOnIndicator.setIcon(icon1)
-        self.walkawayLightOnIndicator.setIconSize(QSize(80, 80))
-        self.walkawayLightOnIndicator.setCheckable(True)
-        self.walkawayLightOnIndicator.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.floodLightButton = QPushButton(self.boomControlPage)
+        self.floodLightButton.setObjectName(u"floodLightButton")
+        self.floodLightButton.setMinimumSize(QSize(100, 100))
+        self.floodLightButton.setMaximumSize(QSize(100, 100))
+        self.floodLightButton.setCheckable(True)
 
-        self.gridLayout_5.addWidget(self.walkawayLightOnIndicator, 1, 4, 1, 1)
-
-        self.gantryStormPin = QToolButton(self.boomControlPage)
-        self.gantryStormPin.setObjectName(u"gantryStormPin")
-        self.gantryStormPin.setEnabled(False)
-        self.gantryStormPin.setMinimumSize(QSize(100, 100))
-        self.gantryStormPin.setIcon(icon1)
-        self.gantryStormPin.setIconSize(QSize(80, 80))
-        self.gantryStormPin.setCheckable(True)
-        self.gantryStormPin.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_5.addWidget(self.gantryStormPin, 2, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.floodLightButton, 0, 4, 1, 1)
 
         self.gantryMotorBrakes = QToolButton(self.boomControlPage)
         self.gantryMotorBrakes.setObjectName(u"gantryMotorBrakes")
@@ -1121,16 +961,29 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.gantryMotorBrakes, 2, 2, 1, 1)
 
-        self.controlAtQRC = QToolButton(self.boomControlPage)
-        self.controlAtQRC.setObjectName(u"controlAtQRC")
-        self.controlAtQRC.setEnabled(False)
-        self.controlAtQRC.setMinimumSize(QSize(100, 100))
-        self.controlAtQRC.setIcon(icon1)
-        self.controlAtQRC.setIconSize(QSize(80, 80))
-        self.controlAtQRC.setCheckable(True)
-        self.controlAtQRC.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.boomDownButton = QPushButton(self.boomControlPage)
+        self.boomDownButton.setObjectName(u"boomDownButton")
+        self.boomDownButton.setMinimumSize(QSize(100, 100))
+        self.boomDownButton.setMaximumSize(QSize(100, 100))
+        self.boomDownButton.setCheckable(True)
 
-        self.gridLayout_5.addWidget(self.controlAtQRC, 2, 4, 1, 1)
+        self.gridLayout_5.addWidget(self.boomDownButton, 0, 2, 1, 1)
+
+        self.boomUpFullButton = QPushButton(self.boomControlPage)
+        self.boomUpFullButton.setObjectName(u"boomUpFullButton")
+        self.boomUpFullButton.setMinimumSize(QSize(100, 100))
+        self.boomUpFullButton.setMaximumSize(QSize(100, 100))
+        self.boomUpFullButton.setCheckable(True)
+
+        self.gridLayout_5.addWidget(self.boomUpFullButton, 0, 1, 1, 1)
+
+        self.boomUpButton = QPushButton(self.boomControlPage)
+        self.boomUpButton.setObjectName(u"boomUpButton")
+        self.boomUpButton.setMinimumSize(QSize(100, 100))
+        self.boomUpButton.setMaximumSize(QSize(100, 100))
+        self.boomUpButton.setCheckable(True)
+
+        self.gridLayout_5.addWidget(self.boomUpButton, 0, 0, 1, 1)
 
         self.highWindSpeed = QToolButton(self.boomControlPage)
         self.highWindSpeed.setObjectName(u"highWindSpeed")
@@ -1143,30 +996,44 @@ class Ui_PLCApp(object):
 
         self.gridLayout_5.addWidget(self.highWindSpeed, 2, 3, 1, 1)
 
+        self.gantryStormPin = QToolButton(self.boomControlPage)
+        self.gantryStormPin.setObjectName(u"gantryStormPin")
+        self.gantryStormPin.setEnabled(False)
+        self.gantryStormPin.setMinimumSize(QSize(100, 100))
+        self.gantryStormPin.setIcon(icon1)
+        self.gantryStormPin.setIconSize(QSize(80, 80))
+        self.gantryStormPin.setCheckable(True)
+        self.gantryStormPin.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.gantryStormPin, 2, 1, 1, 1)
+
+        self.gantryTieDown = QToolButton(self.boomControlPage)
+        self.gantryTieDown.setObjectName(u"gantryTieDown")
+        self.gantryTieDown.setEnabled(False)
+        self.gantryTieDown.setMinimumSize(QSize(100, 100))
+        self.gantryTieDown.setIcon(icon1)
+        self.gantryTieDown.setIconSize(QSize(80, 80))
+        self.gantryTieDown.setCheckable(True)
+        self.gantryTieDown.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.gantryTieDown, 2, 0, 1, 1)
+
+        self.controlAtQRC = QToolButton(self.boomControlPage)
+        self.controlAtQRC.setObjectName(u"controlAtQRC")
+        self.controlAtQRC.setEnabled(False)
+        self.controlAtQRC.setMinimumSize(QSize(100, 100))
+        self.controlAtQRC.setIcon(icon1)
+        self.controlAtQRC.setIconSize(QSize(80, 80))
+        self.controlAtQRC.setCheckable(True)
+        self.controlAtQRC.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_5.addWidget(self.controlAtQRC, 2, 4, 1, 1)
+
         self.stackedWidget.addWidget(self.boomControlPage)
         self.assistFunctionsPage = QWidget()
         self.assistFunctionsPage.setObjectName(u"assistFunctionsPage")
         self.gridLayout_6 = QGridLayout(self.assistFunctionsPage)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.swayControlButton = QPushButton(self.assistFunctionsPage)
-        self.swayControlButton.setObjectName(u"swayControlButton")
-        self.swayControlButton.setMinimumSize(QSize(100, 100))
-        self.swayControlButton.setMaximumSize(QSize(100, 100))
-        self.swayControlButton.setCheckable(True)
-
-        self.gridLayout_6.addWidget(self.swayControlButton, 0, 2, 1, 1)
-
-        self.skewControlIndication = QToolButton(self.assistFunctionsPage)
-        self.skewControlIndication.setObjectName(u"skewControlIndication")
-        self.skewControlIndication.setEnabled(False)
-        self.skewControlIndication.setMinimumSize(QSize(120, 100))
-        self.skewControlIndication.setIcon(icon1)
-        self.skewControlIndication.setIconSize(QSize(80, 80))
-        self.skewControlIndication.setCheckable(True)
-        self.skewControlIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_6.addWidget(self.skewControlIndication, 0, 1, 1, 1)
-
         self.skewControlButton = QPushButton(self.assistFunctionsPage)
         self.skewControlButton.setObjectName(u"skewControlButton")
         self.skewControlButton.setMinimumSize(QSize(100, 100))
@@ -1175,27 +1042,13 @@ class Ui_PLCApp(object):
 
         self.gridLayout_6.addWidget(self.skewControlButton, 0, 0, 1, 1)
 
-        self.swayControlIndication = QToolButton(self.assistFunctionsPage)
-        self.swayControlIndication.setObjectName(u"swayControlIndication")
-        self.swayControlIndication.setEnabled(False)
-        self.swayControlIndication.setMinimumSize(QSize(120, 100))
-        self.swayControlIndication.setIcon(icon1)
-        self.swayControlIndication.setIconSize(QSize(80, 80))
-        self.swayControlIndication.setCheckable(True)
-        self.swayControlIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        self.swayControlButton = QPushButton(self.assistFunctionsPage)
+        self.swayControlButton.setObjectName(u"swayControlButton")
+        self.swayControlButton.setMinimumSize(QSize(100, 100))
+        self.swayControlButton.setMaximumSize(QSize(100, 100))
+        self.swayControlButton.setCheckable(True)
 
-        self.gridLayout_6.addWidget(self.swayControlIndication, 0, 3, 1, 1)
-
-        self.autoSequenceIndication = QToolButton(self.assistFunctionsPage)
-        self.autoSequenceIndication.setObjectName(u"autoSequenceIndication")
-        self.autoSequenceIndication.setEnabled(False)
-        self.autoSequenceIndication.setMinimumSize(QSize(120, 100))
-        self.autoSequenceIndication.setIcon(icon1)
-        self.autoSequenceIndication.setIconSize(QSize(80, 80))
-        self.autoSequenceIndication.setCheckable(True)
-        self.autoSequenceIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
-
-        self.gridLayout_6.addWidget(self.autoSequenceIndication, 1, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.swayControlButton, 0, 1, 1, 1)
 
         self.autoParkingIndication = QToolButton(self.assistFunctionsPage)
         self.autoParkingIndication.setObjectName(u"autoParkingIndication")
@@ -1206,7 +1059,18 @@ class Ui_PLCApp(object):
         self.autoParkingIndication.setCheckable(True)
         self.autoParkingIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoParkingIndication, 0, 4, 1, 1)
+        self.gridLayout_6.addWidget(self.autoParkingIndication, 0, 2, 1, 1)
+
+        self.autoSequenceIndication = QToolButton(self.assistFunctionsPage)
+        self.autoSequenceIndication.setObjectName(u"autoSequenceIndication")
+        self.autoSequenceIndication.setEnabled(False)
+        self.autoSequenceIndication.setMinimumSize(QSize(120, 100))
+        self.autoSequenceIndication.setIcon(icon1)
+        self.autoSequenceIndication.setIconSize(QSize(80, 80))
+        self.autoSequenceIndication.setCheckable(True)
+        self.autoSequenceIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+
+        self.gridLayout_6.addWidget(self.autoSequenceIndication, 0, 3, 1, 1)
 
         self.autoStartIndication = QToolButton(self.assistFunctionsPage)
         self.autoStartIndication.setObjectName(u"autoStartIndication")
@@ -1217,7 +1081,7 @@ class Ui_PLCApp(object):
         self.autoStartIndication.setCheckable(True)
         self.autoStartIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoStartIndication, 1, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.autoStartIndication, 0, 4, 1, 1)
 
         self.autoTwistLockIndication = QToolButton(self.assistFunctionsPage)
         self.autoTwistLockIndication.setObjectName(u"autoTwistLockIndication")
@@ -1228,7 +1092,7 @@ class Ui_PLCApp(object):
         self.autoTwistLockIndication.setCheckable(True)
         self.autoTwistLockIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoTwistLockIndication, 1, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.autoTwistLockIndication, 1, 0, 1, 1)
 
         self.autoConnectIndication = QToolButton(self.assistFunctionsPage)
         self.autoConnectIndication.setObjectName(u"autoConnectIndication")
@@ -1239,7 +1103,7 @@ class Ui_PLCApp(object):
         self.autoConnectIndication.setCheckable(True)
         self.autoConnectIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoConnectIndication, 1, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.autoConnectIndication, 1, 1, 1, 1)
 
         self.mainTrolleyParkingIndication = QToolButton(self.assistFunctionsPage)
         self.mainTrolleyParkingIndication.setObjectName(u"mainTrolleyParkingIndication")
@@ -1250,7 +1114,7 @@ class Ui_PLCApp(object):
         self.mainTrolleyParkingIndication.setCheckable(True)
         self.mainTrolleyParkingIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.mainTrolleyParkingIndication, 1, 4, 1, 1)
+        self.gridLayout_6.addWidget(self.mainTrolleyParkingIndication, 1, 2, 1, 1)
 
         self.autoHeightIndication = QToolButton(self.assistFunctionsPage)
         self.autoHeightIndication.setObjectName(u"autoHeightIndication")
@@ -1261,7 +1125,7 @@ class Ui_PLCApp(object):
         self.autoHeightIndication.setCheckable(True)
         self.autoHeightIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.autoHeightIndication, 3, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.autoHeightIndication, 1, 3, 1, 1)
 
         self.hatchCoverHeightIndication = QToolButton(self.assistFunctionsPage)
         self.hatchCoverHeightIndication.setObjectName(u"hatchCoverHeightIndication")
@@ -1272,7 +1136,7 @@ class Ui_PLCApp(object):
         self.hatchCoverHeightIndication.setCheckable(True)
         self.hatchCoverHeightIndication.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
-        self.gridLayout_6.addWidget(self.hatchCoverHeightIndication, 3, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.hatchCoverHeightIndication, 1, 4, 1, 1)
 
         self.stackedWidget.addWidget(self.assistFunctionsPage)
 
@@ -1308,7 +1172,7 @@ class Ui_PLCApp(object):
 "Landed", None))
         self.housingDown.setText(QCoreApplication.translate("PLCApp", u"Spreader twin\n"
 "Housing Down", None))
-        self.slackRobe.setText(QCoreApplication.translate("PLCApp", u"Slack Robe\n"
+        self.slackRobe.setText(QCoreApplication.translate("PLCApp", u"Slack Rope\n"
 "HB", None))
         self.hoistOverload.setText(QCoreApplication.translate("PLCApp", u"Hoist\n"
 "Overload", None))
@@ -1365,6 +1229,8 @@ class Ui_PLCApp(object):
 "Speed Reduced", None))
         self.flippersUpIndication.setText(QCoreApplication.translate("PLCApp", u"All Flippers\n"
 "Up", None))
+        self.cpsTwentyFtButton.setText(QCoreApplication.translate("PLCApp", u"CPS 20Ft\n"
+"Forward", None))
         self.cpsAlignmentButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
 "Alignment", None))
         self.cpsDualCycleButton.setText(QCoreApplication.translate("PLCApp", u"CPS Dual\n"
@@ -1372,16 +1238,6 @@ class Ui_PLCApp(object):
         self.cpsReverseDirectionButton.setText(QCoreApplication.translate("PLCApp", u"CPS\n"
 "Reverse\n"
 "Direction", None))
-        self.cpsTwentyFtButton.setText(QCoreApplication.translate("PLCApp", u"CPS 20Ft\n"
-"Forward", None))
-        self.cpsAlignmentIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Alignment\n"
-"", None))
-        self.cpsReverseDirectionIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Reverse\n"
-"Direction", None))
-        self.cpsTwentyFtIndication.setText(QCoreApplication.translate("PLCApp", u"CPS 20 Ft\n"
-"Indication", None))
-        self.cpsDualCycleIndication.setText(QCoreApplication.translate("PLCApp", u"CPS Dual Cycle\n"
-"Indication", None))
         self.label_10.setText(QCoreApplication.translate("PLCApp", u"-3", None))
         self.label_12.setText(QCoreApplication.translate("PLCApp", u"-2", None))
         self.label_11.setText(QCoreApplication.translate("PLCApp", u"-1", None))
@@ -1403,50 +1259,37 @@ class Ui_PLCApp(object):
         self.label.setText(QCoreApplication.translate("PLCApp", u"0", None))
         self.label_3.setText(QCoreApplication.translate("PLCApp", u"T      R", None))
         self.label_5.setText(QCoreApplication.translate("PLCApp", u"CPS Loading ", None))
-        self.boomUpButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
-"60 Deg", None))
-        self.boomUpSixtyIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
-"60", None))
-        self.boomUpFullButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
-"Full", None))
-        self.boomUpFullIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
-"Full", None))
-        self.floodLightButton.setText(QCoreApplication.translate("PLCApp", u"Flood\n"
-"Light On", None))
-        self.boomDownButton.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
-        self.boomDownIndication.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
-        self.boomStopButton.setText(QCoreApplication.translate("PLCApp", u"Boom Stop", None))
         self.bhCycleCompleteIndicator.setText(QCoreApplication.translate("PLCApp", u"BH Cycle\n"
 "Complete", None))
-        self.gantryTieDown.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
-"Tie Down\n"
-"Not Released", None))
-        self.floodLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Flood Light\n"
-"On", None))
+        self.boomStopButton.setText(QCoreApplication.translate("PLCApp", u"Boom Stop", None))
         self.walkwayLightButton.setText(QCoreApplication.translate("PLCApp", u"Walkway\n"
 "Light On", None))
-        self.walkawayLightOnIndicator.setText(QCoreApplication.translate("PLCApp", u"Walk Away\n"
+        self.floodLightButton.setText(QCoreApplication.translate("PLCApp", u"Flood\n"
 "Light On", None))
-        self.gantryStormPin.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
-"Storm Pin\n"
-"Not Released", None))
         self.gantryMotorBrakes.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
 "Motor Brakes\n"
 "Open", None))
-        self.controlAtQRC.setText(QCoreApplication.translate("PLCApp", u"Control at\n"
-"RQC", None))
+        self.boomDownButton.setText(QCoreApplication.translate("PLCApp", u"Boom Down", None))
+        self.boomUpFullButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
+"Full", None))
+        self.boomUpButton.setText(QCoreApplication.translate("PLCApp", u"Boom Up\n"
+"60 Deg", None))
         self.highWindSpeed.setText(QCoreApplication.translate("PLCApp", u"High Wind\n"
 "Speed", None))
-        self.swayControlButton.setText(QCoreApplication.translate("PLCApp", u"Sway Control", None))
-        self.skewControlIndication.setText(QCoreApplication.translate("PLCApp", u"Skew\n"
-"Control On", None))
+        self.gantryStormPin.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
+"Storm Pin\n"
+"Not Released", None))
+        self.gantryTieDown.setText(QCoreApplication.translate("PLCApp", u"Gantry\n"
+"Tie Down\n"
+"Not Released", None))
+        self.controlAtQRC.setText(QCoreApplication.translate("PLCApp", u"Control at\n"
+"RQC", None))
         self.skewControlButton.setText(QCoreApplication.translate("PLCApp", u"Skew Control", None))
-        self.swayControlIndication.setText(QCoreApplication.translate("PLCApp", u"Sway\n"
-"Control On", None))
-        self.autoSequenceIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
-"Sequence", None))
+        self.swayControlButton.setText(QCoreApplication.translate("PLCApp", u"Sway Control", None))
         self.autoParkingIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
 "Parking", None))
+        self.autoSequenceIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
+"Sequence", None))
         self.autoStartIndication.setText(QCoreApplication.translate("PLCApp", u"Auto\n"
 "Start", None))
         self.autoTwistLockIndication.setText(QCoreApplication.translate("PLCApp", u"Automatic\n"

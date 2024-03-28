@@ -1527,18 +1527,41 @@ Up</string>
           <property name="horizontalSpacing">
            <number>6</number>
           </property>
-          <item row="0" column="0" alignment="Qt::AlignHCenter">
-           <widget class="QPushButton" name="cpsAlignmentButton">
+          <item row="1" column="0" alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="cpsTwentyFtButton">
             <property name="minimumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>CPS 20Ft
+Forward</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="cpsAlignmentButton">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="text">
@@ -1550,18 +1573,18 @@ Alignment</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2" alignment="Qt::AlignHCenter">
+          <item row="1" column="1" alignment="Qt::AlignHCenter">
            <widget class="QPushButton" name="cpsDualCycleButton">
             <property name="minimumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="text">
@@ -1573,18 +1596,18 @@ Cycle</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="2" alignment="Qt::AlignHCenter">
+          <item row="0" column="1" alignment="Qt::AlignHCenter">
            <widget class="QPushButton" name="cpsReverseDirectionButton">
             <property name="minimumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -1597,209 +1620,6 @@ Direction</string>
             </property>
             <property name="checkable">
              <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" alignment="Qt::AlignHCenter">
-           <widget class="QPushButton" name="cpsTwentyFtButton">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>CPS 20Ft
-Forward</string>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" alignment="Qt::AlignHCenter">
-           <widget class="QToolButton" name="cpsAlignmentIndication">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>CPS Alignment
-</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3" alignment="Qt::AlignHCenter">
-           <widget class="QToolButton" name="cpsReverseDirectionIndication">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>CPS Reverse
-Direction</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1" alignment="Qt::AlignHCenter">
-           <widget class="QToolButton" name="cpsTwentyFtIndication">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>CPS 20 Ft
-Indication</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextUnderIcon</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3" alignment="Qt::AlignHCenter">
-           <widget class="QToolButton" name="cpsDualCycleIndication">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>CPS Dual Cycle
-Indication</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextUnderIcon</enum>
             </property>
            </widget>
           </item>
@@ -2450,218 +2270,7 @@ Indication</string>
       </widget>
       <widget class="QWidget" name="boomControlPage">
        <layout class="QGridLayout" name="gridLayout_5">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="boomUpButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Up
-60 Deg</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QToolButton" name="boomUpSixtyIndication">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Up
-60</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="boomUpFullButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Up
-Full</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QToolButton" name="boomUpFullIndication">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Up
-Full</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QPushButton" name="floodLightButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Flood
-Light On</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="boomDownButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Down</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QToolButton" name="boomDownIndication">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Down</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="boomStopButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Boom Stop</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="5">
+        <item row="2" column="5">
          <widget class="QToolButton" name="bhCycleCompleteIndicator">
           <property name="enabled">
            <bool>false</bool>
@@ -2694,74 +2303,29 @@ Complete</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QToolButton" name="gantryTieDown">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="boomStopButton">
           <property name="minimumSize">
            <size>
             <width>100</width>
             <height>100</height>
            </size>
           </property>
-          <property name="text">
-           <string>Gantry
-Tie Down
-Not Released</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
+          <property name="maximumSize">
            <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="5">
-         <widget class="QToolButton" name="floodLightOnIndicator">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
+            <width>100</width>
             <height>100</height>
            </size>
           </property>
           <property name="text">
-           <string>Flood Light
-On</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
+           <string>Boom Stop</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
           </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
          </widget>
         </item>
-        <item row="1" column="3">
+        <item row="0" column="5">
          <widget class="QPushButton" name="walkwayLightButton">
           <property name="minimumSize">
            <size>
@@ -2784,20 +2348,145 @@ Light On</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="4">
-         <widget class="QToolButton" name="walkawayLightOnIndicator">
+        <item row="0" column="4">
+         <widget class="QPushButton" name="floodLightButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Flood
+Light On</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QToolButton" name="gantryMotorBrakes">
           <property name="enabled">
            <bool>false</bool>
           </property>
           <property name="minimumSize">
            <size>
-            <width>120</width>
+            <width>100</width>
             <height>100</height>
            </size>
           </property>
           <property name="text">
-           <string>Walk Away
-Light On</string>
+           <string>Gantry
+Motor Brakes
+Open</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextUnderIcon</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="boomDownButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Down</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="boomUpFullButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Up
+Full</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="boomUpButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Boom Up
+60 Deg</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QToolButton" name="highWindSpeed">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>High Wind
+Speed</string>
           </property>
           <property name="icon">
            <iconset>
@@ -2851,8 +2540,8 @@ Not Released</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <widget class="QToolButton" name="gantryMotorBrakes">
+        <item row="2" column="0">
+         <widget class="QToolButton" name="gantryTieDown">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -2864,8 +2553,8 @@ Not Released</string>
           </property>
           <property name="text">
            <string>Gantry
-Motor Brakes
-Open</string>
+Tie Down
+Not Released</string>
           </property>
           <property name="icon">
            <iconset>
@@ -2918,98 +2607,10 @@ RQC</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="3">
-         <widget class="QToolButton" name="highWindSpeed">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>High Wind
-Speed</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="assistFunctionsPage">
        <layout class="QGridLayout" name="gridLayout_6">
-        <item row="0" column="2">
-         <widget class="QPushButton" name="swayControlButton">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Sway Control</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QToolButton" name="skewControlIndication">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Skew
-Control On</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QPushButton" name="skewControlButton">
           <property name="minimumSize">
@@ -3032,8 +2633,30 @@ Control On</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="3">
-         <widget class="QToolButton" name="swayControlIndication">
+        <item row="0" column="1">
+         <widget class="QPushButton" name="swayControlButton">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Sway Control</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QToolButton" name="autoParkingIndication">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -3044,8 +2667,8 @@ Control On</string>
            </size>
           </property>
           <property name="text">
-           <string>Sway
-Control On</string>
+           <string>Auto
+Parking</string>
           </property>
           <property name="icon">
            <iconset>
@@ -3065,7 +2688,7 @@ Control On</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="0" column="3">
          <widget class="QToolButton" name="autoSequenceIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3099,39 +2722,6 @@ Sequence</string>
          </widget>
         </item>
         <item row="0" column="4">
-         <widget class="QToolButton" name="autoParkingIndication">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Auto
-Parking</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>UI/resources/greenlight.png</normaloff>UI/resources/greenlight.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextUnderIcon</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
          <widget class="QToolButton" name="autoStartIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3164,7 +2754,7 @@ Start</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
+        <item row="1" column="0">
          <widget class="QToolButton" name="autoTwistLockIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3197,7 +2787,7 @@ Twistlock</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="3">
+        <item row="1" column="1">
          <widget class="QToolButton" name="autoConnectIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3230,7 +2820,7 @@ Connect</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="4">
+        <item row="1" column="2">
          <widget class="QToolButton" name="mainTrolleyParkingIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3264,7 +2854,7 @@ Pos</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
+        <item row="1" column="3">
          <widget class="QToolButton" name="autoHeightIndication">
           <property name="enabled">
            <bool>false</bool>
@@ -3297,7 +2887,7 @@ Height</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
+        <item row="1" column="4">
          <widget class="QToolButton" name="hatchCoverHeightIndication">
           <property name="enabled">
            <bool>false</bool>
